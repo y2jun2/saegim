@@ -10,32 +10,48 @@
 <style>
 * { box-sizing: border-box; }
 
+:root {
+  --bg: #F7F5F0;
+  --card: #EEEAE2;
+  --text: #24231F;
+  --sub: #817D74;
+  --line: #E1DDD5;
+}
+
 body {
   margin: 0;
-  background: #F7F5F0;
-  color: #24231F;
+  background: var(--bg);
+  color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont,
                "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
 }
 
 .app {
   max-width: 430px;
   min-height: 100vh;
   margin: auto;
-  padding: 55px 24px 120px;
+  padding: 54px 24px 115px;
 }
 
 .logo {
   font-family: Georgia, "Noto Serif KR", serif;
   font-size: 29px;
   font-weight: 600;
-  margin-bottom: 50px;
+  margin-bottom: 48px;
 }
 
-.label {
+.eyebrow {
   font-size: 13px;
-  color: #8B887F;
-  margin-bottom: 17px;
+  color: var(--sub);
+  margin-bottom: 16px;
 }
 
 .verse {
@@ -50,36 +66,60 @@ body {
 .reference {
   margin-top: 17px;
   font-size: 14px;
-  color: #77736B;
+  color: var(--sub);
 }
 
 .divider {
   height: 1px;
-  background: #E3DFD7;
-  margin: 40px 0 28px;
+  background: var(--line);
+  margin: 38px 0 28px;
+}
+
+.section {
+  margin-top: 38px;
 }
 
 .section-title {
   font-size: 13px;
-  color: #77736B;
-  margin-bottom: 10px;
+  color: var(--sub);
+  margin-bottom: 12px;
 }
 
-.application {
+.section-text {
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.7;
   white-space: pre-line;
 }
 
-.music {
-  margin-top: 42px;
+.prayer {
+  font-family: Georgia, "Noto Serif KR", serif;
+  font-size: 17px;
+  line-height: 1.7;
+  white-space: pre-line;
 }
 
+.primary-button {
+  width: 100%;
+  border: 0;
+  border-radius: 17px;
+  padding: 17px;
+  background: var(--text);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.edit-button {
+  margin-top: 35px;
+}
+
+/* 찬양 */
+
 .song {
-  background: #EEEAE2;
-  border-radius: 18px;
-  padding: 17px 18px;
-  margin-top: 10px;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 18px;
+  margin-top: 11px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,165 +127,207 @@ body {
 
 .song-type {
   font-size: 12px;
-  color: #88847B;
-  margin-bottom: 5px;
+  color: var(--sub);
+  margin-bottom: 6px;
 }
 
 .song-name {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
 }
 
-.play { font-size: 18px; }
+.play {
+  font-size: 18px;
+}
 
-.bottom-button {
-  position: fixed;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 48px);
-  max-width: 382px;
-  border: none;
-  border-radius: 17px;
-  padding: 17px;
-  background: #24231F;
-  color: white;
-  font-size: 16px;
+.page-title {
+  font-family: Georgia, "Noto Serif KR", serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  font-size: 14px;
+  color: var(--sub);
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+/* 아카이브 */
+
+.archive-card {
+  border-top: 1px solid var(--line);
+  padding: 23px 0;
   cursor: pointer;
 }
 
-/* 기록 화면 */
+.archive-date {
+  font-size: 12px;
+  color: var(--sub);
+  margin-bottom: 9px;
+}
+
+.archive-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.archive-message {
+  font-family: Georgia, "Noto Serif KR", serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.archive-verse {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--sub);
+}
+
+.empty {
+  padding: 50px 0;
+  text-align: center;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+/* 기록 입력 */
 
 .editor {
   display: none;
 }
 
 .back {
-  border: none;
-  background: none;
+  border: 0;
+  background: transparent;
   padding: 0;
   font-size: 25px;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
   cursor: pointer;
 }
 
 .editor-title {
   font-family: Georgia, "Noto Serif KR", serif;
   font-size: 27px;
+  line-height: 1.4;
   margin-bottom: 38px;
 }
 
 .field {
-  margin-bottom: 28px;
+  margin-bottom: 29px;
 }
 
 .field label {
   display: block;
   font-size: 13px;
-  color: #77736B;
+  color: var(--sub);
   margin-bottom: 10px;
 }
 
 input, textarea {
   width: 100%;
   border: 0;
-  border-bottom: 1px solid #D8D3CA;
+  border-bottom: 1px solid #D5D0C7;
   border-radius: 0;
   background: transparent;
   padding: 8px 0 13px;
-  font-family: inherit;
-  font-size: 16px;
-  color: #24231F;
+  color: var(--text);
   outline: none;
+  font-size: 16px;
 }
 
 input:focus, textarea:focus {
-  border-bottom-color: #24231F;
+  border-bottom-color: var(--text);
 }
 
 textarea {
-  min-height: 180px;
+  min-height: 190px;
   resize: vertical;
   line-height: 1.7;
 }
 
 .short-textarea {
-  min-height: 70px;
+  min-height: 75px;
 }
 
-.save {
+/* 하단 네비게이션 */
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 430px;
+  height: 82px;
+  background: rgba(247,245,240,.96);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 13px;
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 10;
+}
+
+.nav button {
   border: 0;
-  border-radius: 17px;
-  padding: 17px;
-  background: #24231F;
-  color: white;
-  font-size: 16px;
-  margin-top: 15px;
+  background: transparent;
+  color: #9A968D;
+  font-size: 12px;
+  width: 25%;
   cursor: pointer;
 }
 
-.sermon-preview {
-  margin-top: 35px;
-  padding: 20px;
-  border-radius: 18px;
-  background: #EEEAE2;
+.nav-icon {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 5px;
 }
 
-.sermon-preview-title {
-  font-size: 12px;
-  color: #88847B;
-  margin-bottom: 9px;
+.nav button.active {
+  color: var(--text);
+  font-weight: 600;
 }
 
-.sermon-preview-text {
-  font-size: 14px;
-  line-height: 1.65;
-  white-space: pre-line;
+.view {
+  display: none;
 }
 
-.empty {
-  color: #99958C;
+.view.active {
+  display: block;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 메인 -->
-<div class="app" id="home">
+<!-- ================= 오늘 ================= -->
+
+<div class="app view active" id="todayView">
 
   <div class="logo">새김</div>
 
-  <div class="label">이번 주 나의 말씀</div>
+  <div class="eyebrow">이번 주 나의 말씀</div>
 
-  <h1 class="verse" id="homeMessage">
+  <h1 class="verse" id="todayMessage">
 “두려워하지 말라
 내가 너와 함께 함이라”
   </h1>
 
-  <div class="reference" id="homeVerse">
+  <div class="reference" id="todayVerse">
     이사야 41:10
   </div>
 
   <div class="divider"></div>
 
-  <section>
-    <div class="section-title">이번 주의 적용</div>
+  <div class="section-title">이번 주의 적용</div>
 
-    <div class="application" id="homeAction">
-      불안한 순간마다 먼저 하나님께 기도하기.
-    </div>
-  </section>
-
-  <div class="sermon-preview" id="sermonBox">
-    <div class="sermon-preview-title">이번 주 설교</div>
-    <div class="sermon-preview-text" id="homeSermon">
-      아직 저장된 설교 기록이 없습니다.
-    </div>
+  <div class="section-text" id="todayAction">
+    불안한 순간마다 먼저 하나님께 기도하기.
   </div>
 
-  <section class="music">
+  <section class="section">
 
     <div class="section-title">오늘의 찬양</div>
 
@@ -267,14 +349,113 @@ textarea {
 
   </section>
 
-  <button class="bottom-button" onclick="openEditor()">
+  <button class="primary-button edit-button" onclick="openEditor()">
     + 이번 주 말씀 새기기
   </button>
 
 </div>
 
 
-<!-- 말씀 기록 -->
+<!-- ================= 말씀 ================= -->
+
+<div class="app view" id="wordView">
+
+  <div class="page-title">말씀</div>
+  <div class="page-description">
+    이번 주 받은 말씀을 천천히 다시 돌아보세요.
+  </div>
+
+  <div class="section-title">설교 제목</div>
+  <div class="section-text" id="detailTitle">아직 기록이 없습니다.</div>
+
+  <div class="section">
+    <div class="section-title">본문</div>
+    <div class="section-text" id="detailVerse">-</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">설교 메시지</div>
+    <div class="section-text" id="detailSermon">
+      이번 주 설교 내용을 기록해보세요.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">이번 주 새길 한 문장</div>
+  <div class="verse" style="font-size:22px;" id="detailMessage">
+    “아직 새긴 문장이 없습니다.”
+  </div>
+
+  <div class="section">
+    <div class="section-title">한 줄 기도</div>
+    <div class="prayer" id="detailPrayer">-</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">이번 주 적용</div>
+    <div class="section-text" id="detailAction">-</div>
+  </div>
+
+  <button class="primary-button edit-button" onclick="openEditor()">
+    기록 수정하기
+  </button>
+
+</div>
+
+
+<!-- ================= 찬양 ================= -->
+
+<div class="app view" id="musicView">
+
+  <div class="page-title">오늘의 찬양</div>
+
+  <div class="page-description">
+    오늘의 마음을 하나님께 향하게 하는 두 곡을 만나보세요.
+  </div>
+
+  <div class="section-title">☀️ 신나는 찬양</div>
+
+  <div class="song">
+    <div>
+      <div class="song-type">오늘의 추천</div>
+      <div class="song-name">찬양이 곧 추가됩니다</div>
+    </div>
+    <div class="play">▶</div>
+  </div>
+
+  <div class="section" style="margin-top:35px;">
+    <div class="section-title">🌙 잔잔한 찬양</div>
+
+    <div class="song">
+      <div>
+        <div class="song-type">오늘의 추천</div>
+        <div class="song-name">찬양이 곧 추가됩니다</div>
+      </div>
+      <div class="play">▶</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ================= 기록 ================= -->
+
+<div class="app view" id="archiveView">
+
+  <div class="page-title">나의 새김</div>
+
+  <div class="page-description">
+    지나온 시간 속에서 마음에 새겼던 말씀을 다시 만나보세요.
+  </div>
+
+  <div id="archiveList"></div>
+
+</div>
+
+
+<!-- ================= 작성/수정 ================= -->
+
 <div class="app editor" id="editor">
 
   <button class="back" onclick="closeEditor()">←</button>
@@ -285,181 +466,416 @@ textarea {
 
   <div class="field">
     <label>성경 구절</label>
-    <input
-      id="verseInput"
-      placeholder="예) 이사야 41:10"
-    >
+    <input id="verseInput"
+           placeholder="예) 이사야 41:10">
   </div>
 
   <div class="field">
     <label>설교 제목</label>
-    <input
-      id="titleInput"
-      placeholder="설교 제목을 기록하세요"
-    >
+    <input id="titleInput"
+           placeholder="설교 제목을 기록하세요">
   </div>
 
   <div class="field">
     <label>설교 메시지</label>
-    <textarea
-      id="sermonInput"
-      placeholder="예배 중 받은 말씀과 설교 내용을 자유롭게 기록하세요."
-    ></textarea>
+    <textarea id="sermonInput"
+      placeholder="예배 중 받은 말씀과 설교 내용을 자유롭게 기록하세요."></textarea>
   </div>
 
   <div class="field">
     <label>✨ 이번 주 새길 한 문장</label>
-    <textarea
-      class="short-textarea"
+    <textarea class="short-textarea"
       id="messageInput"
-      placeholder="이번 주 마음에 새기고 싶은 한 문장"
-    ></textarea>
+      placeholder="이번 주 마음에 새기고 싶은 한 문장"></textarea>
   </div>
 
   <div class="field">
     <label>🙏 한 줄 기도</label>
-    <textarea
-      class="short-textarea"
+    <textarea class="short-textarea"
       id="prayerInput"
-      placeholder="이 말씀을 붙들고 드리는 기도"
-    ></textarea>
+      placeholder="이 말씀을 붙들고 드리는 기도"></textarea>
   </div>
 
   <div class="field">
     <label>🌱 이번 주 적용</label>
-    <textarea
-      class="short-textarea"
+    <textarea class="short-textarea"
       id="actionInput"
-      placeholder="이번 주 삶에서 실천할 한 가지"
-    ></textarea>
+      placeholder="이번 주 삶에서 실천할 한 가지"></textarea>
   </div>
 
-  <button class="save" onclick="saveSaegim()">
+  <button class="primary-button" onclick="saveSaegim()">
     말씀 새기기
   </button>
 
 </div>
 
 
+<!-- ================= 하단 메뉴 ================= -->
+
+<nav class="nav" id="nav">
+
+  <button class="active" onclick="showView('today', this)">
+    <span class="nav-icon">⌂</span>
+    오늘
+  </button>
+
+  <button onclick="showView('word', this)">
+    <span class="nav-icon">✦</span>
+    말씀
+  </button>
+
+  <button onclick="showView('music', this)">
+    <span class="nav-icon">♫</span>
+    찬양
+  </button>
+
+  <button onclick="showView('archive', this)">
+    <span class="nav-icon">▢</span>
+    기록
+  </button>
+
+</nav>
+
+
 <script>
 
-const STORAGE_KEY = "saegim-current";
+const CURRENT_KEY = "saegim-current";
+const ARCHIVE_KEY = "saegim-archive";
+
+let currentView = "today";
+
+/* ---------- 화면 이동 ---------- */
+
+function showView(name, button) {
+
+  currentView = name;
+
+  document.querySelectorAll(".view")
+    .forEach(v => v.classList.remove("active"));
+
+  document.getElementById(name + "View")
+    .classList.add("active");
+
+  document.querySelectorAll(".nav button")
+    .forEach(b => b.classList.remove("active"));
+
+  if (button) button.classList.add("active");
+
+  if (name === "archive") renderArchive();
+
+  window.scrollTo(0,0);
+}
+
+
+/* ---------- 기록 화면 ---------- */
 
 function openEditor() {
 
-  const data = getSavedData();
+  const data = getCurrent();
 
   if (data) {
-    document.getElementById("verseInput").value =
-      data.verse || "";
 
-    document.getElementById("titleInput").value =
-      data.title || "";
+    verseInput.value = data.verse || "";
+    titleInput.value = data.title || "";
+    sermonInput.value = data.sermon || "";
+    messageInput.value = data.message || "";
+    prayerInput.value = data.prayer || "";
+    actionInput.value = data.action || "";
 
-    document.getElementById("sermonInput").value =
-      data.sermon || "";
-
-    document.getElementById("messageInput").value =
-      data.message || "";
-
-    document.getElementById("prayerInput").value =
-      data.prayer || "";
-
-    document.getElementById("actionInput").value =
-      data.action || "";
   }
 
-  document.getElementById("home").style.display = "none";
-  document.getElementById("editor").style.display = "block";
+  document.querySelectorAll(".view")
+    .forEach(v => v.style.display = "none");
+
+  nav.style.display = "none";
+  editor.style.display = "block";
 
   window.scrollTo(0,0);
 }
+
 
 function closeEditor() {
-  document.getElementById("editor").style.display = "none";
-  document.getElementById("home").style.display = "block";
+
+  editor.style.display = "none";
+
+  document.querySelectorAll(".view")
+    .forEach(v => v.style.display = "");
+
+  nav.style.display = "flex";
+
+  document.querySelectorAll(".view")
+    .forEach(v => v.classList.remove("active"));
+
+  document.getElementById(currentView + "View")
+    .classList.add("active");
 
   window.scrollTo(0,0);
 }
+
+
+/* ---------- 저장 ---------- */
 
 function saveSaegim() {
 
   const data = {
 
-    verse:
-      document.getElementById("verseInput").value.trim(),
+    id: Date.now(),
 
-    title:
-      document.getElementById("titleInput").value.trim(),
+    verse: verseInput.value.trim(),
+    title: titleInput.value.trim(),
+    sermon: sermonInput.value.trim(),
+    message: messageInput.value.trim(),
+    prayer: prayerInput.value.trim(),
+    action: actionInput.value.trim(),
 
-    sermon:
-      document.getElementById("sermonInput").value.trim(),
-
-    message:
-      document.getElementById("messageInput").value.trim(),
-
-    prayer:
-      document.getElementById("prayerInput").value.trim(),
-
-    action:
-      document.getElementById("actionInput").value.trim(),
-
-    savedAt:
-      new Date().toISOString()
+    savedAt: new Date().toISOString()
   };
 
-  if (!data.verse && !data.message && !data.sermon) {
+
+  if (!data.verse && !data.sermon && !data.message) {
+
     alert("말씀이나 설교 내용을 하나 이상 기록해주세요.");
     return;
+
   }
 
+
+  /* 기존 current 데이터 확인 */
+
+  const previous = getCurrent();
+
+
+  /*
+    새로운 기록을 저장할 때
+    이전 기록이 존재하면 archive에 보관.
+    동일 내용을 수정할 때 계속 archive가
+    복제되는 것을 막기 위해 내용 비교.
+  */
+
+  if (previous) {
+
+    const changed =
+      previous.verse !== data.verse ||
+      previous.title !== data.title ||
+      previous.sermon !== data.sermon ||
+      previous.message !== data.message ||
+      previous.prayer !== data.prayer ||
+      previous.action !== data.action;
+
+    if (changed) {
+      archiveItem(previous);
+    }
+
+  }
+
+
   localStorage.setItem(
-    STORAGE_KEY,
+    CURRENT_KEY,
     JSON.stringify(data)
   );
 
-  renderHome();
+  renderAll();
+
+  alert("이번 주 말씀이 새겨졌어요.");
+
   closeEditor();
 }
 
-function getSavedData() {
 
-  const saved =
-    localStorage.getItem(STORAGE_KEY);
+/* ---------- 데이터 ---------- */
 
-  if (!saved) return null;
+function getCurrent() {
+
+  const saved = localStorage.getItem(CURRENT_KEY);
+
+  if (saved) {
+
+    try {
+      return JSON.parse(saved);
+    }
+    catch {}
+
+  }
+
+
+  /*
+    v0.01에서 저장했던 데이터를
+    자동으로 가져오기
+  */
+
+  const old = localStorage.getItem("saegim-current");
+
+  if (!old) return null;
+
+  try {
+    return JSON.parse(old);
+  }
+  catch {
+    return null;
+  }
+
+}
+
+
+function getArchive() {
+
+  const saved = localStorage.getItem(ARCHIVE_KEY);
+
+  if (!saved) return [];
 
   try {
     return JSON.parse(saved);
   }
   catch {
-    return null;
+    return [];
   }
+
 }
 
-function renderHome() {
 
-  const data = getSavedData();
+function archiveItem(item) {
+
+  if (!item) return;
+
+  const archive = getArchive();
+
+  archive.unshift({
+    ...item,
+    archivedAt: new Date().toISOString()
+  });
+
+  localStorage.setItem(
+    ARCHIVE_KEY,
+    JSON.stringify(archive)
+  );
+
+}
+
+
+/* ---------- 화면 출력 ---------- */
+
+function renderAll() {
+
+  const data = getCurrent();
 
   if (!data) return;
+
 
   const message =
     data.message || "이번 주 말씀을 다시 묵상해보세요.";
 
-  document.getElementById("homeMessage").textContent =
+
+  /* 오늘 */
+
+  todayMessage.textContent =
     "“" + message + "”";
 
-  document.getElementById("homeVerse").textContent =
+  todayVerse.textContent =
     data.verse || "말씀";
 
-  document.getElementById("homeAction").textContent =
+  todayAction.textContent =
     data.action || "이번 주 적용을 기록해보세요.";
 
-  document.getElementById("homeSermon").textContent =
-    data.sermon || "저장된 설교 메시지가 없습니다.";
+
+  /* 말씀 */
+
+  detailTitle.textContent =
+    data.title || "제목을 기록하지 않았어요.";
+
+  detailVerse.textContent =
+    data.verse || "-";
+
+  detailSermon.textContent =
+    data.sermon || "설교 메시지를 기록하지 않았어요.";
+
+  detailMessage.textContent =
+    "“" + message + "”";
+
+  detailPrayer.textContent =
+    data.prayer || "-";
+
+  detailAction.textContent =
+    data.action || "-";
+
 }
 
-renderHome();
+
+/* ---------- 아카이브 ---------- */
+
+function renderArchive() {
+
+  const list = getArchive();
+
+  archiveList.innerHTML = "";
+
+
+  if (list.length === 0) {
+
+    archiveList.innerHTML = `
+      <div class="empty">
+        아직 지나온 새김이 없어요.<br>
+        매주 말씀이 하나씩 쌓이게 됩니다.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  list.forEach(item => {
+
+    const card = document.createElement("div");
+
+    card.className = "archive-card";
+
+
+    const date = item.savedAt
+      ? new Date(item.savedAt).toLocaleDateString("ko-KR")
+      : "";
+
+
+    card.innerHTML = `
+
+      <div class="archive-date">
+        ${escapeHtml(date)}
+      </div>
+
+      <div class="archive-title">
+        ${escapeHtml(item.title || "이번 주 말씀")}
+      </div>
+
+      <div class="archive-message">
+        “${escapeHtml(item.message || item.sermon || "기록된 말씀")}”
+      </div>
+
+      <div class="archive-verse">
+        ${escapeHtml(item.verse || "")}
+      </div>
+
+    `;
+
+    archiveList.appendChild(card);
+
+  });
+
+}
+
+
+/* ---------- 안전한 텍스트 출력 ---------- */
+
+function escapeHtml(text) {
+
+  const div = document.createElement("div");
+
+  div.textContent = text || "";
+
+  return div.innerHTML;
+
+}
+
+
+renderAll();
+renderArchive();
 
 </script>
 

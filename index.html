@@ -8,7 +8,9 @@
 <title>새김</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 :root {
   --bg: #F7F5F0;
@@ -22,15 +24,23 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont,
-               "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    sans-serif;
 }
 
-button, input, textarea {
+button,
+input,
+textarea {
   font: inherit;
 }
 
-button { color: inherit; }
+button {
+  color: inherit;
+}
 
 .app {
   max-width: 430px;
@@ -38,6 +48,8 @@ button { color: inherit; }
   margin: auto;
   padding: 54px 24px 115px;
 }
+
+/* ================= 공통 ================= */
 
 .logo {
   font-family: Georgia, "Noto Serif KR", serif;
@@ -89,46 +101,6 @@ button { color: inherit; }
   white-space: pre-line;
 }
 
-.primary-button {
-  width: 100%;
-  border: 0;
-  border-radius: 17px;
-  padding: 17px;
-  background: var(--text);
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.edit-button {
-  margin-top: 35px;
-}
-
-/* 찬양 */
-
-.song {
-  background: var(--card);
-  border-radius: 20px;
-  padding: 18px;
-  margin-top: 11px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.song-type {
-  font-size: 12px;
-  color: var(--sub);
-  margin-bottom: 6px;
-}
-
-.song-name {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.play { font-size: 18px; }
-
 .page-title {
   font-family: Georgia, "Noto Serif KR", serif;
   font-size: 28px;
@@ -142,48 +114,38 @@ button { color: inherit; }
   margin-bottom: 36px;
 }
 
-/* 아카이브 */
+/* ================= 버튼 ================= */
 
-.archive-card {
-  border-top: 1px solid var(--line);
-  padding: 23px 0;
+.primary-button {
+  width: 100%;
+  border: 0;
+  border-radius: 17px;
+  padding: 17px;
+  background: var(--text);
+  color: white;
+  font-size: 16px;
   cursor: pointer;
 }
 
-.archive-date {
-  font-size: 12px;
-  color: var(--sub);
-  margin-bottom: 9px;
+.edit-button {
+  margin-top: 38px;
 }
 
-.archive-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 7px;
+/* ================= 화면 ================= */
+
+.view {
+  display: none;
 }
 
-.archive-message {
-  font-family: Georgia, "Noto Serif KR", serif;
-  font-size: 16px;
-  line-height: 1.55;
+.view.active {
+  display: block;
 }
 
-.archive-verse {
-  margin-top: 8px;
-  font-size: 12px;
-  color: var(--sub);
+.editor {
+  display: none;
 }
 
-.empty {
-  padding: 50px 0;
-  text-align: center;
-  color: var(--sub);
-  line-height: 1.8;
-}
-
-/* 기록 입력 */
-
-.editor { display: none; }
+/* ================= 기록 입력 ================= */
 
 .back {
   border: 0;
@@ -220,7 +182,8 @@ button { color: inherit; }
   margin-bottom: 8px;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   border: 0;
   border-bottom: 1px solid #D5D0C7;
@@ -232,7 +195,8 @@ input, textarea {
   font-size: 16px;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   border-bottom-color: var(--text);
 }
 
@@ -246,22 +210,71 @@ textarea {
   min-height: 75px;
 }
 
-/* 하단 네비게이션 */
+/* ================= 아카이브 ================= */
+
+.archive-card {
+  border-top: 1px solid var(--line);
+  padding: 23px 0;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.archive-card:active {
+  opacity: 0.5;
+}
+
+.archive-date {
+  font-size: 12px;
+  color: var(--sub);
+  margin-bottom: 9px;
+}
+
+.archive-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.archive-message {
+  font-family: Georgia, "Noto Serif KR", serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.archive-verse {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--sub);
+}
+
+.empty {
+  padding: 50px 0;
+  text-align: center;
+  color: var(--sub);
+  line-height: 1.8;
+}
+
+/* ================= 하단 네비게이션 ================= */
 
 .nav {
   position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+
   width: 100%;
   max-width: 430px;
   height: 82px;
-  background: rgba(247,245,240,.96);
+
+  background: rgba(247, 245, 240, 0.96);
   border-top: 1px solid var(--line);
+
   display: flex;
   justify-content: space-around;
+
   padding-top: 13px;
   padding-bottom: env(safe-area-inset-bottom);
+
   z-index: 10;
 }
 
@@ -270,7 +283,7 @@ textarea {
   background: transparent;
   color: #9A968D;
   font-size: 12px;
-  width: 25%;
+  width: 33.333%;
   cursor: pointer;
 }
 
@@ -285,25 +298,29 @@ textarea {
   font-weight: 600;
 }
 
-.view { display: none; }
-.view.active { display: block; }
-
 </style>
 </head>
 
 <body>
 
-<!-- ================= 오늘 ================= -->
+
+<!-- ==================================================
+     오늘
+================================================== -->
 
 <div class="app view active" id="todayView">
 
-  <div class="logo">새김</div>
+  <div class="logo">
+    새김
+  </div>
 
-  <div class="eyebrow">이번 주 나의 말씀</div>
+  <div class="eyebrow">
+    이번 주 나의 말씀
+  </div>
 
   <h1 class="verse" id="todayMessage">
-“두려워하지 말라
-내가 너와 함께 함이라”
+    “두려워하지 말라
+    내가 너와 함께 함이라”
   </h1>
 
   <div class="reference" id="todayVerse">
@@ -312,132 +329,119 @@ textarea {
 
   <div class="divider"></div>
 
-  <div class="section-title">이번 주 실천</div>
+  <div class="section-title">
+    이번 주 실천
+  </div>
 
   <div class="section-text" id="todayAction">
     불안한 순간마다 먼저 하나님께 기도하기.
   </div>
 
-  <section class="section">
-
-    <div class="section-title">오늘의 찬양</div>
-
-    <div class="song">
-      <div>
-        <div class="song-type">☀️ 신나는 찬양</div>
-        <div class="song-name">오늘의 추천 찬양</div>
-      </div>
-      <div class="play">▶</div>
-    </div>
-
-    <div class="song">
-      <div>
-        <div class="song-type">🌙 잔잔한 찬양</div>
-        <div class="song-name">오늘의 추천 찬양</div>
-      </div>
-      <div class="play">▶</div>
-    </div>
-
-  </section>
-
-  <button class="primary-button edit-button" onclick="openEditor()">
+  <button
+    class="primary-button edit-button"
+    onclick="openEditor()">
     + 이번 주 말씀 새기기
   </button>
 
 </div>
 
 
-<!-- ================= 말씀 ================= -->
+<!-- ==================================================
+     말씀
+================================================== -->
 
 <div class="app view" id="wordView">
 
-  <div class="page-title">말씀</div>
+  <div class="page-title">
+    말씀
+  </div>
 
   <div class="page-description">
     이번 주 받은 말씀을 천천히 다시 돌아보세요.
   </div>
 
-  <div class="section-title">설교 제목</div>
+
+  <div class="section-title">
+    설교 제목
+  </div>
+
   <div class="section-text" id="detailTitle">
     아직 기록이 없습니다.
   </div>
 
-  <div class="section">
-    <div class="section-title">성경 구절</div>
-    <div class="section-text" id="detailVerse">-</div>
-  </div>
 
   <div class="section">
-    <div class="section-title">설교 메시지</div>
+
+    <div class="section-title">
+      성경 구절
+    </div>
+
+    <div class="section-text" id="detailVerse">
+      -
+    </div>
+
+  </div>
+
+
+  <div class="section">
+
+    <div class="section-title">
+      설교 메시지
+    </div>
+
     <div class="section-text" id="detailSermon">
       이번 주 설교 내용을 기록해보세요.
     </div>
+
   </div>
+
 
   <div class="divider"></div>
 
-  <div class="section-title">이번 주 새길 한 문장</div>
 
-  <div class="verse"
-       style="font-size:22px;"
-       id="detailMessage">
+  <div class="section-title">
+    이번 주 새길 한 문장
+  </div>
+
+  <div
+    class="verse"
+    style="font-size:22px;"
+    id="detailMessage">
     “아직 새긴 문장이 없습니다.”
   </div>
 
+
   <div class="section">
-    <div class="section-title">이번 주 실천</div>
-    <div class="section-text" id="detailAction">-</div>
+
+    <div class="section-title">
+      이번 주 실천
+    </div>
+
+    <div class="section-text" id="detailAction">
+      -
+    </div>
+
   </div>
 
-  <button class="primary-button edit-button" onclick="openEditor()">
+
+  <button
+    class="primary-button edit-button"
+    onclick="openEditor()">
     기록 수정하기
   </button>
 
 </div>
 
 
-<!-- ================= 찬양 ================= -->
-
-<div class="app view" id="musicView">
-
-  <div class="page-title">오늘의 찬양</div>
-
-  <div class="page-description">
-    오늘의 마음을 하나님께 향하게 하는 두 곡을 만나보세요.
-  </div>
-
-  <div class="section-title">☀️ 신나는 찬양</div>
-
-  <div class="song">
-    <div>
-      <div class="song-type">오늘의 추천</div>
-      <div class="song-name">찬양이 곧 추가됩니다</div>
-    </div>
-    <div class="play">▶</div>
-  </div>
-
-  <div class="section" style="margin-top:35px;">
-
-    <div class="section-title">🌙 잔잔한 찬양</div>
-
-    <div class="song">
-      <div>
-        <div class="song-type">오늘의 추천</div>
-        <div class="song-name">찬양이 곧 추가됩니다</div>
-      </div>
-      <div class="play">▶</div>
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ================= 기록 ================= -->
+<!-- ==================================================
+     기록
+================================================== -->
 
 <div class="app view" id="archiveView">
 
-  <div class="page-title">나의 새김</div>
+  <div class="page-title">
+    나의 새김
+  </div>
 
   <div class="page-description">
     지나온 시간 속에서 마음에 새겼던 말씀을 다시 만나보세요.
@@ -448,47 +452,162 @@ textarea {
 </div>
 
 
-<!-- ================= 작성/수정 ================= -->
+<!-- ==================================================
+     지난 새김 상세
+================================================== -->
+
+<div class="app editor" id="archiveDetail">
+
+  <button
+    class="back"
+    onclick="closeArchiveDetail()">
+    ←
+  </button>
+
+  <div class="page-title">
+    지난 새김
+  </div>
+
+  <div
+    class="page-description"
+    id="archiveDetailDate">
+  </div>
+
+
+  <div class="section-title">
+    설교 제목
+  </div>
+
+  <div
+    class="section-text"
+    id="archiveDetailTitle">
+    -
+  </div>
+
+
+  <div class="section">
+
+    <div class="section-title">
+      성경 구절
+    </div>
+
+    <div
+      class="section-text"
+      id="archiveDetailVerse">
+      -
+    </div>
+
+  </div>
+
+
+  <div class="section">
+
+    <div class="section-title">
+      설교 메시지
+    </div>
+
+    <div
+      class="section-text"
+      id="archiveDetailSermon">
+      -
+    </div>
+
+  </div>
+
+
+  <div class="divider"></div>
+
+
+  <div class="section-title">
+    이번 주 새길 한 문장
+  </div>
+
+  <div
+    class="verse"
+    style="font-size:22px;"
+    id="archiveDetailMessage">
+    -
+  </div>
+
+
+  <div class="section">
+
+    <div class="section-title">
+      이번 주 실천
+    </div>
+
+    <div
+      class="section-text"
+      id="archiveDetailAction">
+      -
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ==================================================
+     말씀 작성 / 수정
+================================================== -->
 
 <div class="app editor" id="editor">
 
-  <button class="back" onclick="closeEditor()">←</button>
+  <button
+    class="back"
+    onclick="closeEditor()">
+    ←
+  </button>
+
 
   <div class="editor-title">
-    이번 주 말씀을<br>새겨볼까요?
+    이번 주 말씀을<br>
+    새겨볼까요?
   </div>
 
 
   <!-- 1. 설교 제목 -->
 
   <div class="field">
-    <label>설교 제목</label>
+
+    <label>
+      설교 제목
+    </label>
 
     <input
       id="titleInput"
       placeholder="예) 믿음으로 살아가기">
+
   </div>
 
 
   <!-- 2. 성경 구절 -->
 
   <div class="field">
-    <label>성경 구절</label>
+
+    <label>
+      성경 구절
+    </label>
 
     <input
       id="verseInput"
       placeholder="예) 이사야 41:10">
+
   </div>
 
 
   <!-- 3. 설교 메시지 -->
 
   <div class="field">
-    <label>설교 메시지</label>
+
+    <label>
+      설교 메시지
+    </label>
 
     <textarea
       id="sermonInput"
       placeholder="예배 중 받은 말씀과 설교 내용을 자유롭게 기록하세요."></textarea>
+
   </div>
 
 
@@ -496,7 +615,9 @@ textarea {
 
   <div class="field">
 
-    <label>✨ 이번 주 새길 한 문장</label>
+    <label>
+      ✨ 이번 주 새길 한 문장
+    </label>
 
     <div class="helper">
       이번 주 동안 기억하고 싶은 메시지를 한 문장으로 남겨보세요.
@@ -510,11 +631,13 @@ textarea {
   </div>
 
 
-  <!-- 5. 실천 -->
+  <!-- 5. 이번 주 실천 -->
 
   <div class="field">
 
-    <label>🌱 이번 주 실천 (선택)</label>
+    <label>
+      🌱 이번 주 실천 (선택)
+    </label>
 
     <div class="helper">
       이 말씀을 삶에서 어떻게 실천하고 싶나요?
@@ -528,36 +651,55 @@ textarea {
   </div>
 
 
-  <button class="primary-button" onclick="saveSaegim()">
+  <button
+    class="primary-button"
+    onclick="saveSaegim()">
     말씀 새기기
   </button>
 
 </div>
 
 
-<!-- ================= 하단 메뉴 ================= -->
+<!-- ==================================================
+     하단 메뉴
+================================================== -->
 
 <nav class="nav" id="nav">
 
-  <button class="active"
-          onclick="showView('today', this)">
-    <span class="nav-icon">⌂</span>
+  <button
+    class="active"
+    onclick="showView('today', this)">
+
+    <span class="nav-icon">
+      ⌂
+    </span>
+
     오늘
+
   </button>
 
-  <button onclick="showView('word', this)">
-    <span class="nav-icon">✦</span>
+
+  <button
+    onclick="showView('word', this)">
+
+    <span class="nav-icon">
+      ✦
+    </span>
+
     말씀
+
   </button>
 
-  <button onclick="showView('music', this)">
-    <span class="nav-icon">♫</span>
-    찬양
-  </button>
 
-  <button onclick="showView('archive', this)">
-    <span class="nav-icon">▢</span>
+  <button
+    onclick="showView('archive', this)">
+
+    <span class="nav-icon">
+      ▢
+    </span>
+
     기록
+
   </button>
 
 </nav>
@@ -565,95 +707,163 @@ textarea {
 
 <script>
 
+/* ==================================================
+   기본 설정
+================================================== */
+
 const CURRENT_KEY = "saegim-current";
 const ARCHIVE_KEY = "saegim-archive";
 
 let currentView = "today";
 
 
-/* ================= 화면 이동 ================= */
+/* ==================================================
+   화면 이동
+================================================== */
 
 function showView(name, button) {
 
   currentView = name;
 
-  document.querySelectorAll(".view")
-    .forEach(v => v.classList.remove("active"));
 
-  document.getElementById(name + "View")
+  document
+    .querySelectorAll(".view")
+    .forEach(view => {
+
+      view.classList.remove("active");
+
+    });
+
+
+  document
+    .getElementById(name + "View")
     .classList.add("active");
 
-  document.querySelectorAll(".nav button")
-    .forEach(b => b.classList.remove("active"));
+
+  document
+    .querySelectorAll(".nav button")
+    .forEach(navButton => {
+
+      navButton.classList.remove("active");
+
+    });
+
 
   if (button) {
+
     button.classList.add("active");
+
   }
+
 
   if (name === "archive") {
+
     renderArchive();
+
   }
 
+
   window.scrollTo(0, 0);
+
 }
 
 
-/* ================= 기록 화면 ================= */
+/* ==================================================
+   말씀 작성 화면 열기
+================================================== */
 
 function openEditor() {
 
   const data = getCurrent();
 
+
   if (data) {
 
-    titleInput.value =
+    document.getElementById("titleInput").value =
       data.title || "";
 
-    verseInput.value =
+    document.getElementById("verseInput").value =
       data.verse || "";
 
-    sermonInput.value =
+    document.getElementById("sermonInput").value =
       data.sermon || "";
 
-    messageInput.value =
+    document.getElementById("messageInput").value =
       data.message || "";
 
-    actionInput.value =
+    document.getElementById("actionInput").value =
       data.action || "";
+
   }
 
-  document.querySelectorAll(".view")
-    .forEach(v => v.style.display = "none");
 
-  nav.style.display = "none";
+  document
+    .querySelectorAll(".view")
+    .forEach(view => {
 
-  editor.style.display = "block";
+      view.style.display = "none";
+
+    });
+
+
+  document.getElementById("nav").style.display =
+    "none";
+
+
+  document.getElementById("editor").style.display =
+    "block";
+
 
   window.scrollTo(0, 0);
+
 }
 
 
+/* ==================================================
+   말씀 작성 화면 닫기
+================================================== */
+
 function closeEditor() {
 
-  editor.style.display = "none";
+  document.getElementById("editor").style.display =
+    "none";
 
-  document.querySelectorAll(".view")
-    .forEach(v => v.style.display = "");
 
-  nav.style.display = "flex";
+  document
+    .querySelectorAll(".view")
+    .forEach(view => {
 
-  document.querySelectorAll(".view")
-    .forEach(v => v.classList.remove("active"));
+      view.style.display = "";
+
+    });
+
+
+  document.getElementById("nav").style.display =
+    "flex";
+
+
+  document
+    .querySelectorAll(".view")
+    .forEach(view => {
+
+      view.classList.remove("active");
+
+    });
+
 
   document
     .getElementById(currentView + "View")
     .classList.add("active");
 
+
   window.scrollTo(0, 0);
+
 }
 
 
-/* ================= 저장 ================= */
+/* ==================================================
+   말씀 저장
+================================================== */
 
 function saveSaegim() {
 
@@ -662,38 +872,67 @@ function saveSaegim() {
     id: Date.now(),
 
     title:
-      titleInput.value.trim(),
+      document
+        .getElementById("titleInput")
+        .value
+        .trim(),
 
     verse:
-      verseInput.value.trim(),
+      document
+        .getElementById("verseInput")
+        .value
+        .trim(),
 
     sermon:
-      sermonInput.value.trim(),
+      document
+        .getElementById("sermonInput")
+        .value
+        .trim(),
 
     message:
-      messageInput.value.trim(),
+      document
+        .getElementById("messageInput")
+        .value
+        .trim(),
 
     action:
-      actionInput.value.trim(),
+      document
+        .getElementById("actionInput")
+        .value
+        .trim(),
 
     savedAt:
       new Date().toISOString()
+
   };
 
 
-  if (!data.title &&
-      !data.verse &&
-      !data.sermon &&
-      !data.message) {
+  if (
+    !data.title &&
+    !data.verse &&
+    !data.sermon &&
+    !data.message
+  ) {
 
-    alert("말씀이나 설교 내용을 하나 이상 기록해주세요.");
+    alert(
+      "말씀이나 설교 내용을 하나 이상 기록해주세요."
+    );
 
     return;
+
   }
 
 
   const previous = getCurrent();
 
+
+  /*
+    현재는 새로운 내용이 저장되면
+    이전 내용을 지난 새김에 보관합니다.
+
+    이후 '새 말씀 시작'과 '수정'을
+    분리할 예정입니다.
+  */
 
   if (previous) {
 
@@ -707,7 +946,9 @@ function saveSaegim() {
 
 
     if (changed) {
+
       archiveItem(previous);
+
     }
 
   }
@@ -720,144 +961,256 @@ function saveSaegim() {
 
 
   renderAll();
+  renderArchive();
 
-  alert("이번 주 말씀이 새겨졌어요.");
+
+  alert(
+    "이번 주 말씀이 새겨졌어요."
+  );
+
 
   closeEditor();
+
 }
 
 
-/* ================= 데이터 ================= */
+/* ==================================================
+   현재 말씀 가져오기
+================================================== */
 
 function getCurrent() {
 
   const saved =
     localStorage.getItem(CURRENT_KEY);
 
+
   if (!saved) {
+
     return null;
+
   }
+
 
   try {
+
     return JSON.parse(saved);
+
   }
+
   catch {
+
     return null;
+
   }
+
 }
 
+
+/* ==================================================
+   지난 새김 가져오기
+================================================== */
 
 function getArchive() {
 
   const saved =
     localStorage.getItem(ARCHIVE_KEY);
 
+
   if (!saved) {
+
     return [];
+
   }
 
+
   try {
+
     return JSON.parse(saved);
+
   }
+
   catch {
+
     return [];
+
   }
+
 }
 
 
+/* ==================================================
+   지난 새김 저장
+================================================== */
+
 function archiveItem(item) {
 
-  if (!item) return;
+  if (!item) {
 
-  const archive = getArchive();
+    return;
+
+  }
+
+
+  const archive =
+    getArchive();
+
 
   archive.unshift({
+
     ...item,
+
     archivedAt:
       new Date().toISOString()
+
   });
+
 
   localStorage.setItem(
     ARCHIVE_KEY,
     JSON.stringify(archive)
   );
+
 }
 
 
-/* ================= 화면 출력 ================= */
+/* ==================================================
+   오늘 + 말씀 화면 출력
+================================================== */
 
 function renderAll() {
 
-  const data = getCurrent();
+  const data =
+    getCurrent();
 
-  if (!data) return;
+
+  if (!data) {
+
+    return;
+
+  }
 
 
   const message =
+
     data.message ||
+
     "이번 주 말씀을 다시 묵상해보세요.";
 
 
-  /* 오늘 */
-
-  todayMessage.textContent =
-    "“" + message + "”";
-
-  todayVerse.textContent =
-    data.verse || "말씀";
-
-  todayAction.textContent =
-    data.action ||
-    "이번 주 실천을 기록해보세요.";
+  /* ---------- 오늘 ---------- */
 
 
-  /* 말씀 */
+  document
+    .getElementById("todayMessage")
+    .textContent =
 
-  detailTitle.textContent =
-    data.title ||
-    "제목을 기록하지 않았어요.";
+      "“" + message + "”";
 
-  detailVerse.textContent =
-    data.verse || "-";
 
-  detailSermon.textContent =
-    data.sermon ||
-    "설교 메시지를 기록하지 않았어요.";
+  document
+    .getElementById("todayVerse")
+    .textContent =
 
-  detailMessage.textContent =
-    "“" + message + "”";
+      data.verse || "말씀";
 
-  detailAction.textContent =
-    data.action || "-";
+
+  document
+    .getElementById("todayAction")
+    .textContent =
+
+      data.action ||
+
+      "이번 주 실천을 기록해보세요.";
+
+
+  /* ---------- 말씀 ---------- */
+
+
+  document
+    .getElementById("detailTitle")
+    .textContent =
+
+      data.title ||
+
+      "제목을 기록하지 않았어요.";
+
+
+  document
+    .getElementById("detailVerse")
+    .textContent =
+
+      data.verse || "-";
+
+
+  document
+    .getElementById("detailSermon")
+    .textContent =
+
+      data.sermon ||
+
+      "설교 메시지를 기록하지 않았어요.";
+
+
+  document
+    .getElementById("detailMessage")
+    .textContent =
+
+      "“" + message + "”";
+
+
+  document
+    .getElementById("detailAction")
+    .textContent =
+
+      data.action || "-";
+
 }
 
 
-/* ================= 아카이브 ================= */
+/* ==================================================
+   지난 새김 목록 출력
+================================================== */
 
 function renderArchive() {
 
-  const list = getArchive();
+  const list =
+    getArchive();
 
-  archiveList.innerHTML = "";
+
+  const archiveList =
+    document.getElementById("archiveList");
+
+
+  archiveList.innerHTML =
+    "";
 
 
   if (list.length === 0) {
 
     archiveList.innerHTML = `
+
       <div class="empty">
+
         아직 지나온 새김이 없어요.<br>
+
         매주 말씀이 하나씩 쌓이게 됩니다.
+
       </div>
+
     `;
 
+
     return;
+
   }
 
 
   list.forEach(item => {
 
+
     const card =
       document.createElement("div");
+
 
     card.className =
       "archive-card";
@@ -865,56 +1218,280 @@ function renderArchive() {
 
     const date =
       item.savedAt
-        ? new Date(item.savedAt)
-            .toLocaleDateString("ko-KR")
+
+        ? new Date(
+            item.savedAt
+          ).toLocaleDateString(
+            "ko-KR"
+          )
+
         : "";
 
 
     card.innerHTML = `
 
       <div class="archive-date">
+
         ${escapeHtml(date)}
+
       </div>
+
 
       <div class="archive-title">
+
         ${escapeHtml(
-          item.title || "이번 주 말씀"
+          item.title ||
+          "이번 주 말씀"
         )}
+
       </div>
 
+
       <div class="archive-message">
+
         “${escapeHtml(
           item.message ||
           item.sermon ||
           "기록된 말씀"
         )}”
+
       </div>
 
+
       <div class="archive-verse">
-        ${escapeHtml(item.verse || "")}
+
+        ${escapeHtml(
+          item.verse || ""
+        )}
+
       </div>
 
     `;
 
 
+    /*
+      카드 터치 → 상세 화면
+    */
+
+    card.onclick = function() {
+
+      openArchiveDetail(item);
+
+    };
+
+
     archiveList.appendChild(card);
+
   });
+
 }
 
 
-/* ================= 안전한 출력 ================= */
+/* ==================================================
+   지난 새김 상세 화면
+================================================== */
+
+function openArchiveDetail(item) {
+
+
+  const date =
+
+    item.savedAt
+
+      ? new Date(
+          item.savedAt
+        ).toLocaleDateString(
+          "ko-KR",
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          }
+        )
+
+      : "";
+
+
+  document
+    .getElementById("archiveDetailDate")
+    .textContent = date;
+
+
+  document
+    .getElementById("archiveDetailTitle")
+    .textContent =
+
+      item.title ||
+
+      "제목을 기록하지 않았어요.";
+
+
+  document
+    .getElementById("archiveDetailVerse")
+    .textContent =
+
+      item.verse || "-";
+
+
+  document
+    .getElementById("archiveDetailSermon")
+    .textContent =
+
+      item.sermon ||
+
+      "기록된 설교 메시지가 없습니다.";
+
+
+  document
+    .getElementById("archiveDetailMessage")
+    .textContent =
+
+      item.message
+
+        ? "“" + item.message + "”"
+
+        : "-";
+
+
+  document
+    .getElementById("archiveDetailAction")
+    .textContent =
+
+      item.action || "-";
+
+
+  document
+    .querySelectorAll(".view")
+    .forEach(view => {
+
+      view.style.display =
+        "none";
+
+    });
+
+
+  document
+    .getElementById("nav")
+    .style.display =
+      "none";
+
+
+  document
+    .getElementById("archiveDetail")
+    .style.display =
+      "block";
+
+
+  window.scrollTo(0, 0);
+
+}
+
+
+/* ==================================================
+   지난 새김 상세 닫기
+================================================== */
+
+function closeArchiveDetail() {
+
+
+  document
+    .getElementById("archiveDetail")
+    .style.display =
+      "none";
+
+
+  document
+    .querySelectorAll(".view")
+    .forEach(view => {
+
+      view.style.display =
+        "";
+
+    });
+
+
+  document
+    .getElementById("nav")
+    .style.display =
+      "flex";
+
+
+  document
+    .querySelectorAll(".view")
+    .forEach(view => {
+
+      view.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  document
+    .getElementById("archiveView")
+    .classList.add(
+      "active"
+    );
+
+
+  document
+    .querySelectorAll(".nav button")
+    .forEach(button => {
+
+      button.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  const navButtons =
+    document.querySelectorAll(
+      ".nav button"
+    );
+
+
+  if (navButtons[2]) {
+
+    navButtons[2]
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  currentView =
+    "archive";
+
+
+  window.scrollTo(0, 0);
+
+}
+
+
+/* ==================================================
+   안전한 HTML 출력
+================================================== */
 
 function escapeHtml(text) {
 
   const div =
     document.createElement("div");
 
+
   div.textContent =
     text || "";
 
+
   return div.innerHTML;
+
 }
 
+
+/* ==================================================
+   앱 시작
+================================================== */
 
 renderAll();
 renderArchive();

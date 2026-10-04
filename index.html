@@ -8,9 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@400;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 
 <style>
@@ -21,9 +19,7 @@
   --text:#24231F;
   --sub:#817D74;
   --line:#E1DDD5;
-
   --font:"Pretendard",-apple-system,sans-serif;
-
   --hero:28px;
   --title:28px;
   --body:17px;
@@ -37,7 +33,11 @@ body{
   font-family:var(--font);
 }
 
-button,input,textarea{font:inherit;color:inherit}
+button,input,textarea{
+  font:inherit;
+  color:inherit;
+}
+
 button{cursor:pointer}
 
 .app{
@@ -50,11 +50,21 @@ button{cursor:pointer}
 .view,.page{display:none}
 .view.active{display:block}
 
-.topbar{
+/* 상단 */
+
+.topbar,
+.detail-topbar{
   display:flex;
   align-items:center;
   justify-content:space-between;
+}
+
+.topbar{
   margin-bottom:48px;
+}
+
+.detail-topbar{
+  margin-bottom:30px;
 }
 
 .logo{
@@ -62,12 +72,30 @@ button{cursor:pointer}
   font-weight:700;
 }
 
-.settings-btn{
+.settings-btn,
+.back,
+.edit-btn{
   border:0;
   background:transparent;
+}
+
+.settings-btn{
   font-size:23px;
   padding:4px;
 }
+
+.back{
+  font-size:25px;
+  padding:0;
+}
+
+.edit-btn{
+  font-size:14px;
+  font-weight:600;
+  padding:7px 0 7px 15px;
+}
+
+/* 글 */
 
 .page-title{
   font-size:var(--title);
@@ -82,7 +110,8 @@ button{cursor:pointer}
   margin-bottom:38px;
 }
 
-.eyebrow,.section-title{
+.eyebrow,
+.section-title{
   font-size:var(--small);
   color:var(--sub);
   margin-bottom:12px;
@@ -109,7 +138,9 @@ button{cursor:pointer}
   margin-bottom:36px;
 }
 
-.section{margin-top:38px}
+.section{
+  margin-top:38px;
+}
 
 .text{
   font-size:var(--body);
@@ -123,7 +154,11 @@ button{cursor:pointer}
   margin:38px 0 28px;
 }
 
-.primary,.secondary,.delete{
+/* 버튼 */
+
+.primary,
+.secondary,
+.delete{
   width:100%;
   border-radius:17px;
   padding:16px;
@@ -150,17 +185,15 @@ button{cursor:pointer}
   font-size:14px;
 }
 
-button:active{opacity:.55}
-
-.back{
-  border:0;
-  background:transparent;
-  padding:0;
-  font-size:25px;
-  margin-bottom:30px;
+button:active{
+  opacity:.55;
 }
 
-.field{margin-bottom:29px}
+/* 입력 */
+
+.field{
+  margin-bottom:29px;
+}
 
 .field label{
   display:block;
@@ -176,7 +209,8 @@ button:active{opacity:.55}
   margin-bottom:8px;
 }
 
-input,textarea{
+input,
+textarea{
   width:100%;
   border:0;
   border-bottom:1px solid #D5D0C7;
@@ -187,11 +221,14 @@ input,textarea{
   font-size:var(--body);
 }
 
-input:focus,textarea:focus{
+input:focus,
+textarea:focus{
   border-bottom-color:var(--text);
 }
 
-input[type=date]{min-height:44px}
+input[type=date]{
+  min-height:44px;
+}
 
 textarea{
   min-height:190px;
@@ -199,7 +236,11 @@ textarea{
   line-height:1.7;
 }
 
-.short{min-height:75px}
+.short{
+  min-height:75px;
+}
+
+/* 기록 */
 
 .card{
   border-top:1px solid var(--line);
@@ -255,6 +296,12 @@ textarea{
   gap:9px;
 }
 
+.size-options{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+}
+
 .option{
   border:1px solid #D8D3CA;
   background:transparent;
@@ -269,12 +316,6 @@ textarea{
   border-color:var(--text);
 }
 
-.size-options{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:7px;
-}
-
 .preview{
   margin-top:38px;
   padding:25px 20px;
@@ -283,20 +324,20 @@ textarea{
 }
 
 .preview-label{
-  font-size:var(--small);
+  font-size:13px;
   color:var(--sub);
   margin-bottom:14px;
 }
 
 .preview-verse{
-  font-size:var(--hero);
+  font-size:28px;
   font-weight:600;
   line-height:1.5;
 }
 
 .preview-ref{
   margin-top:13px;
-  font-size:var(--small);
+  font-size:13px;
   color:var(--sub);
 }
 
@@ -304,8 +345,12 @@ textarea{
   margin-top:24px;
   padding-top:20px;
   border-top:1px solid var(--line);
-  font-size:var(--body);
+  font-size:17px;
   line-height:1.7;
+}
+
+.apply-area{
+  margin-top:30px;
 }
 
 /* 하단 메뉴 */
@@ -349,39 +394,63 @@ textarea{
 
 <body>
 
-<!-- 오늘 -->
+<!-- 말씀 -->
 
-<section class="app view active" id="today">
+<section class="app view active" id="word">
 
   <div class="topbar">
     <div class="logo">새김</div>
-    <button class="settings-btn" onclick="openSettings()">⚙︎</button>
+
+    <button
+      class="settings-btn"
+      onclick="openSettings()"
+      aria-label="설정">
+      ⚙︎
+    </button>
   </div>
 
-  <div class="eyebrow">이번 주 나의 말씀</div>
+  <div class="eyebrow">
+    이번 주 나의 말씀
+  </div>
 
-  <div class="verse" id="todayMessage">
+  <div
+    class="verse"
+    id="todayMessage">
     “이번 주 말씀을 새겨보세요.”
   </div>
 
-  <div class="reference" id="todayVerse">새김</div>
+  <div
+    class="reference"
+    id="todayVerse">
+    새김
+  </div>
 
   <div class="divider"></div>
 
-  <div class="section-title">이번 주 실천</div>
+  <div class="section-title">
+    이번 주 실천
+  </div>
 
-  <div class="text" id="todayAction">
+  <div
+    class="text"
+    id="todayAction">
     이번 주 받은 말씀을 기록하고 한 주 동안 기억해보세요.
   </div>
 
   <div style="margin-top:42px">
-    <button class="primary" onclick="newRecord()">
+
+    <button
+      class="primary"
+      onclick="newRecord()">
       + 새로운 말씀 새기기
     </button>
 
-    <button class="secondary" onclick="openCurrent()">
+    <button
+      class="secondary"
+      onclick="openCurrent()">
       이번 주 말씀 보기
     </button>
+
   </div>
 
 </section>
@@ -391,7 +460,9 @@ textarea{
 
 <section class="app view" id="archive">
 
-  <div class="page-title">나의 새김</div>
+  <div class="page-title">
+    나의 새김
+  </div>
 
   <div class="description">
     지나온 시간 속에서 마음에 새겼던 말씀을 다시 만나보세요.
@@ -406,25 +477,70 @@ textarea{
 
 <section class="app page" id="detail">
 
-  <button class="back" onclick="closePage()">←</button>
+  <div class="detail-topbar">
 
-  <div class="page-title" id="detailHeading">
+    <button
+      class="back"
+      onclick="closePage()"
+      aria-label="뒤로가기">
+      ←
+    </button>
+
+    <button
+      class="edit-btn"
+      onclick="editSelected()">
+      수정
+    </button>
+
+  </div>
+
+  <div
+    class="page-title"
+    id="detailHeading">
     새김 기록
   </div>
 
-  <div class="description" id="detailDate"></div>
+  <div
+    class="description"
+    id="detailDate">
+  </div>
 
-  <div class="section-title">설교 제목</div>
-  <div class="text" id="detailTitle">-</div>
+  <div class="section-title">
+    설교 제목
+  </div>
 
-  <div class="section">
-    <div class="section-title">성경 구절</div>
-    <div class="text" id="detailVerse">-</div>
+  <div
+    class="text"
+    id="detailTitle">
+    -
   </div>
 
   <div class="section">
-    <div class="section-title">설교 메시지</div>
-    <div class="text" id="detailSermon">-</div>
+
+    <div class="section-title">
+      성경 구절
+    </div>
+
+    <div
+      class="text"
+      id="detailVerse">
+      -
+    </div>
+
+  </div>
+
+  <div class="section">
+
+    <div class="section-title">
+      설교 메시지
+    </div>
+
+    <div
+      class="text"
+      id="detailSermon">
+      -
+    </div>
+
   </div>
 
   <div class="divider"></div>
@@ -433,19 +549,25 @@ textarea{
     이번 주 새길 한 문장
   </div>
 
-  <div class="verse" id="detailMessage">-</div>
-
-  <div class="section">
-    <div class="section-title">이번 주 실천</div>
-    <div class="text" id="detailAction">-</div>
+  <div
+    class="verse"
+    id="detailMessage">
+    -
   </div>
 
-  <button
-    class="primary"
-    style="margin-top:42px"
-    onclick="editSelected()">
-    기록 수정하기
-  </button>
+  <div class="section">
+
+    <div class="section-title">
+      이번 주 실천
+    </div>
+
+    <div
+      class="text"
+      id="detailAction">
+      -
+    </div>
+
+  </div>
 
   <button
     class="delete"
@@ -457,40 +579,75 @@ textarea{
 </section>
 
 
-<!-- 작성 -->
+<!-- 작성 / 수정 -->
 
 <section class="app page" id="editor">
 
-  <button class="back" onclick="closeEditor()">←</button>
+  <button
+    class="back"
+    onclick="closeEditor()">
+    ←
+  </button>
 
-  <div class="editor-title" id="editorTitle">
+  <div
+    class="editor-title"
+    id="editorTitle">
     이번 주 말씀을<br>새겨볼까요?
   </div>
 
   <div class="field">
-    <label>말씀을 받은 날짜</label>
-    <input type="date" id="dateInput">
+
+    <label>
+      말씀을 받은 날짜
+    </label>
+
+    <input
+      type="date"
+      id="dateInput">
+
   </div>
 
   <div class="field">
-    <label>설교 제목</label>
-    <input id="titleInput" placeholder="예) 믿음으로 살아가기">
+
+    <label>
+      설교 제목
+    </label>
+
+    <input
+      id="titleInput"
+      placeholder="예) 믿음으로 살아가기">
+
   </div>
 
   <div class="field">
-    <label>성경 구절</label>
-    <input id="verseInput" placeholder="예) 이사야 41:10">
+
+    <label>
+      성경 구절
+    </label>
+
+    <input
+      id="verseInput"
+      placeholder="예) 이사야 41:10">
+
   </div>
 
   <div class="field">
-    <label>설교 메시지</label>
+
+    <label>
+      설교 메시지
+    </label>
+
     <textarea
       id="sermonInput"
       placeholder="예배 중 받은 말씀과 설교 내용을 자유롭게 기록하세요."></textarea>
+
   </div>
 
   <div class="field">
-    <label>✨ 이번 주 새길 한 문장</label>
+
+    <label>
+      ✨ 이번 주 새길 한 문장
+    </label>
 
     <div class="helper">
       이번 주 동안 기억하고 싶은 메시지를 한 문장으로 남겨보세요.
@@ -500,10 +657,14 @@ textarea{
       class="short"
       id="messageInput"
       placeholder="예) 두려움보다 하나님을 신뢰하자."></textarea>
+
   </div>
 
   <div class="field">
-    <label>🌱 이번 주 실천 (선택)</label>
+
+    <label>
+      🌱 이번 주 실천 (선택)
+    </label>
 
     <div class="helper">
       이 말씀을 삶에서 어떻게 실천하고 싶나요?
@@ -513,6 +674,7 @@ textarea{
       class="short"
       id="actionInput"
       placeholder="예) 불안한 순간마다 먼저 기도하기"></textarea>
+
   </div>
 
   <button
@@ -529,9 +691,15 @@ textarea{
 
 <section class="app page" id="settings">
 
-  <button class="back" onclick="closeSettings()">←</button>
+  <button
+    class="back"
+    onclick="closeSettings()">
+    ←
+  </button>
 
-  <div class="page-title">설정</div>
+  <div class="page-title">
+    설정
+  </div>
 
   <div class="description">
     새김을 나에게 편한 모습으로 설정해보세요.
@@ -539,21 +707,23 @@ textarea{
 
   <div class="setting-section">
 
-    <div class="setting-title">글꼴</div>
+    <div class="setting-title">
+      글꼴
+    </div>
 
     <div class="options">
 
       <button
         class="option font-option"
         data-font="pretendard"
-        onclick="setFont('pretendard')">
+        onclick="selectFont('pretendard')">
         프리텐다드
       </button>
 
       <button
         class="option font-option"
         data-font="gowun"
-        onclick="setFont('gowun')"
+        onclick="selectFont('gowun')"
         style="font-family:'Gowun Batang'">
         고운바탕
       </button>
@@ -561,7 +731,7 @@ textarea{
       <button
         class="option font-option"
         data-font="noto"
-        onclick="setFont('noto')"
+        onclick="selectFont('noto')"
         style="font-family:'Noto Serif KR'">
         노토세리프
       </button>
@@ -569,7 +739,7 @@ textarea{
       <button
         class="option font-option"
         data-font="nanum"
-        onclick="setFont('nanum')"
+        onclick="selectFont('nanum')"
         style="font-family:'Nanum Myeongjo'">
         나눔명조
       </button>
@@ -577,7 +747,7 @@ textarea{
       <button
         class="option font-option"
         data-font="system"
-        onclick="setFont('system')">
+        onclick="selectFont('system')">
         시스템 기본
       </button>
 
@@ -588,35 +758,37 @@ textarea{
 
   <div class="setting-section">
 
-    <div class="setting-title">글자 크기</div>
+    <div class="setting-title">
+      글자 크기
+    </div>
 
     <div class="size-options">
 
       <button
         class="option size-option"
         data-size="small"
-        onclick="setSize('small')">
+        onclick="selectSize('small')">
         작게
       </button>
 
       <button
         class="option size-option"
         data-size="normal"
-        onclick="setSize('normal')">
+        onclick="selectSize('normal')">
         기본
       </button>
 
       <button
         class="option size-option"
         data-size="large"
-        onclick="setSize('large')">
+        onclick="selectSize('large')">
         크게
       </button>
 
       <button
         class="option size-option"
         data-size="xlarge"
-        onclick="setSize('xlarge')">
+        onclick="selectSize('xlarge')">
         아주 크게
       </button>
 
@@ -625,7 +797,9 @@ textarea{
   </div>
 
 
-  <div class="preview">
+  <div
+    class="preview"
+    id="preview">
 
     <div class="preview-label">
       미리보기
@@ -646,24 +820,46 @@ textarea{
 
   </div>
 
+  <div class="apply-area">
+
+    <button
+      class="primary"
+      onclick="applySelectedSettings()">
+      설정 적용하기
+    </button>
+
+  </div>
+
 </section>
 
 
 <!-- 하단 메뉴 -->
 
-<nav class="nav" id="nav">
+<nav
+  class="nav"
+  id="nav">
 
   <button
     class="active"
-    onclick="show('today',this)">
-    <span class="nav-icon">⌂</span>
-    오늘
+    onclick="show('word',this)">
+
+    <span class="nav-icon">
+      ⌂
+    </span>
+
+    말씀
+
   </button>
 
   <button
     onclick="show('archive',this)">
-    <span class="nav-icon">▢</span>
+
+    <span class="nav-icon">
+      ▢
+    </span>
+
     기록
+
   </button>
 
 </nav>
@@ -677,84 +873,169 @@ const SETTINGS="saegim-settings";
 
 let selected=null;
 let editing=null;
-let returnTo="today";
+let returnTo="word";
 
-const $=id=>document.getElementById(id);
+let pendingFont=null;
+let pendingSize=null;
 
-const getCurrent=()=>
-  JSON.parse(localStorage.getItem(CURRENT)||"null");
+const $=id=>
+  document.getElementById(id);
 
-const getArchive=()=>
-  JSON.parse(localStorage.getItem(ARCHIVE)||"[]");
+function getCurrent(){
 
-const setCurrent=x=>
-  localStorage.setItem(CURRENT,JSON.stringify(x));
+  try{
+    return JSON.parse(
+      localStorage.getItem(CURRENT)
+    );
+  }
 
-const setArchive=x=>
-  localStorage.setItem(ARCHIVE,JSON.stringify(x));
+  catch{
+    return null;
+  }
+}
+
+function getArchive(){
+
+  try{
+    return JSON.parse(
+      localStorage.getItem(ARCHIVE)
+    ) || [];
+  }
+
+  catch{
+    return [];
+  }
+}
+
+function setCurrent(data){
+
+  localStorage.setItem(
+    CURRENT,
+    JSON.stringify(data)
+  );
+}
+
+function setArchive(data){
+
+  localStorage.setItem(
+    ARCHIVE,
+    JSON.stringify(data)
+  );
+}
 
 
 /* 날짜 */
 
 function today(){
+
   const d=new Date();
-  const p=n=>String(n).padStart(2,"0");
 
-  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`;
+  const p=n=>
+    String(n).padStart(2,"0");
+
+  return (
+    d.getFullYear()+
+    "-"+
+    p(d.getMonth()+1)+
+    "-"+
+    p(d.getDate())
+  );
 }
 
-function recordDate(x){
+function recordDate(record){
 
-  if(x.recordDate) return x.recordDate;
+  if(record.recordDate){
+    return record.recordDate;
+  }
 
-  if(!x.savedAt) return today();
+  if(!record.savedAt){
+    return today();
+  }
 
-  const d=new Date(x.savedAt);
-  const p=n=>String(n).padStart(2,"0");
+  const d=
+    new Date(record.savedAt);
 
-  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`;
+  const p=n=>
+    String(n).padStart(2,"0");
+
+  return (
+    d.getFullYear()+
+    "-"+
+    p(d.getMonth()+1)+
+    "-"+
+    p(d.getDate())
+  );
 }
 
-function dateText(s){
+function dateText(date){
 
-  if(!s) return "";
+  if(!date){
+    return "";
+  }
 
-  const [y,m,d]=s.split("-").map(Number);
+  const [y,m,d]=
+    date.split("-").map(Number);
 
   return `${y}년 ${m}월 ${d}일`;
 }
 
-function shortDate(s){
+function shortDate(date){
 
-  if(!s) return "";
+  if(!date){
+    return "";
+  }
 
-  const [y,m,d]=s.split("-").map(Number);
+  const [y,m,d]=
+    date.split("-").map(Number);
 
   return `${y}. ${m}. ${d}.`;
 }
 
-function sortRecords(list){
+function sortRecords(records){
 
-  return [...list].sort((a,b)=>
-    recordDate(b).localeCompare(recordDate(a)) ||
-    Number(b.id)-Number(a.id)
+  return [...records].sort(
+    (a,b)=>
+      recordDate(b).localeCompare(
+        recordDate(a)
+      ) ||
+      Number(b.id)-Number(a.id)
   );
 }
 
 
 /* 화면 */
 
-function show(name,btn){
+function hidePages(){
 
   document
     .querySelectorAll(".page")
-    .forEach(x=>x.style.display="none");
+    .forEach(
+      page=>page.style.display="none"
+    );
+}
+
+function hideMain(){
 
   document
     .querySelectorAll(".view")
-    .forEach(x=>{
-      x.style.display="";
-      x.classList.remove("active");
+    .forEach(
+      view=>view.style.display="none"
+    );
+
+  $("nav").style.display="none";
+}
+
+function show(name,button){
+
+  hidePages();
+
+  document
+    .querySelectorAll(".view")
+    .forEach(view=>{
+
+      view.style.display="";
+      view.classList.remove("active");
+
     });
 
   $(name).classList.add("active");
@@ -763,35 +1044,30 @@ function show(name,btn){
 
   document
     .querySelectorAll(".nav button")
-    .forEach(x=>x.classList.remove("active"));
+    .forEach(
+      item=>item.classList.remove("active")
+    );
 
-  btn.classList.add("active");
+  button.classList.add("active");
 
-  if(name==="archive") renderArchive();
+  if(name==="archive"){
+    renderArchive();
+  }
 
   window.scrollTo(0,0);
 }
 
-function hideMain(){
-
-  document
-    .querySelectorAll(".view")
-    .forEach(x=>x.style.display="none");
-
-  $("nav").style.display="none";
-}
-
 function restore(name){
 
-  document
-    .querySelectorAll(".page")
-    .forEach(x=>x.style.display="none");
+  hidePages();
 
   document
     .querySelectorAll(".view")
-    .forEach(x=>{
-      x.style.display="";
-      x.classList.remove("active");
+    .forEach(view=>{
+
+      view.style.display="";
+      view.classList.remove("active");
+
     });
 
   $(name).classList.add("active");
@@ -799,14 +1075,18 @@ function restore(name){
   $("nav").style.display="flex";
 
   const buttons=
-    document.querySelectorAll(".nav button");
+    document.querySelectorAll(
+      ".nav button"
+    );
 
   buttons.forEach(
-    x=>x.classList.remove("active")
+    button=>
+      button.classList.remove("active")
   );
 
-  buttons[name==="today"?0:1]
-    .classList.add("active");
+  buttons[
+    name==="word" ? 0 : 1
+  ].classList.add("active");
 
   render();
   renderArchive();
@@ -815,19 +1095,25 @@ function restore(name){
 }
 
 
-/* 새 말씀 */
+/* 새 기록 */
 
 function newRecord(){
 
   editing=null;
-  returnTo="today";
+  returnTo="word";
 
-  ["title","verse","sermon","message","action"]
-    .forEach(
-      x=>$(x+"Input").value=""
-    );
+  [
+    "title",
+    "verse",
+    "sermon",
+    "message",
+    "action"
+  ].forEach(
+    id=>$(id+"Input").value=""
+  );
 
-  $("dateInput").value=today();
+  $("dateInput").value=
+    today();
 
   $("editorTitle").innerHTML=
     "이번 주 말씀을<br>새겨볼까요?";
@@ -837,7 +1123,8 @@ function newRecord(){
 
   hideMain();
 
-  $("editor").style.display="block";
+  $("editor").style.display=
+    "block";
 
   window.scrollTo(0,0);
 }
@@ -847,66 +1134,93 @@ function newRecord(){
 
 function openCurrent(){
 
-  const x=getCurrent();
+  const record=
+    getCurrent();
 
-  if(!x) return newRecord();
+  if(!record){
 
-  selected=x.id;
-  returnTo="today";
+    newRecord();
+    return;
+  }
 
-  openDetail(x,true);
+  selected=record.id;
+  returnTo="word";
+
+  openDetail(
+    record,
+    true
+  );
 }
 
 function openArchive(id){
 
-  const x=
+  const record=
     getArchive().find(
-      r=>String(r.id)===String(id)
+      item=>
+        String(item.id)===
+        String(id)
     );
 
-  if(!x) return;
+  if(!record){
+    return;
+  }
 
-  selected=x.id;
+  selected=record.id;
   returnTo="archive";
 
-  openDetail(x,false);
+  openDetail(
+    record,
+    false
+  );
 }
 
-function openDetail(x,current){
+function openDetail(
+  record,
+  isCurrent
+){
 
   $("detailHeading").textContent=
-    current
-      ?"이번 주 말씀"
-      :"새김 기록";
+    isCurrent
+      ? "이번 주 말씀"
+      : "새김 기록";
 
   $("detailDate").textContent=
-    dateText(recordDate(x));
+    dateText(
+      recordDate(record)
+    );
 
   $("detailTitle").textContent=
-    x.title||"-";
+    record.title || "-";
 
   $("detailVerse").textContent=
-    x.verse||"-";
+    record.verse || "-";
 
   $("detailSermon").textContent=
-    x.sermon||"-";
+    record.sermon || "-";
 
   $("detailMessage").textContent=
-    x.message
-      ?`“${x.message}”`
-      :"-";
+    record.message
+      ? `“${record.message}”`
+      : "-";
 
   $("detailAction").textContent=
-    x.action||"-";
+    record.action || "-";
+
+  /*
+    말씀 화면의 현재 기록에서는
+    삭제 버튼을 숨김.
+    기록 탭에서 열었을 때는 표시.
+  */
 
   $("deleteButton").style.display=
-    current
-      ?"none"
-      :"block";
+    isCurrent
+      ? "none"
+      : "block";
 
   hideMain();
 
-  $("detail").style.display="block";
+  $("detail").style.display=
+    "block";
 
   window.scrollTo(0,0);
 }
@@ -915,7 +1229,8 @@ function closePage(){
 
   selected=null;
 
-  $("detail").style.display="none";
+  $("detail").style.display=
+    "none";
 
   restore(returnTo);
 }
@@ -925,28 +1240,45 @@ function closePage(){
 
 function editSelected(){
 
-  const current=getCurrent();
+  const current=
+    getCurrent();
 
-  const x=
+  const record=
     getArchive().find(
-      r=>String(r.id)===String(selected)
+      item=>
+        String(item.id)===
+        String(selected)
     ) ||
     (
-      String(current?.id)===String(selected)
-        ?current
-        :null
+      String(current?.id)===
+      String(selected)
+        ? current
+        : null
     );
 
-  if(!x) return;
+  if(!record){
+    return;
+  }
 
-  editing=x.id;
+  editing=record.id;
 
-  $("dateInput").value=recordDate(x);
-  $("titleInput").value=x.title||"";
-  $("verseInput").value=x.verse||"";
-  $("sermonInput").value=x.sermon||"";
-  $("messageInput").value=x.message||"";
-  $("actionInput").value=x.action||"";
+  $("dateInput").value=
+    recordDate(record);
+
+  $("titleInput").value=
+    record.title || "";
+
+  $("verseInput").value=
+    record.verse || "";
+
+  $("sermonInput").value=
+    record.sermon || "";
+
+  $("messageInput").value=
+    record.message || "";
+
+  $("actionInput").value=
+    record.action || "";
 
   $("editorTitle").innerHTML=
     "새김 기록을<br>수정할까요?";
@@ -954,30 +1286,36 @@ function editSelected(){
   $("saveButton").textContent=
     "수정 내용 저장하기";
 
-  $("detail").style.display="none";
-  $("editor").style.display="block";
+  $("detail").style.display=
+    "none";
+
+  $("editor").style.display=
+    "block";
 
   window.scrollTo(0,0);
 }
 
 function closeEditor(){
 
-  $("editor").style.display="none";
+  $("editor").style.display=
+    "none";
 
   if(editing){
 
-    const x=
+    const record=
       getArchive().find(
-        r=>String(r.id)===String(editing)
+        item=>
+          String(item.id)===
+          String(editing)
       );
 
-    if(x){
+    if(record){
 
-      selected=x.id;
+      selected=record.id;
 
       openDetail(
-        x,
-        returnTo==="today"
+        record,
+        returnTo==="word"
       );
 
       return;
@@ -998,19 +1336,25 @@ function saveRecord(){
       $("dateInput").value,
 
     title:
-      $("titleInput").value.trim(),
+      $("titleInput")
+        .value.trim(),
 
     verse:
-      $("verseInput").value.trim(),
+      $("verseInput")
+        .value.trim(),
 
     sermon:
-      $("sermonInput").value.trim(),
+      $("sermonInput")
+        .value.trim(),
 
     message:
-      $("messageInput").value.trim(),
+      $("messageInput")
+        .value.trim(),
 
     action:
-      $("actionInput").value.trim()
+      $("actionInput")
+        .value.trim()
+
   };
 
   if(!data.recordDate){
@@ -1036,18 +1380,21 @@ function saveRecord(){
     return;
   }
 
-  let list=getArchive();
-
+  let records=
+    getArchive();
 
   if(editing){
 
     const old=
-      list.find(
-        x=>String(x.id)===String(editing)
+      records.find(
+        item=>
+          String(item.id)===
+          String(editing)
       ) ||
       getCurrent();
 
-    data.id=editing;
+    data.id=
+      editing;
 
     data.savedAt=
       old?.savedAt ||
@@ -1056,12 +1403,13 @@ function saveRecord(){
     data.updatedAt=
       new Date().toISOString();
 
-    list=
-      list.map(
-        x=>
-          String(x.id)===String(editing)
-            ?data
-            :x
+    records=
+      records.map(
+        item=>
+          String(item.id)===
+          String(editing)
+            ? data
+            : item
       );
 
     if(
@@ -1074,11 +1422,11 @@ function saveRecord(){
     alert(
       "수정 내용이 저장되었어요."
     );
-  }
 
-  else{
+  }else{
 
-    data.id=Date.now();
+    data.id=
+      Date.now();
 
     data.savedAt=
       new Date().toISOString();
@@ -1086,7 +1434,7 @@ function saveRecord(){
     data.updatedAt=
       data.savedAt;
 
-    list.push(data);
+    records.push(data);
 
     setCurrent(data);
 
@@ -1096,15 +1444,16 @@ function saveRecord(){
   }
 
   setArchive(
-    sortRecords(list)
+    sortRecords(records)
   );
 
   editing=null;
   selected=null;
 
-  $("editor").style.display="none";
+  $("editor").style.display=
+    "none";
 
-  restore("today");
+  restore("word");
 }
 
 
@@ -1121,44 +1470,54 @@ function deleteSelected(){
     return;
   }
 
-  let list=
+  let records=
     getArchive().filter(
-      x=>String(x.id)!==String(selected)
+      item=>
+        String(item.id)!==
+        String(selected)
     );
 
-  list=sortRecords(list);
+  records=
+    sortRecords(records);
 
-  setArchive(list);
+  setArchive(records);
 
   if(
     String(getCurrent()?.id)===
     String(selected)
   ){
 
-    if(list.length){
-      setCurrent(list[0]);
-    }
+    if(records.length){
 
-    else{
-      localStorage.removeItem(CURRENT);
+      setCurrent(
+        records[0]
+      );
+
+    }else{
+
+      localStorage.removeItem(
+        CURRENT
+      );
     }
   }
 
   selected=null;
 
-  $("detail").style.display="none";
+  $("detail").style.display=
+    "none";
 
   restore("archive");
 }
 
 
-/* 오늘 */
+/* 말씀 화면 */
 
 function render(){
 
-  const x=getCurrent();
+  const record=
+    getCurrent();
 
-  if(!x){
+  if(!record){
 
     $("todayMessage").textContent=
       "“이번 주 말씀을 새겨보세요.”";
@@ -1173,26 +1532,31 @@ function render(){
   }
 
   $("todayMessage").textContent=
-    `“${x.message||
-    "이번 주 말씀을 다시 묵상해보세요."}”`;
+    `“${
+      record.message ||
+      "이번 주 말씀을 기억해보세요."
+    }”`;
 
   $("todayVerse").textContent=
-    x.verse||"말씀";
+    record.verse ||
+    "말씀";
 
   $("todayAction").textContent=
-    x.action||
+    record.action ||
     "이번 주 실천을 기록해보세요.";
 }
 
 
-/* 기록 */
+/* 기록 목록 */
 
 function renderArchive(){
 
-  const list=
-    sortRecords(getArchive());
+  const records=
+    sortRecords(
+      getArchive()
+    );
 
-  if(!list.length){
+  if(!records.length){
 
     $("archiveList").innerHTML=
       '<div class="empty">아직 새김 기록이 없어요.<br>말씀을 새기면 이곳에 차곡차곡 쌓입니다.</div>';
@@ -1201,30 +1565,38 @@ function renderArchive(){
   }
 
   $("archiveList").innerHTML=
-    list.map(x=>`
+    records.map(
+      record=>`
 
       <div
         class="card"
-        onclick="openArchive('${x.id}')">
+        onclick="openArchive('${record.id}')">
 
         <div class="card-date">
-          ${shortDate(recordDate(x))}
+          ${shortDate(
+            recordDate(record)
+          )}
         </div>
 
         <div class="card-title">
-          ${safe(x.title||"이번 주 말씀")}
+          ${safe(
+            record.title ||
+            "이번 주 말씀"
+          )}
         </div>
 
         <div class="card-message">
           “${safe(
-            x.message||
-            x.sermon||
+            record.message ||
+            record.sermon ||
             "기록된 말씀"
           )}”
         </div>
 
         <div class="card-verse">
-          ${safe(x.verse||"")}
+          ${safe(
+            record.verse || ""
+          )}
         </div>
 
       </div>
@@ -1232,20 +1604,19 @@ function renderArchive(){
     `).join("");
 }
 
-function safe(s){
+function safe(text){
 
-  const d=
+  const div=
     document.createElement("div");
 
-  d.textContent=s||"";
+  div.textContent=
+    text || "";
 
-  return d.innerHTML;
+  return div.innerHTML;
 }
 
 
-/* =========================
-   설정
-========================= */
+/* 설정 */
 
 const fonts={
 
@@ -1263,61 +1634,73 @@ const fonts={
 
   system:
     '-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif'
+
 };
 
 const sizes={
 
   small:{
-    hero:"24px",
-    title:"25px",
-    body:"15px",
-    small:"12px"
+    hero:24,
+    title:25,
+    body:15,
+    small:12
   },
 
   normal:{
-    hero:"28px",
-    title:"28px",
-    body:"17px",
-    small:"13px"
+    hero:28,
+    title:28,
+    body:17,
+    small:13
   },
 
   large:{
-    hero:"32px",
-    title:"31px",
-    body:"19px",
-    small:"14px"
+    hero:32,
+    title:31,
+    body:19,
+    small:14
   },
 
   xlarge:{
-    hero:"36px",
-    title:"34px",
-    body:"21px",
-    small:"15px"
+    hero:36,
+    title:34,
+    body:21,
+    small:15
   }
+
 };
 
 function getSettings(){
 
-  return JSON.parse(
-    localStorage.getItem(SETTINGS) ||
-    '{"font":"pretendard","size":"normal"}'
-  );
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        SETTINGS
+      )
+    ) || {
+      font:"pretendard",
+      size:"normal"
+    };
+
+  }catch{
+
+    return {
+      font:"pretendard",
+      size:"normal"
+    };
+  }
 }
 
-function saveSettings(settings){
-
-  localStorage.setItem(
-    SETTINGS,
-    JSON.stringify(settings)
-  );
-}
-
-function applySettings(){
-
-  const settings=getSettings();
+function applySettings(
+  settings=getSettings()
+){
 
   const root=
     document.documentElement;
+
+  const size=
+    sizes[settings.size] ||
+    sizes.normal;
 
   root.style.setProperty(
     "--font",
@@ -1325,87 +1708,178 @@ function applySettings(){
     fonts.pretendard
   );
 
-  const size=
-    sizes[settings.size] ||
-    sizes.normal;
-
   root.style.setProperty(
     "--hero",
-    size.hero
+    size.hero+"px"
   );
 
   root.style.setProperty(
     "--title",
-    size.title
+    size.title+"px"
   );
 
   root.style.setProperty(
     "--body",
-    size.body
+    size.body+"px"
   );
 
   root.style.setProperty(
     "--small",
-    size.small
+    size.small+"px"
   );
-
-  document
-    .querySelectorAll(".font-option")
-    .forEach(x=>
-      x.classList.toggle(
-        "selected",
-        x.dataset.font===settings.font
-      )
-    );
-
-  document
-    .querySelectorAll(".size-option")
-    .forEach(x=>
-      x.classList.toggle(
-        "selected",
-        x.dataset.size===settings.size
-      )
-    );
-}
-
-function setFont(font){
-
-  const settings=getSettings();
-
-  settings.font=font;
-
-  saveSettings(settings);
-
-  applySettings();
-}
-
-function setSize(size){
-
-  const settings=getSettings();
-
-  settings.size=size;
-
-  saveSettings(settings);
-
-  applySettings();
 }
 
 function openSettings(){
 
+  const settings=
+    getSettings();
+
+  pendingFont=
+    settings.font;
+
+  pendingSize=
+    settings.size;
+
   hideMain();
 
-  $("settings").style.display="block";
+  $("settings").style.display=
+    "block";
 
-  applySettings();
+  updateSettingButtons();
+  updatePreview();
 
   window.scrollTo(0,0);
 }
 
 function closeSettings(){
 
-  $("settings").style.display="none";
+  pendingFont=null;
+  pendingSize=null;
 
-  restore("today");
+  $("settings").style.display=
+    "none";
+
+  restore("word");
+}
+
+function selectFont(font){
+
+  pendingFont=
+    font;
+
+  updateSettingButtons();
+  updatePreview();
+}
+
+function selectSize(size){
+
+  pendingSize=
+    size;
+
+  updateSettingButtons();
+  updatePreview();
+}
+
+function updateSettingButtons(){
+
+  document
+    .querySelectorAll(
+      ".font-option"
+    )
+    .forEach(
+      button=>
+        button.classList.toggle(
+          "selected",
+          button.dataset.font===
+          pendingFont
+        )
+    );
+
+  document
+    .querySelectorAll(
+      ".size-option"
+    )
+    .forEach(
+      button=>
+        button.classList.toggle(
+          "selected",
+          button.dataset.size===
+          pendingSize
+        )
+    );
+}
+
+function updatePreview(){
+
+  const preview=
+    $("preview");
+
+  const size=
+    sizes[pendingSize] ||
+    sizes.normal;
+
+  preview.style.fontFamily=
+    fonts[pendingFont] ||
+    fonts.pretendard;
+
+  preview
+    .querySelector(
+      ".preview-verse"
+    )
+    .style.fontSize=
+      size.hero+"px";
+
+  preview
+    .querySelector(
+      ".preview-body"
+    )
+    .style.fontSize=
+      size.body+"px";
+
+  preview
+    .querySelector(
+      ".preview-label"
+    )
+    .style.fontSize=
+      size.small+"px";
+
+  preview
+    .querySelector(
+      ".preview-ref"
+    )
+    .style.fontSize=
+      size.small+"px";
+}
+
+function applySelectedSettings(){
+
+  const settings={
+
+    font:
+      pendingFont ||
+      "pretendard",
+
+    size:
+      pendingSize ||
+      "normal"
+
+  };
+
+  localStorage.setItem(
+    SETTINGS,
+    JSON.stringify(settings)
+  );
+
+  applySettings(settings);
+
+  alert(
+    "설정이 적용되었어요."
+  );
+
+  $("settings").style.display=
+    "none";
+
+  restore("word");
 }
 
 
@@ -1413,8 +1887,11 @@ function closeSettings(){
 
 (function migrate(){
 
-  let list=getArchive();
-  let current=getCurrent();
+  let records=
+    getArchive();
+
+  let current=
+    getCurrent();
 
   if(current){
 
@@ -1422,44 +1899,55 @@ function closeSettings(){
       recordDate(current);
 
     if(!current.id){
-      current.id=Date.now();
+
+      current.id=
+        Date.now();
     }
 
-    const i=
-      list.findIndex(
-        x=>String(x.id)===
-        String(current.id)
+    const index=
+      records.findIndex(
+        item=>
+          String(item.id)===
+          String(current.id)
       );
 
-    if(i<0){
-      list.push(current);
-    }
+    if(index<0){
 
-    else{
-      list[i]={
-        ...list[i],
+      records.push(
+        current
+      );
+
+    }else{
+
+      records[index]={
+        ...records[index],
         ...current
       };
     }
 
-    setCurrent(current);
+    setCurrent(
+      current
+    );
   }
 
-  list=
-    list.map((x,i)=>({
+  records=
+    records.map(
+      (record,index)=>({
 
-      ...x,
+        ...record,
 
-      id:
-        x.id||
-        Date.now()+i,
+        id:
+          record.id ||
+          Date.now()+index,
 
-      recordDate:
-        recordDate(x)
-    }));
+        recordDate:
+          recordDate(record)
+
+      })
+    );
 
   setArchive(
-    sortRecords(list)
+    sortRecords(records)
   );
 
 })();

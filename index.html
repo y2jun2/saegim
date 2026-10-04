@@ -8,7 +8,6 @@
 <title>새김</title>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
@@ -24,7 +23,6 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -49,7 +47,6 @@ button {
   margin: auto;
   padding: 54px 24px 115px;
 }
-
 
 /* =========================
    공통
@@ -118,7 +115,6 @@ button {
   margin-bottom: 36px;
 }
 
-
 /* =========================
    버튼
 ========================= */
@@ -156,15 +152,14 @@ button {
   border: 1px solid #D8D3CA;
   border-radius: 17px;
   background: transparent;
-  font-size: 14px;
   color: #A05A55;
+  font-size: 14px;
   cursor: pointer;
 }
 
 button:active {
   opacity: 0.55;
 }
-
 
 /* =========================
    화면
@@ -181,7 +176,6 @@ button:active {
 .sub-page {
   display: none;
 }
-
 
 /* =========================
    입력
@@ -250,7 +244,6 @@ textarea {
   min-height: 75px;
 }
 
-
 /* =========================
    기록
 ========================= */
@@ -259,6 +252,10 @@ textarea {
   border-top: 1px solid var(--line);
   padding: 23px 0;
   cursor: pointer;
+}
+
+.archive-card:active {
+  opacity: 0.5;
 }
 
 .archive-date {
@@ -292,9 +289,8 @@ textarea {
   line-height: 1.8;
 }
 
-
 /* =========================
-   하단 네비게이션
+   하단 메뉴
 ========================= */
 
 .nav {
@@ -311,7 +307,6 @@ textarea {
   border-top: 1px solid var(--line);
 
   display: flex;
-
   padding-top: 13px;
   padding-bottom: env(safe-area-inset-bottom);
 
@@ -337,12 +332,10 @@ textarea {
   color: var(--text);
   font-weight: 600;
 }
-
 </style>
 </head>
 
 <body>
-
 
 <!-- =========================
      오늘
@@ -350,21 +343,18 @@ textarea {
 
 <div class="app view active" id="todayView">
 
-  <div class="logo">
-    새김
-  </div>
+  <div class="logo">새김</div>
 
   <div class="eyebrow">
     이번 주 나의 말씀
   </div>
 
   <h1 class="verse" id="todayMessage">
-    “두려워하지 말라
-    내가 너와 함께 함이라”
+    “이번 주 말씀을 새겨보세요.”
   </h1>
 
   <div class="reference" id="todayVerse">
-    이사야 41:10
+    새김
   </div>
 
   <div class="divider"></div>
@@ -374,21 +364,22 @@ textarea {
   </div>
 
   <div class="section-text" id="todayAction">
-    불안한 순간마다 먼저 하나님께 기도하기.
+    이번 주 받은 말씀을 기록하고 한 주 동안 기억해보세요.
   </div>
 
   <div style="margin-top:42px;">
 
+    <!-- 순서 변경 -->
     <button
       class="primary-button"
-      onclick="openCurrentDetail()">
-      이번 주 말씀 보기
+      onclick="startNewSaegim()">
+      + 새로운 말씀 새기기
     </button>
 
     <button
       class="secondary-button button-gap"
-      onclick="startNewSaegim()">
-      + 새로운 말씀 새기기
+      onclick="openCurrentDetail()">
+      이번 주 말씀 보기
     </button>
 
   </div>
@@ -442,7 +433,7 @@ textarea {
   <div
     class="section-text"
     id="detailTitle">
-    아직 기록이 없습니다.
+    -
   </div>
 
   <div class="section">
@@ -523,7 +514,7 @@ textarea {
   </button>
 
   <div class="page-title">
-    지난 새김
+    새김 기록
   </div>
 
   <div
@@ -597,6 +588,13 @@ textarea {
   </div>
 
   <button
+    class="primary-button"
+    style="margin-top:42px;"
+    onclick="editArchiveSaegim()">
+    기록 수정하기
+  </button>
+
+  <button
     class="delete-button"
     onclick="deleteArchiveItem()">
     이 기록 삭제하기
@@ -617,7 +615,9 @@ textarea {
     ←
   </button>
 
-  <div class="editor-title" id="editorHeading">
+  <div
+    class="editor-title"
+    id="editorHeading">
     이번 주 말씀을<br>
     새겨볼까요?
   </div>
@@ -712,10 +712,7 @@ textarea {
     class="active"
     onclick="showView('today', this)">
 
-    <span class="nav-icon">
-      ⌂
-    </span>
-
+    <span class="nav-icon">⌂</span>
     오늘
 
   </button>
@@ -723,10 +720,7 @@ textarea {
   <button
     onclick="showView('archive', this)">
 
-    <span class="nav-icon">
-      ▢
-    </span>
-
+    <span class="nav-icon">▢</span>
     기록
 
   </button>
@@ -740,27 +734,19 @@ textarea {
    저장소
 ========================= */
 
-const CURRENT_KEY =
-  "saegim-current";
+const CURRENT_KEY = "saegim-current";
+const ARCHIVE_KEY = "saegim-archive";
 
-const ARCHIVE_KEY =
-  "saegim-archive";
+let currentView = "today";
+let selectedArchiveId = null;
 
-let currentView =
-  "today";
-
-let selectedArchiveId =
-  null;
-
-let editorMode =
-  "new";
-
-let editorReturnPage =
-  "today";
+let editorMode = "new";
+let editorReturnPage = "today";
+let editingId = null;
 
 
 /* =========================
-   화면 이동
+   화면
 ========================= */
 
 function showView(name, button) {
@@ -772,8 +758,8 @@ function showView(name, button) {
   document
     .querySelectorAll(".view")
     .forEach(view => {
-      view.classList.remove("active");
       view.style.display = "";
+      view.classList.remove("active");
     });
 
   document
@@ -827,12 +813,207 @@ function hideSubPages() {
 
 
 /* =========================
-   이번 주 말씀 상세
+   데이터
+========================= */
+
+function getCurrent() {
+
+  const saved =
+    localStorage.getItem(CURRENT_KEY);
+
+  if (!saved) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(saved);
+  }
+
+  catch {
+    return null;
+  }
+}
+
+
+function setCurrent(data) {
+
+  localStorage.setItem(
+    CURRENT_KEY,
+    JSON.stringify(data)
+  );
+}
+
+
+function getArchive() {
+
+  const saved =
+    localStorage.getItem(ARCHIVE_KEY);
+
+  if (!saved) {
+    return [];
+  }
+
+  try {
+
+    const parsed =
+      JSON.parse(saved);
+
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+
+  }
+
+  catch {
+    return [];
+  }
+}
+
+
+function setArchive(list) {
+
+  localStorage.setItem(
+    ARCHIVE_KEY,
+    JSON.stringify(list)
+  );
+}
+
+
+/* =========================
+   기존 데이터 정리
+========================= */
+
+function migrateExistingData() {
+
+  const current =
+    getCurrent();
+
+  let archive =
+    getArchive();
+
+
+  /*
+    기존 버전에서는 현재 말씀이
+    기록에 없을 수 있었기 때문에
+    현재 말씀도 기록에 넣어준다.
+  */
+
+  if (current) {
+
+    const exists =
+      archive.some(
+        item =>
+          String(item.id) ===
+          String(current.id)
+      );
+
+
+    if (!exists) {
+
+      archive.unshift(current);
+
+      setArchive(archive);
+
+    }
+
+  }
+
+
+  /*
+    혹시 기존 데이터에 id가 없는 경우
+    id를 만들어준다.
+  */
+
+  archive =
+    getArchive()
+      .map((item, index) => {
+
+        if (item.id) {
+          return item;
+        }
+
+        return {
+          ...item,
+          id:
+            Date.now() +
+            index +
+            Math.floor(
+              Math.random() * 10000
+            )
+        };
+
+      });
+
+
+  setArchive(archive);
+
+
+  /*
+    current에도 id가 없었던 경우
+    가장 최근 기록과 연결
+  */
+
+  const latestCurrent =
+    getCurrent();
+
+  if (
+    latestCurrent &&
+    !latestCurrent.id
+  ) {
+
+    const first =
+      archive[0];
+
+    if (first) {
+      setCurrent(first);
+    }
+
+  }
+
+}
+
+
+/* =========================
+   새 말씀 작성
+========================= */
+
+function startNewSaegim() {
+
+  editorMode = "new";
+  editingId = null;
+  editorReturnPage = "today";
+
+  clearEditor();
+
+  document
+    .getElementById("editorHeading")
+    .innerHTML =
+      "이번 주 말씀을<br>새겨볼까요?";
+
+  document
+    .getElementById("saveButton")
+    .textContent =
+      "말씀 새기기";
+
+  hideMainViews();
+  hideSubPages();
+
+  document
+    .getElementById("editor")
+    .style.display = "block";
+
+  window.scrollTo(0, 0);
+}
+
+
+/* =========================
+   현재 말씀 상세
 ========================= */
 
 function openCurrentDetail() {
 
-  const data = getCurrent();
+  const data =
+    getCurrent();
 
   if (!data) {
 
@@ -860,54 +1041,9 @@ function closeCurrentDetail() {
     .getElementById("currentDetail")
     .style.display = "none";
 
+  currentView = "today";
+
   restoreCurrentView();
-}
-
-
-/* =========================
-   새로운 말씀
-========================= */
-
-function startNewSaegim() {
-
-  const current = getCurrent();
-
-  if (current) {
-
-    const confirmed = confirm(
-      "새로운 말씀을 시작할까요?\n\n현재 말씀은 '기록'에 보관됩니다."
-    );
-
-    if (!confirmed) {
-      return;
-    }
-
-    archiveCurrentIfNeeded(current);
-  }
-
-  editorMode = "new";
-  editorReturnPage = "today";
-
-  clearEditor();
-
-  document
-    .getElementById("editorHeading")
-    .innerHTML =
-      "이번 주 말씀을<br>새겨볼까요?";
-
-  document
-    .getElementById("saveButton")
-    .textContent =
-      "말씀 새기기";
-
-  hideMainViews();
-  hideSubPages();
-
-  document
-    .getElementById("editor")
-    .style.display = "block";
-
-  window.scrollTo(0, 0);
 }
 
 
@@ -917,13 +1053,15 @@ function startNewSaegim() {
 
 function editCurrentSaegim() {
 
-  const data = getCurrent();
+  const data =
+    getCurrent();
 
   if (!data) {
     return;
   }
 
-  editorMode = "edit";
+  editorMode = "editCurrent";
+  editingId = data.id;
   editorReturnPage = "currentDetail";
 
   fillEditor(data);
@@ -940,6 +1078,54 @@ function editCurrentSaegim() {
 
   document
     .getElementById("currentDetail")
+    .style.display = "none";
+
+  document
+    .getElementById("editor")
+    .style.display = "block";
+
+  window.scrollTo(0, 0);
+}
+
+
+/* =========================
+   지난 기록 수정
+========================= */
+
+function editArchiveSaegim() {
+
+  const archive =
+    getArchive();
+
+  const item =
+    archive.find(
+      record =>
+        String(record.id) ===
+        String(selectedArchiveId)
+    );
+
+  if (!item) {
+    return;
+  }
+
+  editorMode = "editArchive";
+  editingId = item.id;
+  editorReturnPage = "archiveDetail";
+
+  fillEditor(item);
+
+  document
+    .getElementById("editorHeading")
+    .innerHTML =
+      "새김 기록을<br>수정할까요?";
+
+  document
+    .getElementById("saveButton")
+    .textContent =
+      "수정 내용 저장하기";
+
+  document
+    .getElementById("archiveDetail")
     .style.display = "none";
 
   document
@@ -1013,9 +1199,10 @@ function closeEditor() {
     .getElementById("editor")
     .style.display = "none";
 
+
   if (
-    editorMode === "edit" &&
-    editorReturnPage === "currentDetail"
+    editorReturnPage ===
+    "currentDetail"
   ) {
 
     renderCurrentDetail();
@@ -1024,10 +1211,36 @@ function closeEditor() {
       .getElementById("currentDetail")
       .style.display = "block";
 
-    window.scrollTo(0, 0);
-
     return;
   }
+
+
+  if (
+    editorReturnPage ===
+    "archiveDetail"
+  ) {
+
+    const item =
+      getArchive().find(
+        record =>
+          String(record.id) ===
+          String(selectedArchiveId)
+      );
+
+    if (item) {
+
+      renderArchiveDetail(item);
+
+      document
+        .getElementById("archiveDetail")
+        .style.display = "block";
+
+      return;
+    }
+  }
+
+
+  currentView = "today";
 
   restoreCurrentView();
 }
@@ -1039,67 +1252,42 @@ function closeEditor() {
 
 function saveSaegim() {
 
-  const oldCurrent =
-    getCurrent();
+  const title =
+    document
+      .getElementById("titleInput")
+      .value
+      .trim();
 
-  const data = {
+  const verse =
+    document
+      .getElementById("verseInput")
+      .value
+      .trim();
 
-    id:
-      editorMode === "edit" &&
-      oldCurrent
+  const sermon =
+    document
+      .getElementById("sermonInput")
+      .value
+      .trim();
 
-        ? oldCurrent.id
+  const message =
+    document
+      .getElementById("messageInput")
+      .value
+      .trim();
 
-        : Date.now(),
-
-    title:
-      document
-        .getElementById("titleInput")
-        .value
-        .trim(),
-
-    verse:
-      document
-        .getElementById("verseInput")
-        .value
-        .trim(),
-
-    sermon:
-      document
-        .getElementById("sermonInput")
-        .value
-        .trim(),
-
-    message:
-      document
-        .getElementById("messageInput")
-        .value
-        .trim(),
-
-    action:
-      document
-        .getElementById("actionInput")
-        .value
-        .trim(),
-
-    savedAt:
-      editorMode === "edit" &&
-      oldCurrent
-
-        ? oldCurrent.savedAt
-
-        : new Date().toISOString(),
-
-    updatedAt:
-      new Date().toISOString()
-  };
+  const action =
+    document
+      .getElementById("actionInput")
+      .value
+      .trim();
 
 
   if (
-    !data.title &&
-    !data.verse &&
-    !data.sermon &&
-    !data.message
+    !title &&
+    !verse &&
+    !sermon &&
+    !message
   ) {
 
     alert(
@@ -1110,25 +1298,150 @@ function saveSaegim() {
   }
 
 
-  localStorage.setItem(
-    CURRENT_KEY,
-    JSON.stringify(data)
-  );
+  /* 새 말씀 */
+
+  if (editorMode === "new") {
+
+    const data = {
+
+      id:
+        Date.now(),
+
+      title,
+      verse,
+      sermon,
+      message,
+      action,
+
+      savedAt:
+        new Date()
+          .toISOString(),
+
+      updatedAt:
+        new Date()
+          .toISOString()
+
+    };
+
+
+    let archive =
+      getArchive();
+
+
+    archive.unshift(data);
+
+
+    setArchive(archive);
+
+    setCurrent(data);
+
+
+    finishSave(
+      "이번 주 말씀이 새겨졌어요."
+    );
+
+    return;
+  }
+
+
+  /* 수정 */
+
+  let archive =
+    getArchive();
+
+
+  const existing =
+    archive.find(
+      item =>
+        String(item.id) ===
+        String(editingId)
+    );
+
+
+  const originalSavedAt =
+    existing?.savedAt ||
+    getCurrent()?.savedAt ||
+    new Date().toISOString();
+
+
+  const updatedData = {
+
+    id:
+      editingId,
+
+    title,
+    verse,
+    sermon,
+    message,
+    action,
+
+    savedAt:
+      originalSavedAt,
+
+    updatedAt:
+      new Date()
+        .toISOString()
+
+  };
+
+
+  archive =
+    archive.map(item => {
+
+      if (
+        String(item.id) ===
+        String(editingId)
+      ) {
+
+        return updatedData;
+
+      }
+
+      return item;
+
+    });
+
+
+  setArchive(archive);
+
+
+  const current =
+    getCurrent();
+
+
+  /*
+    수정한 기록이 현재 말씀이라면
+    오늘 화면도 같이 수정한다.
+  */
+
+  if (
+    current &&
+    String(current.id) ===
+    String(editingId)
+  ) {
+
+    setCurrent(updatedData);
+
+  }
 
 
   renderAll();
   renderArchive();
 
 
-  if (editorMode === "edit") {
+  alert(
+    "수정 내용이 저장되었어요."
+  );
 
-    alert(
-      "수정 내용이 저장되었어요."
-    );
 
-    document
-      .getElementById("editor")
-      .style.display = "none";
+  document
+    .getElementById("editor")
+    .style.display = "none";
+
+
+  if (
+    editorMode === "editCurrent"
+  ) {
 
     renderCurrentDetail();
 
@@ -1140,17 +1453,16 @@ function saveSaegim() {
 
   else {
 
-    alert(
-      "이번 주 말씀이 새겨졌어요."
+    selectedArchiveId =
+      updatedData.id;
+
+    renderArchiveDetail(
+      updatedData
     );
 
     document
-      .getElementById("editor")
-      .style.display = "none";
-
-    currentView = "today";
-
-    restoreCurrentView();
+      .getElementById("archiveDetail")
+      .style.display = "block";
 
   }
 
@@ -1159,98 +1471,20 @@ function saveSaegim() {
 }
 
 
-/* =========================
-   데이터 가져오기
-========================= */
+function finishSave(message) {
 
-function getCurrent() {
-
-  const saved =
-    localStorage.getItem(
-      CURRENT_KEY
-    );
-
-  if (!saved) {
-    return null;
-  }
-
-  try {
-
-    return JSON.parse(saved);
-
-  }
-
-  catch {
-
-    return null;
-
-  }
-}
-
-
-function getArchive() {
-
-  const saved =
-    localStorage.getItem(
-      ARCHIVE_KEY
-    );
-
-  if (!saved) {
-    return [];
-  }
-
-  try {
-
-    return JSON.parse(saved);
-
-  }
-
-  catch {
-
-    return [];
-
-  }
-}
-
-
-/* =========================
-   현재 말씀 → 기록
-========================= */
-
-function archiveCurrentIfNeeded(item) {
-
-  if (!item) {
-    return;
-  }
-
-  const archive =
-    getArchive();
-
-  const alreadyExists =
-    archive.some(
-      archivedItem =>
-        archivedItem.id === item.id
-    );
-
-  if (!alreadyExists) {
-
-    archive.unshift({
-      ...item,
-      archivedAt:
-        new Date().toISOString()
-    });
-
-    localStorage.setItem(
-      ARCHIVE_KEY,
-      JSON.stringify(archive)
-    );
-  }
-
-  localStorage.removeItem(
-    CURRENT_KEY
-  );
-
+  renderAll();
   renderArchive();
+
+  alert(message);
+
+  document
+    .getElementById("editor")
+    .style.display = "none";
+
+  currentView = "today";
+
+  restoreCurrentView();
 }
 
 
@@ -1262,6 +1496,7 @@ function renderAll() {
 
   const data =
     getCurrent();
+
 
   if (!data) {
 
@@ -1310,7 +1545,7 @@ function renderAll() {
 
 
 /* =========================
-   현재 말씀 상세 출력
+   현재 상세
 ========================= */
 
 function renderCurrentDetail() {
@@ -1326,8 +1561,7 @@ function renderCurrentDetail() {
   document
     .getElementById("detailTitle")
     .textContent =
-      data.title ||
-      "제목을 기록하지 않았어요.";
+      data.title || "-";
 
 
   document
@@ -1339,17 +1573,14 @@ function renderCurrentDetail() {
   document
     .getElementById("detailSermon")
     .textContent =
-      data.sermon ||
-      "설교 메시지를 기록하지 않았어요.";
+      data.sermon || "-";
 
 
   document
     .getElementById("detailMessage")
     .textContent =
       data.message
-
         ? "“" + data.message + "”"
-
         : "-";
 
 
@@ -1373,15 +1604,18 @@ function renderArchive() {
     document
       .getElementById("archiveList");
 
+
   archiveList.innerHTML = "";
 
 
-  if (list.length === 0) {
+  if (
+    list.length === 0
+  ) {
 
     archiveList.innerHTML = `
       <div class="empty">
-        아직 지나온 새김이 없어요.<br>
-        매주 말씀이 하나씩 쌓이게 됩니다.
+        아직 새김 기록이 없어요.<br>
+        말씀을 새기면 이곳에 차곡차곡 쌓입니다.
       </div>
     `;
 
@@ -1392,7 +1626,8 @@ function renderArchive() {
   list.forEach(item => {
 
     const card =
-      document.createElement("div");
+      document
+        .createElement("div");
 
     card.className =
       "archive-card";
@@ -1443,7 +1678,9 @@ function renderArchive() {
     card.onclick =
       function() {
 
-        openArchiveDetail(item);
+        openArchiveDetail(
+          item.id
+        );
 
       };
 
@@ -1456,14 +1693,44 @@ function renderArchive() {
 
 
 /* =========================
-   지난 기록 상세
+   기록 상세
 ========================= */
 
-function openArchiveDetail(item) {
+function openArchiveDetail(id) {
+
+  const item =
+    getArchive().find(
+      record =>
+        String(record.id) ===
+        String(id)
+    );
+
+
+  if (!item) {
+    return;
+  }
+
 
   selectedArchiveId =
     item.id;
 
+
+  renderArchiveDetail(item);
+
+  hideMainViews();
+  hideSubPages();
+
+
+  document
+    .getElementById("archiveDetail")
+    .style.display = "block";
+
+
+  window.scrollTo(0, 0);
+}
+
+
+function renderArchiveDetail(item) {
 
   const date =
     item.savedAt
@@ -1483,43 +1750,31 @@ function openArchiveDetail(item) {
 
 
   document
-    .getElementById(
-      "archiveDetailDate"
-    )
+    .getElementById("archiveDetailDate")
     .textContent =
       date;
 
 
   document
-    .getElementById(
-      "archiveDetailTitle"
-    )
+    .getElementById("archiveDetailTitle")
     .textContent =
-      item.title ||
-      "제목을 기록하지 않았어요.";
+      item.title || "-";
 
 
   document
-    .getElementById(
-      "archiveDetailVerse"
-    )
+    .getElementById("archiveDetailVerse")
     .textContent =
       item.verse || "-";
 
 
   document
-    .getElementById(
-      "archiveDetailSermon"
-    )
+    .getElementById("archiveDetailSermon")
     .textContent =
-      item.sermon ||
-      "기록된 설교 메시지가 없습니다.";
+      item.sermon || "-";
 
 
   document
-    .getElementById(
-      "archiveDetailMessage"
-    )
+    .getElementById("archiveDetailMessage")
     .textContent =
       item.message
 
@@ -1531,26 +1786,9 @@ function openArchiveDetail(item) {
 
 
   document
-    .getElementById(
-      "archiveDetailAction"
-    )
+    .getElementById("archiveDetailAction")
     .textContent =
       item.action || "-";
-
-
-  hideMainViews();
-  hideSubPages();
-
-
-  document
-    .getElementById(
-      "archiveDetail"
-    )
-    .style.display =
-      "block";
-
-
-  window.scrollTo(0, 0);
 }
 
 
@@ -1560,14 +1798,10 @@ function closeArchiveDetail() {
     null;
 
   document
-    .getElementById(
-      "archiveDetail"
-    )
-    .style.display =
-      "none";
+    .getElementById("archiveDetail")
+    .style.display = "none";
 
-  currentView =
-    "archive";
+  currentView = "archive";
 
   restoreCurrentView();
 }
@@ -1597,43 +1831,71 @@ function deleteArchiveItem() {
   }
 
 
-  const archive =
+  let archive =
     getArchive();
 
 
-  const updatedArchive =
+  archive =
     archive.filter(
       item =>
-        item.id !==
-        selectedArchiveId
+        String(item.id) !==
+        String(selectedArchiveId)
     );
 
 
-  localStorage.setItem(
-    ARCHIVE_KEY,
-    JSON.stringify(
-      updatedArchive
-    )
-  );
+  setArchive(archive);
+
+
+  const current =
+    getCurrent();
+
+
+  /*
+    현재 말씀을 삭제한 경우
+    오늘 화면도 갱신
+  */
+
+  if (
+    current &&
+    String(current.id) ===
+    String(selectedArchiveId)
+  ) {
+
+    if (archive.length > 0) {
+
+      setCurrent(
+        archive[0]
+      );
+
+    }
+
+    else {
+
+      localStorage.removeItem(
+        CURRENT_KEY
+      );
+
+    }
+
+  }
 
 
   selectedArchiveId =
     null;
 
 
+  renderAll();
   renderArchive();
 
 
   document
-    .getElementById(
-      "archiveDetail"
-    )
-    .style.display =
-      "none";
+    .getElementById("archiveDetail")
+    .style.display = "none";
 
 
   currentView =
     "archive";
+
 
   restoreCurrentView();
 }
@@ -1646,6 +1908,7 @@ function deleteArchiveItem() {
 function restoreCurrentView() {
 
   hideSubPages();
+
 
   document
     .querySelectorAll(".view")
@@ -1713,7 +1976,6 @@ function restoreCurrentView() {
 
 
   renderAll();
-
   renderArchive();
 
   window.scrollTo(0, 0);
@@ -1727,7 +1989,8 @@ function restoreCurrentView() {
 function escapeHtml(text) {
 
   const div =
-    document.createElement("div");
+    document
+      .createElement("div");
 
   div.textContent =
     text || "";
@@ -1737,8 +2000,10 @@ function escapeHtml(text) {
 
 
 /* =========================
-   앱 시작
+   시작
 ========================= */
+
+migrateExistingData();
 
 renderAll();
 

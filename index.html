@@ -8,87 +8,79 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@400;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
 *{box-sizing:border-box}:root{--bg:#F7F5F0;--text:#24231F;--sub:#817D74;--line:#E1DDD5;--font:"Pretendard",-apple-system,sans-serif;--hero:28px;--title:28px;--body:17px;--small:13px}
 html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font)}button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}.app{max-width:430px;min-height:100vh;margin:auto;padding:54px 24px 115px}.view,.page{display:none}.view.active{display:block}
-.auth{display:none;max-width:430px;min-height:100vh;margin:auto;padding:78px 27px 48px}.auth.active{display:block}.auth-logo{font-size:35px;font-weight:700;letter-spacing:-1px;margin-bottom:20px}.auth-copy{font-size:20px;line-height:1.65;letter-spacing:-.4px;margin-bottom:66px}.auth-field{margin-bottom:24px}.auth-field label{display:block;font-size:13px;color:var(--sub);margin-bottom:9px}.auth-field input{font-size:16px}.password-wrap{position:relative}.password-wrap input{padding-right:42px}.password-toggle{position:absolute;right:0;bottom:8px;width:36px;height:36px;padding:0;border:0;background:transparent;color:#7D7971;display:flex;align-items:center;justify-content:center}.password-toggle svg{width:20px;height:20px}.forgot-row{display:flex;justify-content:flex-end;margin-top:-9px;margin-bottom:28px}.forgot-button{border:0;background:transparent;padding:4px 0;font-size:12px;color:var(--sub)}.auth-login{width:100%;border:0;border-radius:15px;min-height:53px;background:var(--text);color:#fff;font-size:15px;font-weight:600}.auth-divider{display:flex;align-items:center;gap:14px;margin:30px 0 24px;color:#9A968D;font-size:12px}.auth-divider:before,.auth-divider:after{content:"";height:1px;background:var(--line);flex:1}.auth-buttons{display:flex;flex-direction:column;gap:10px}.auth-social{width:100%;height:47px;border-radius:14px;border:1px solid #D8D3CA;background:transparent;font-size:14px;font-weight:600;padding:0 18px}.auth-social.kakao{background:#FEE500;border-color:#FEE500;color:#191919}.auth-social.google{background:#fff}.social-content{display:flex;align-items:center;justify-content:center;gap:10px;width:100%}.social-icon{width:18px;height:18px;flex:0 0 18px;display:block}.auth-message{min-height:20px;margin-top:15px;font-size:13px;line-height:1.55;color:#A05A55;text-align:center}.auth-switch{margin-top:23px;text-align:center;font-size:13px;color:var(--sub)}.auth-switch button{border:0;background:transparent;padding:5px;font-weight:700;color:var(--text)}
-.reset-auth{display:none;max-width:430px;min-height:100vh;margin:auto;padding:78px 27px 48px}.reset-title{font-size:30px;font-weight:700;margin-bottom:15px}.reset-description{color:var(--sub);font-size:14px;line-height:1.7;margin-bottom:45px}.reset-back{margin-top:18px;width:100%;border:0;background:transparent;color:var(--sub);font-size:13px;padding:10px}.loading{display:flex;min-height:100vh;align-items:center;justify-content:center;font-size:14px;color:var(--sub)}
-.topbar,.detail-topbar{display:flex;align-items:center;justify-content:space-between}.topbar{margin-bottom:48px}.detail-topbar{margin-bottom:30px}.logo{font-size:29px;font-weight:700}.settings-btn,.back,.edit-btn{border:0;background:transparent}.settings-btn{font-size:23px;padding:4px}.back{font-size:25px;padding:0}.edit-btn{font-size:14px;font-weight:600;padding:7px 0 7px 15px}
-.page-title{font-size:var(--title);font-weight:700;margin-bottom:10px}.editor-title{font-size:var(--title);font-weight:700;line-height:1.4;margin-bottom:38px}.eyebrow,.section-title{font-size:var(--small);color:var(--sub);margin-bottom:12px}.verse{font-size:var(--hero);font-weight:600;line-height:1.55;letter-spacing:-.7px;white-space:pre-line}.reference{margin-top:17px;font-size:calc(var(--small) + 1px);color:var(--sub)}.description{font-size:calc(var(--small) + 1px);color:var(--sub);line-height:1.6;margin-bottom:36px}.section{margin-top:38px}.text{font-size:var(--body);line-height:1.75;white-space:pre-line}.divider{height:1px;background:var(--line);margin:38px 0 28px}
-.primary,.secondary,.delete{width:100%;border-radius:17px;padding:16px}.primary{border:0;background:var(--text);color:#fff;font-size:16px}.secondary{border:1px solid #D8D3CA;background:transparent;margin-top:12px}.delete{border:1px solid #D8D3CA;background:transparent;color:#A05A55;margin-top:55px;font-size:14px}button:active{opacity:.55}
-.field{margin-bottom:29px}.field label{display:block;font-size:var(--small);color:var(--sub);margin-bottom:10px}.helper{font-size:12px;color:#9A968D;line-height:1.5;margin-bottom:8px}input,textarea{width:100%;border:0;border-bottom:1px solid #D5D0C7;border-radius:0;background:transparent;padding:8px 0 13px;outline:none;font-size:var(--body)}input:focus,textarea:focus{border-bottom-color:var(--text)}input[type=date]{min-height:44px}textarea{min-height:190px;resize:vertical;line-height:1.7}.short{min-height:75px}
+.auth{display:none;max-width:430px;min-height:100vh;margin:auto;padding:78px 27px 48px}.auth.active{display:block}.auth-logo{font-size:35px;font-weight:700;letter-spacing:-1px;margin-bottom:20px}.auth-copy{font-size:20px;line-height:1.65;margin-bottom:66px}.auth-field{margin-bottom:24px}.auth-field label{display:block;font-size:13px;color:var(--sub);margin-bottom:9px}.auth-field input{font-size:16px}.password-wrap{position:relative}.password-wrap input{padding-right:42px}.password-toggle{position:absolute;right:0;bottom:8px;width:36px;height:36px;padding:0;border:0;background:transparent;color:#7D7971}.password-toggle svg{width:20px}.forgot-row{display:flex;justify-content:flex-end;margin:-9px 0 28px}.forgot-button{border:0;background:transparent;padding:4px 0;font-size:12px;color:var(--sub)}.auth-login{width:100%;border:0;border-radius:15px;min-height:53px;background:var(--text);color:#fff;font-size:15px;font-weight:600}.auth-divider{display:flex;align-items:center;gap:14px;margin:30px 0 24px;color:#9A968D;font-size:12px}.auth-divider:before,.auth-divider:after{content:"";height:1px;background:var(--line);flex:1}.auth-buttons{display:flex;flex-direction:column;gap:10px}.auth-social{width:100%;height:47px;border-radius:14px;border:1px solid #D8D3CA;background:transparent;font-size:14px;font-weight:600}.auth-social.kakao{background:#FEE500;border-color:#FEE500}.auth-social.google{background:#fff}.social-content{display:flex;align-items:center;justify-content:center;gap:10px}.social-icon{width:18px;height:18px}.auth-message{min-height:20px;margin-top:15px;font-size:13px;line-height:1.55;color:#A05A55;text-align:center}.auth-switch{margin-top:23px;text-align:center;font-size:13px;color:var(--sub)}.auth-switch button{border:0;background:transparent;font-weight:700}
+.reset-auth{display:none;max-width:430px;min-height:100vh;margin:auto;padding:78px 27px 48px}.reset-title{font-size:30px;font-weight:700;margin-bottom:15px}.reset-description{color:var(--sub);font-size:14px;line-height:1.7;margin-bottom:45px}.reset-back{margin-top:18px;width:100%;border:0;background:transparent;color:var(--sub);padding:10px}.loading{display:flex;min-height:100vh;align-items:center;justify-content:center;color:var(--sub);font-size:14px}
+.topbar,.detail-topbar{display:flex;align-items:center;justify-content:space-between}.topbar{margin-bottom:48px}.detail-topbar{margin-bottom:30px}.logo{font-size:29px;font-weight:700}.settings-btn,.back,.edit-btn{border:0;background:transparent}.settings-btn{font-size:23px}.back{font-size:25px;padding:0}.edit-btn{font-size:14px;font-weight:600}.page-title{font-size:var(--title);font-weight:700;margin-bottom:10px}.editor-title{font-size:var(--title);font-weight:700;line-height:1.4;margin-bottom:38px}.eyebrow,.section-title{font-size:var(--small);color:var(--sub);margin-bottom:12px}.verse{font-size:var(--hero);font-weight:600;line-height:1.55;letter-spacing:-.7px;white-space:pre-line}.reference{margin-top:17px;font-size:calc(var(--small) + 1px);color:var(--sub)}.description{font-size:calc(var(--small) + 1px);color:var(--sub);line-height:1.6;margin-bottom:36px}.worship-meta{font-size:calc(var(--small) + 1px);color:var(--sub);margin-top:-25px;margin-bottom:34px}.section{margin-top:38px}.text{font-size:var(--body);line-height:1.75;white-space:pre-line}.divider{height:1px;background:var(--line);margin:38px 0 28px}
+.primary,.secondary,.delete{width:100%;border-radius:17px;padding:16px}.primary{border:0;background:var(--text);color:#fff}.secondary{border:1px solid #D8D3CA;background:transparent;margin-top:12px}.delete{border:1px solid #D8D3CA;background:transparent;color:#A05A55;margin-top:55px}button:active{opacity:.55}
+.field{margin-bottom:29px}.field label{display:block;font-size:var(--small);color:var(--sub);margin-bottom:10px}.helper{font-size:12px;color:#9A968D;line-height:1.5;margin-bottom:8px}.worship-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}input,textarea{width:100%;border:0;border-bottom:1px solid #D5D0C7;border-radius:0;background:transparent;padding:8px 0 13px;outline:none;font-size:var(--body)}input:focus,textarea:focus{border-bottom-color:var(--text)}input[type=date]{min-height:44px}textarea{min-height:190px;resize:vertical;line-height:1.7}.short{min-height:75px}
 .card{border-top:1px solid var(--line);padding:23px 0;cursor:pointer}.card-date{font-size:12px;color:var(--sub);margin-bottom:9px}.card-title{font-size:calc(var(--body) + 1px);font-weight:700;margin-bottom:7px}.card-message{font-size:var(--body);line-height:1.55}.card-verse{margin-top:8px;font-size:12px;color:var(--sub)}.empty{text-align:center;color:var(--sub);padding:50px 0;line-height:1.8}
-.setting-section{margin-top:38px}.setting-title{font-size:14px;font-weight:700;margin-bottom:14px}.options{display:grid;grid-template-columns:1fr 1fr;gap:9px}.size-options{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.option{border:1px solid #D8D3CA;background:transparent;border-radius:13px;padding:13px 8px;font-size:14px}.option.selected{background:var(--text);color:#fff;border-color:var(--text)}.preview{margin-top:38px;padding:25px 20px;border:1px solid var(--line);border-radius:18px}.preview-label{font-size:13px;color:var(--sub);margin-bottom:14px}.preview-verse{font-size:28px;font-weight:600;line-height:1.5}.preview-ref{margin-top:13px;font-size:13px;color:var(--sub)}.preview-body{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:17px;line-height:1.7}.apply-area{margin-top:30px}.account-box{margin-top:42px;padding-top:30px;border-top:1px solid var(--line)}.account-email{font-size:14px;line-height:1.6;margin-bottom:16px;word-break:break-all}.logout{width:100%;border:1px solid #D8D3CA;background:transparent;border-radius:17px;padding:15px;color:#A05A55}
+.setting-section{margin-top:38px}.setting-title{font-size:14px;font-weight:700;margin-bottom:14px}.options{display:grid;grid-template-columns:1fr 1fr;gap:9px}.size-options{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.option{border:1px solid #D8D3CA;background:transparent;border-radius:13px;padding:13px 8px;font-size:14px}.option.selected{background:var(--text);color:#fff;border-color:var(--text)}.preview{margin-top:38px;padding:25px 20px;border:1px solid var(--line);border-radius:18px}.preview-label{font-size:13px;color:var(--sub);margin-bottom:14px}.preview-verse{font-size:28px;font-weight:600;line-height:1.5}.preview-ref{margin-top:13px;font-size:13px;color:var(--sub)}.preview-body{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:17px;line-height:1.7}.apply-area{margin-top:30px}.account-box{margin-top:42px;padding-top:30px;border-top:1px solid var(--line)}.account-email{font-size:14px;margin-bottom:16px;word-break:break-all}.logout{width:100%;border:1px solid #D8D3CA;background:transparent;border-radius:17px;padding:15px;color:#A05A55}
 .nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;height:82px;background:rgba(247,245,240,.96);border-top:1px solid var(--line);display:none;padding-top:13px;padding-bottom:env(safe-area-inset-bottom);z-index:10}.nav button{width:50%;border:0;background:transparent;color:#9A968D;font-size:12px}.nav button.active{color:var(--text);font-weight:700}.nav-icon{display:block;font-size:19px;margin-bottom:5px}
 </style>
 </head>
-
 <body>
 <div class="loading" id="loading">새김을 여는 중...</div>
 
 <section class="auth" id="auth">
-<div class="auth-logo">새김</div>
-<div class="auth-copy">주일의 말씀을,<br>한 주의 삶으로.</div>
+<div class="auth-logo">새김</div><div class="auth-copy">주일의 말씀을,<br>한 주의 삶으로.</div>
 <div class="auth-field"><label>이메일</label><input id="emailInput" type="email" autocomplete="email" placeholder="example@email.com"></div>
-<div class="auth-field"><label>비밀번호</label><div class="password-wrap"><input id="passwordInput" type="password" autocomplete="current-password" placeholder="비밀번호"><button class="password-toggle" type="button" onclick="togglePasswordVisibility()" aria-label="비밀번호 보기" id="passwordToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/></svg></button></div></div>
-<div class="forgot-row" id="forgotRow"><button class="forgot-button" type="button" onclick="requestPasswordReset()">비밀번호를 잊으셨나요?</button></div>
-<button class="auth-login" id="emailAuthButton" onclick="emailAuth()">이메일로 로그인</button>
-<div class="auth-divider">또는</div>
-
+<div class="auth-field"><label>비밀번호</label><div class="password-wrap"><input id="passwordInput" type="password" autocomplete="current-password" placeholder="비밀번호"><button class="password-toggle" onclick="togglePasswordVisibility()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/></svg></button></div></div>
+<div class="forgot-row" id="forgotRow"><button class="forgot-button" onclick="requestPasswordReset()">비밀번호를 잊으셨나요?</button></div>
+<button class="auth-login" id="emailAuthButton" onclick="emailAuth()">이메일로 로그인</button><div class="auth-divider">또는</div>
 <div class="auth-buttons">
-<button class="auth-social kakao" onclick="socialLogin('kakao')"><span class="social-content"><svg class="social-icon" viewBox="0 0 24 24"><path fill="#191919" d="M12 3C6.48 3 2 6.58 2 11c0 2.84 1.86 5.33 4.66 6.75l-.95 3.5c-.08.3.26.54.52.37l4.17-2.78c.52.07 1.05.1 1.6.1 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/></svg><span>카카오로 계속하기</span></span></button>
-<button class="auth-social google" onclick="socialLogin('google')"><span class="social-content"><svg class="social-icon" viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.07H12v3.92h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.38z"/><path fill="#34A853" d="M12 22c2.7 0 4.97-.9 6.62-2.39l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.61 0-4.82-1.76-5.61-4.13H3.05v2.59A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.39 13.93A6.02 6.02 0 0 1 6.08 12c0-.67.11-1.32.31-1.93V7.48H3.05A10 10 0 0 0 2 12c0 1.61.38 3.14 1.05 4.52l3.34-2.59z"/><path fill="#EA4335" d="M12 5.94c1.47 0 2.79.51 3.83 1.5l2.87-2.87C16.96 2.95 14.7 2 12 2a10 10 0 0 0-8.95 5.48l3.34 2.59C7.18 7.7 9.39 5.94 12 5.94z"/></svg><span>Google로 계속하기</span></span></button>
+<button class="auth-social kakao" onclick="socialLogin('kakao')"><span class="social-content"><svg class="social-icon" viewBox="0 0 24 24"><path fill="#191919" d="M12 3C6.48 3 2 6.58 2 11c0 2.84 1.86 5.33 4.66 6.75l-.95 3.5c-.08.3.26.54.52.37l4.17-2.78c.52.07 1.05.1 1.6.1 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/></svg>카카오로 계속하기</span></button>
+<button class="auth-social google" onclick="socialLogin('google')"><span class="social-content"><svg class="social-icon" viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.07H12v3.92h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.38z"/><path fill="#34A853" d="M12 22c2.7 0 4.97-.9 6.62-2.39l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.61 0-4.82-1.76-5.61-4.13H3.05v2.59A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.39 13.93A6.02 6.02 0 0 1 6.08 12c0-.67.11-1.32.31-1.93V7.48H3.05A10 10 0 0 0 2 12c0 1.61.38 3.14 1.05 4.52l3.34-2.59z"/><path fill="#EA4335" d="M12 5.94c1.47 0 2.79.51 3.83 1.5l2.87-2.87C16.96 2.95 14.7 2 12 2a10 10 0 0 0-8.95 5.48l3.34 2.59C7.18 7.7 9.39 5.94 12 5.94z"/></svg>Google로 계속하기</span></button>
 </div>
-
-<div class="auth-message" id="authMessage"></div>
-<div class="auth-switch"><span id="authSwitchText">아직 계정이 없나요?</span><button id="authSwitchButton" onclick="toggleAuthMode()">회원가입</button></div>
+<div class="auth-message" id="authMessage"></div><div class="auth-switch"><span id="authSwitchText">아직 계정이 없나요?</span><button id="authSwitchButton" onclick="toggleAuthMode()">회원가입</button></div>
 </section>
 
 <section class="reset-auth" id="resetAuth">
-<div class="reset-title">새 비밀번호 설정</div>
-<div class="reset-description">새김에서 사용할 새로운 비밀번호를 입력해주세요.</div>
-<div class="auth-field"><label>새 비밀번호</label><input id="newPasswordInput" type="password" autocomplete="new-password" placeholder="6자 이상 입력해주세요"></div>
-<button class="auth-login" onclick="updatePassword()">비밀번호 변경하기</button>
-<div class="auth-message" id="resetMessage"></div>
-<button class="reset-back" onclick="cancelPasswordReset()">로그인으로 돌아가기</button>
+<div class="reset-title">새 비밀번호 설정</div><div class="reset-description">새김에서 사용할 새로운 비밀번호를 입력해주세요.</div>
+<div class="auth-field"><label>새 비밀번호</label><input id="newPasswordInput" type="password" placeholder="6자 이상 입력해주세요"></div>
+<button class="auth-login" onclick="updatePassword()">비밀번호 변경하기</button><div class="auth-message" id="resetMessage"></div><button class="reset-back" onclick="cancelPasswordReset()">로그인으로 돌아가기</button>
 </section>
 
 <section class="app view" id="word">
 <div class="topbar"><div class="logo">새김</div><button class="settings-btn" onclick="openSettings()">⚙︎</button></div>
-<div class="eyebrow">이번 주 나의 말씀</div>
-<div class="verse" id="todayMessage">“이번 주 말씀을 새겨보세요.”</div>
-<div class="reference" id="todayVerse">새김</div>
-<div class="divider"></div>
-<div class="section-title">이번 주 실천</div>
-<div class="text" id="todayAction">이번 주 받은 말씀을 기록하고 한 주 동안 기억해보세요.</div>
+<div class="eyebrow">이번 주 나의 말씀</div><div class="verse" id="todayMessage">“이번 주 말씀을 새겨보세요.”</div><div class="reference" id="todayVerse">새김</div>
+<div class="divider"></div><div class="section-title">이번 주 실천</div><div class="text" id="todayAction">이번 주 받은 말씀을 기록하고 한 주 동안 기억해보세요.</div>
 <div style="margin-top:42px"><button class="primary" onclick="newRecord()">+ 새로운 말씀 새기기</button><button class="secondary" onclick="openCurrent()">이번 주 말씀 보기</button></div>
 </section>
 
 <section class="app view" id="archive">
-<div class="page-title">나의 새김</div>
-<div class="description">지나온 시간 속에서 마음에 새겼던 말씀을 다시 만나보세요.</div>
-<div id="archiveList"></div>
+<div class="page-title">나의 새김</div><div class="description">지나온 시간 속에서 마음에 새겼던 말씀을 다시 만나보세요.</div><div id="archiveList"></div>
 </section>
 
 <section class="app page" id="detail">
 <div class="detail-topbar"><button class="back" onclick="closePage()">←</button><button class="edit-btn" onclick="editSelected()">수정</button></div>
-<div class="page-title" id="detailHeading">새김 기록</div><div class="description" id="detailDate"></div>
+<div class="page-title" id="detailHeading">새김 기록</div>
+<div class="description" id="detailDate"></div>
+<div class="worship-meta" id="detailWorship"></div>
 <div class="section-title">설교 제목</div><div class="text" id="detailTitle">-</div>
 <div class="section"><div class="section-title">성경 구절</div><div class="text" id="detailVerse">-</div></div>
 <div class="section"><div class="section-title">설교 메시지</div><div class="text" id="detailSermon">-</div></div>
-<div class="divider"></div>
-<div class="section-title">이번 주 새길 한 문장</div><div class="verse" id="detailMessage">-</div>
+<div class="divider"></div><div class="section-title">이번 주 새길 한 문장</div><div class="verse" id="detailMessage">-</div>
 <div class="section"><div class="section-title">이번 주 실천</div><div class="text" id="detailAction">-</div></div>
 <button class="delete" id="deleteButton" onclick="deleteSelected()">이 기록 삭제하기</button>
 </section>
 
 <section class="app page" id="editor">
-<button class="back" onclick="closeEditor()">←</button>
-<div class="editor-title" id="editorTitle">이번 주 말씀을<br>새겨볼까요?</div>
+<button class="back" onclick="closeEditor()">←</button><div class="editor-title" id="editorTitle">이번 주 말씀을<br>새겨볼까요?</div>
 <div class="field"><label>말씀을 받은 날짜</label><input type="date" id="dateInput"></div>
+
+<div class="field">
+<label>예배의 자리</label>
+<div class="worship-row">
+<input id="serviceInput" placeholder="예) 주일 3부 예배">
+<input id="preacherInput" placeholder="예) 김○○ 목사">
+</div>
+</div>
+
 <div class="field"><label>설교 제목</label><input id="titleInput" placeholder="예) 믿음으로 살아가기"></div>
 <div class="field"><label>성경 구절</label><input id="verseInput" placeholder="예) 이사야 41:10"></div>
 <div class="field"><label>설교 메시지</label><textarea id="sermonInput" placeholder="예배 중 받은 말씀과 설교 내용을 자유롭게 기록하세요."></textarea></div>
@@ -98,434 +90,98 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 </section>
 
 <section class="app page" id="settings">
-<button class="back" onclick="closeSettings()">←</button>
-<div class="page-title">설정</div>
-<div class="description">새김을 나에게 편한 모습으로 설정해보세요.</div>
-
+<button class="back" onclick="closeSettings()">←</button><div class="page-title">설정</div><div class="description">새김을 나에게 편한 모습으로 설정해보세요.</div>
 <div class="setting-section"><div class="setting-title">글꼴</div><div class="options">
 <button class="option font-option" data-font="pretendard" onclick="selectFont('pretendard')">프리텐다드</button>
-<button class="option font-option" data-font="gowun" onclick="selectFont('gowun')" style="font-family:'Gowun Batang'">고운바탕</button>
-<button class="option font-option" data-font="noto" onclick="selectFont('noto')" style="font-family:'Noto Serif KR'">노토세리프</button>
-<button class="option font-option" data-font="nanum" onclick="selectFont('nanum')" style="font-family:'Nanum Myeongjo'">나눔명조</button>
+<button class="option font-option" data-font="gowun" onclick="selectFont('gowun')">고운바탕</button>
+<button class="option font-option" data-font="noto" onclick="selectFont('noto')">노토세리프</button>
+<button class="option font-option" data-font="nanum" onclick="selectFont('nanum')">나눔명조</button>
 <button class="option font-option" data-font="system" onclick="selectFont('system')">시스템 기본</button>
 </div></div>
-
 <div class="setting-section"><div class="setting-title">글자 크기</div><div class="size-options">
-<button class="option size-option" data-size="small" onclick="selectSize('small')">작게</button>
-<button class="option size-option" data-size="normal" onclick="selectSize('normal')">기본</button>
-<button class="option size-option" data-size="large" onclick="selectSize('large')">크게</button>
-<button class="option size-option" data-size="xlarge" onclick="selectSize('xlarge')">아주 크게</button>
+<button class="option size-option" data-size="small" onclick="selectSize('small')">작게</button><button class="option size-option" data-size="normal" onclick="selectSize('normal')">기본</button><button class="option size-option" data-size="large" onclick="selectSize('large')">크게</button><button class="option size-option" data-size="xlarge" onclick="selectSize('xlarge')">아주 크게</button>
 </div></div>
-
 <div class="preview" id="preview"><div class="preview-label">미리보기</div><div class="preview-verse">“두려워하지 말라<br>내가 너와 함께 함이라”</div><div class="preview-ref">이사야 41:10</div><div class="preview-body">오늘도 말씀을 기억하며 삶 속에서 천천히 실천해보세요.</div></div>
 <div class="apply-area"><button class="primary" onclick="applySelectedSettings()">설정 적용하기</button></div>
 <div class="account-box"><div class="setting-title">계정</div><div class="account-email" id="accountEmail">-</div><button class="logout" onclick="logout()">로그아웃</button></div>
 </section>
 
-<nav class="nav" id="nav">
-<button class="active" onclick="show('word',this)"><span class="nav-icon">⌂</span>말씀</button>
-<button onclick="show('archive',this)"><span class="nav-icon">▢</span>기록</button>
-</nav>
+<nav class="nav" id="nav"><button class="active" onclick="show('word',this)"><span class="nav-icon">⌂</span>말씀</button><button onclick="show('archive',this)"><span class="nav-icon">▢</span>기록</button></nav>
 
 <script>
-const SUPABASE_URL="https://qllmkwcfvlhvyseisfsa.supabase.co",SUPABASE_KEY="sb_publishable_tlhxe6jwwOZ6T6oxWufJDA_Yy1sWlPk",supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY),CURRENT="saegim-current",ARCHIVE="saegim-archive",SETTINGS="saegim-settings",UI_STATE="saegim-ui-state",EDITOR_DRAFT="saegim-editor-draft";
-let selected=null,editing=null,returnTo="word",pendingFont=null,pendingSize=null,authMode="login",passwordRecoveryMode=false;
-const $=id=>document.getElementById(id);
+const URL="https://qllmkwcfvlhvyseisfsa.supabase.co",KEY="sb_publishable_tlhxe6jwwOZ6T6oxWufJDA_Yy1sWlPk",sb=window.supabase.createClient(URL,KEY),CURRENT="saegim-current",ARCHIVE="saegim-archive",SETTINGS="saegim-settings",UI="saegim-ui-state",DRAFT="saegim-editor-draft";
+let selected=null,editing=null,returnTo="word",pendingFont,pendingSize,authMode="login",recovery=false;
+const $=id=>document.getElementById(id),json=(k,f)=>{try{return JSON.parse(localStorage.getItem(k))||f}catch{return f}},current=()=>json(CURRENT,null),archive=()=>json(ARCHIVE,[]),setCurrent=x=>localStorage.setItem(CURRENT,JSON.stringify(x)),setArchive=x=>localStorage.setItem(ARCHIVE,JSON.stringify(x));
 
-function hideAppCompletely(){document.querySelectorAll(".view").forEach(v=>{v.style.display="none";v.classList.remove("active")});document.querySelectorAll(".page").forEach(p=>p.style.display="none");$("nav").style.display="none"}
-function showLoading(){$("loading").style.display="flex";$("auth").classList.remove("active");$("resetAuth").style.display="none";hideAppCompletely()}
-function showAuth(){$("loading").style.display="none";$("resetAuth").style.display="none";hideAppCompletely();$("auth").classList.add("active")}
-function showResetPassword(){passwordRecoveryMode=true;$("loading").style.display="none";$("auth").classList.remove("active");hideAppCompletely();$("resetAuth").style.display="block";$("resetMessage").textContent="";$("newPasswordInput").value=""}
-function showApp(user){passwordRecoveryMode=false;$("loading").style.display="none";$("auth").classList.remove("active");$("resetAuth").style.display="none";$("accountEmail").textContent=user?.email||"소셜 로그인 계정";render();renderArchive();restoreUIState()}
+function hideApp(){document.querySelectorAll(".view,.page").forEach(x=>{x.style.display="none";x.classList.remove("active")});$("nav").style.display="none"}
+function showAuth(){$("loading").style.display="none";$("resetAuth").style.display="none";hideApp();$("auth").classList.add("active")}
+function showApp(u){recovery=false;$("loading").style.display="none";$("auth").classList.remove("active");$("resetAuth").style.display="none";$("accountEmail").textContent=u?.email||"소셜 로그인 계정";render();renderArchive();restoreUI()}
+function socialLogin(provider){sb.auth.signInWithOAuth({provider,options:{redirectTo:location.origin+location.pathname}}).then(({error})=>{if(error)$("authMessage").textContent="로그인 중 문제가 발생했어요."})}
+function togglePasswordVisibility(){const i=$("passwordInput");i.type=i.type==="password"?"text":"password"}
+function toggleAuthMode(){authMode=authMode==="login"?"signup":"login";const s=authMode==="signup";$("emailAuthButton").textContent=s?"이메일로 회원가입":"이메일로 로그인";$("authSwitchText").textContent=s?"이미 계정이 있나요?":"아직 계정이 없나요?";$("authSwitchButton").textContent=s?"로그인":"회원가입";$("forgotRow").style.visibility=s?"hidden":"visible";$("authMessage").textContent=""}
+function authError(e){const m=(e?.message||"").toLowerCase();if(m.includes("invalid login"))return"이메일 또는 비밀번호가 맞지 않아요.";if(m.includes("email not confirmed"))return"이메일 인증이 아직 완료되지 않았어요.";if(m.includes("already registered"))return"이미 가입된 이메일이에요.";return"계정 처리 중 문제가 발생했어요."}
+async function emailAuth(){const email=$("emailInput").value.trim(),password=$("passwordInput").value,m=$("authMessage");m.textContent="";if(!email||!password)return m.textContent="이메일과 비밀번호를 입력해주세요.";if(password.length<6)return m.textContent="비밀번호는 6자 이상 입력해주세요.";const r=authMode==="signup"?await sb.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}}):await sb.auth.signInWithPassword({email,password});if(r.error)return m.textContent=authError(r.error);if(r.data.session)showApp(r.data.user);else{m.style.color="#5E7359";m.textContent="회원가입이 완료됐어요. 이메일 인증 후 로그인해주세요."}}
+async function requestPasswordReset(){let email=$("emailInput").value.trim()||prompt("가입할 때 사용한 이메일을 입력해주세요.")?.trim();if(!email)return;const{error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});$("authMessage").textContent=error?"재설정 메일을 보내지 못했어요.":"비밀번호 재설정 메일을 보냈어요."}
+async function updatePassword(){const p=$("newPasswordInput").value;if(p.length<6)return $("resetMessage").textContent="비밀번호는 6자 이상 입력해주세요.";const{error}=await sb.auth.updateUser({password:p});if(error)return $("resetMessage").textContent="비밀번호 변경 중 문제가 발생했어요.";setTimeout(async()=>{await sb.auth.signOut();showAuth()},700)}
+async function cancelPasswordReset(){recovery=false;await sb.auth.signOut();showAuth()}
+async function logout(){if(!confirm("새김에서 로그아웃할까요?"))return;await sb.auth.signOut();clearUI();clearDraft();showAuth()}
+async function initAuth(){const{data}=await sb.auth.getSession();data.session?.user?showApp(data.session.user):showAuth()}
+sb.auth.onAuthStateChange((e,s)=>{if(e==="PASSWORD_RECOVERY"){recovery=true;$("loading").style.display="none";$("auth").classList.remove("active");hideApp();$("resetAuth").style.display="block"}else if(e==="SIGNED_IN"&&s?.user&&!recovery)showApp(s.user);else if(e==="SIGNED_OUT"&&!recovery)showAuth()});
 
-async function socialLogin(provider){$("authMessage").textContent="";const{error}=await supabaseClient.auth.signInWithOAuth({provider,options:{redirectTo:location.origin+location.pathname}});if(error)$("authMessage").textContent="로그인 중 문제가 발생했어요. "+error.message}
-
-function togglePasswordVisibility(){const i=$("passwordInput"),show=i.type==="password";i.type=show?"text":"password";$("passwordToggle").setAttribute("aria-label",show?"비밀번호 숨기기":"비밀번호 보기")}
-
-function toggleAuthMode(){
-authMode=authMode==="login"?"signup":"login";
-$("authMessage").textContent="";$("authMessage").style.color="#A05A55";
-const s=authMode==="signup";
-$("emailAuthButton").textContent=s?"이메일로 회원가입":"이메일로 로그인";
-$("authSwitchText").textContent=s?"이미 계정이 있나요?":"아직 계정이 없나요?";
-$("authSwitchButton").textContent=s?"로그인":"회원가입";
-$("passwordInput").autocomplete=s?"new-password":"current-password";
-$("forgotRow").style.visibility=s?"hidden":"visible";
-}
-
-function authErrorMessage(e){
-const m=(e?.message||"").toLowerCase();
-if(m.includes("invalid login credentials"))return"이메일 또는 비밀번호가 맞지 않아요.";
-if(m.includes("email not confirmed"))return"이메일 인증이 아직 완료되지 않았어요.";
-if(m.includes("user already registered"))return"이미 가입된 이메일이에요. 로그인해주세요.";
-if(m.includes("password should be"))return"비밀번호 조건을 확인해주세요.";
-return"계정 처리 중 문제가 발생했어요. 다시 시도해주세요.";
-}
-
-async function emailAuth(){
-const email=$("emailInput").value.trim(),password=$("passwordInput").value,m=$("authMessage");
-m.textContent="";m.style.color="#A05A55";
-if(!email||!password){m.textContent="이메일과 비밀번호를 입력해주세요.";return}
-if(password.length<6){m.textContent="비밀번호는 6자 이상 입력해주세요.";return}
-$("emailAuthButton").disabled=true;
-try{
-if(authMode==="signup"){
-const{data,error}=await supabaseClient.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}});
-if(error)throw error;
-if(data.session){clearUIState();clearEditorDraft();showApp(data.user)}
-else{m.style.color="#5E7359";m.textContent="회원가입이 완료됐어요. 받은 이메일에서 인증 후 로그인해주세요."}
-}else{
-const{data,error}=await supabaseClient.auth.signInWithPassword({email,password});
-if(error)throw error;showApp(data.user);
-}
-}catch(e){m.textContent=authErrorMessage(e)}
-finally{$("emailAuthButton").disabled=false}
-}
-
-async function requestPasswordReset(){
-let email=$("emailInput").value.trim();
-if(!email)email=prompt("가입할 때 사용한 이메일을 입력해주세요.")?.trim();
-if(!email)return;
-const m=$("authMessage");m.textContent="";
-const{error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});
-m.style.color=error?"#A05A55":"#5E7359";
-m.textContent=error?"비밀번호 재설정 메일을 보내지 못했어요. 이메일을 확인해주세요.":"비밀번호 재설정 메일을 보냈어요. 받은 메일의 링크를 눌러주세요.";
-}
-
-async function updatePassword(){
-const p=$("newPasswordInput").value,m=$("resetMessage");m.textContent="";
-if(!p){m.textContent="새 비밀번호를 입력해주세요.";return}
-if(p.length<6){m.textContent="비밀번호는 6자 이상 입력해주세요.";return}
-const{error}=await supabaseClient.auth.updateUser({password:p});
-if(error){m.style.color="#A05A55";m.textContent="비밀번호 변경 중 문제가 발생했어요. 다시 시도해주세요.";return}
-passwordRecoveryMode=false;m.style.color="#5E7359";m.textContent="비밀번호가 변경됐어요.";
-setTimeout(async()=>{await supabaseClient.auth.signOut();showAuth();$("authMessage").style.color="#5E7359";$("authMessage").textContent="새 비밀번호로 로그인해주세요."},700);
-}
-
-async function cancelPasswordReset(){passwordRecoveryMode=false;await supabaseClient.auth.signOut();showAuth()}
-
-async function logout(){
-if(!confirm("새김에서 로그아웃할까요?"))return;
-const{error}=await supabaseClient.auth.signOut();
-if(error){alert("로그아웃 중 문제가 발생했어요.");return}
-clearUIState();clearEditorDraft();selected=editing=null;returnTo="word";
-$("emailInput").value=$("passwordInput").value=$("authMessage").textContent="";
-showAuth();
-}
-
-async function initAuth(){
-showLoading();
-const{data,error}=await supabaseClient.auth.getSession();
-if(error)return showAuth();
-data.session?.user?showApp(data.session.user):showAuth();
-}
-
-supabaseClient.auth.onAuthStateChange((event,session)=>{
-if(event==="PASSWORD_RECOVERY")return showResetPassword();
-if(event==="SIGNED_IN"&&session?.user&&!passwordRecoveryMode)showApp(session.user);
-if(event==="SIGNED_OUT"&&!passwordRecoveryMode)showAuth();
-});
-
-function getJSON(k,f){try{return JSON.parse(localStorage.getItem(k))||f}catch{return f}}
-function getCurrent(){return getJSON(CURRENT,null)}
-function getArchive(){return getJSON(ARCHIVE,[])}
-function setCurrent(d){localStorage.setItem(CURRENT,JSON.stringify(d))}
-function setArchive(d){localStorage.setItem(ARCHIVE,JSON.stringify(d))}
-
-function getUIState(){return getJSON(UI_STATE,{screen:"word",selected:null,returnTo:"word",scrollY:0})}
-function saveUIState(screen,extra={}){localStorage.setItem(UI_STATE,JSON.stringify({...getUIState(),...extra,screen}))}
-function clearUIState(){localStorage.removeItem(UI_STATE)}
-function saveScrollPosition(){const s=getUIState();s.scrollY=scrollY||0;localStorage.setItem(UI_STATE,JSON.stringify(s))}
-
-function getEditorDraft(){return getJSON(EDITOR_DRAFT,null)}
-function clearEditorDraft(){localStorage.removeItem(EDITOR_DRAFT)}
-
-function saveEditorDraft(){
-localStorage.setItem(EDITOR_DRAFT,JSON.stringify({
-editing,returnTo,
-recordDate:$("dateInput").value,
-title:$("titleInput").value,
-verse:$("verseInput").value,
-sermon:$("sermonInput").value,
-message:$("messageInput").value,
-action:$("actionInput").value,
-editorTitle:$("editorTitle").innerHTML,
-saveButton:$("saveButton").textContent
-}));
-}
-
-function restoreEditorDraft(){
-const d=getEditorDraft();if(!d)return false;
-editing=d.editing||null;returnTo=d.returnTo||"word";
-$("dateInput").value=d.recordDate||today();
-$("titleInput").value=d.title||"";
-$("verseInput").value=d.verse||"";
-$("sermonInput").value=d.sermon||"";
-$("messageInput").value=d.message||"";
-$("actionInput").value=d.action||"";
-$("editorTitle").innerHTML=d.editorTitle||"이번 주 말씀을<br>새겨볼까요?";
-$("saveButton").textContent=d.saveButton||"말씀 새기기";
-return true;
-}
-
-function preserve(){saveScrollPosition();if($("editor").style.display==="block")saveEditorDraft()}
-addEventListener("pagehide",preserve);
-document.addEventListener("visibilitychange",()=>{if(document.hidden)preserve()});
-["dateInput","titleInput","verseInput","sermonInput","messageInput","actionInput"].forEach(id=>$(id).addEventListener("input",()=>{if($("editor").style.display==="block")saveEditorDraft()}));
+function state(){return json(UI,{screen:"word",selected:null,returnTo:"word",scrollY:0})}
+function saveUI(screen,x={}){localStorage.setItem(UI,JSON.stringify({...state(),...x,screen}))}
+function clearUI(){localStorage.removeItem(UI)}function clearDraft(){localStorage.removeItem(DRAFT)}
+function saveDraft(){localStorage.setItem(DRAFT,JSON.stringify({editing,returnTo,date:$("dateInput").value,service:$("serviceInput").value,preacher:$("preacherInput").value,title:$("titleInput").value,verse:$("verseInput").value,sermon:$("sermonInput").value,message:$("messageInput").value,action:$("actionInput").value,editorTitle:$("editorTitle").innerHTML,saveButton:$("saveButton").textContent}))}
+function restoreDraft(){const d=json(DRAFT,null);if(!d)return false;editing=d.editing||null;returnTo=d.returnTo||"word";["service","preacher","title","verse","sermon","message","action"].forEach(k=>$(k+"Input").value=d[k]||"");$("dateInput").value=d.date||today();$("editorTitle").innerHTML=d.editorTitle||"이번 주 말씀을<br>새겨볼까요?";$("saveButton").textContent=d.saveButton||"말씀 새기기";return true}
+function preserve(){const s=state();s.scrollY=scrollY||0;localStorage.setItem(UI,JSON.stringify(s));if($("editor").style.display==="block")saveDraft()}
+addEventListener("pagehide",preserve);document.addEventListener("visibilitychange",()=>document.hidden&&preserve());
+["date","service","preacher","title","verse","sermon","message","action"].forEach(k=>$(k+"Input").addEventListener("input",()=>{if($("editor").style.display==="block")saveDraft()}));
 
 function today(){const d=new Date(),p=n=>String(n).padStart(2,"0");return`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`}
-function recordDate(r){if(r.recordDate)return r.recordDate;if(!r.savedAt)return today();const d=new Date(r.savedAt),p=n=>String(n).padStart(2,"0");return`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`}
+function rdate(r){if(r.recordDate)return r.recordDate;if(!r.savedAt)return today();const d=new Date(r.savedAt),p=n=>String(n).padStart(2,"0");return`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`}
 function dateText(d){if(!d)return"";const[y,m,x]=d.split("-").map(Number);return`${y}년 ${m}월 ${x}일`}
-function shortDate(d){if(!d)return"";const[y,m,x]=d.split("-").map(Number);return`${y}. ${m}. ${x}.`}
-function sortRecords(r){return[...r].sort((a,b)=>recordDate(b).localeCompare(recordDate(a))||Number(b.id)-Number(a.id))}
-
-function hidePages(){document.querySelectorAll(".page").forEach(p=>p.style.display="none")}
-function hideMain(){document.querySelectorAll(".view").forEach(v=>v.style.display="none");$("nav").style.display="none"}
-
-function activate(name){
-hidePages();
-document.querySelectorAll(".view").forEach(v=>{v.style.display="";v.classList.remove("active")});
-$(name).classList.add("active");$("nav").style.display="flex";
-const b=document.querySelectorAll(".nav button");
-b.forEach(x=>x.classList.remove("active"));b[name==="word"?0:1].classList.add("active");
-if(name==="archive")renderArchive();
-}
-
-function show(name,button){
-activate(name);button.classList.add("active");
-saveUIState(name,{selected:null,returnTo:name,scrollY:0});
-scrollTo(0,0);
-}
-
-function restore(name,remember=true){
-activate(name);render();renderArchive();
-if(remember)saveUIState(name,{selected:null,returnTo:name,scrollY:0});
-scrollTo(0,0);
-}
-
-function restoreUIState(){
-const s=getUIState();selected=s.selected||null;returnTo=s.returnTo||"word";
-hidePages();
-document.querySelectorAll(".view").forEach(v=>{v.style.display="none";v.classList.remove("active")});
-$("nav").style.display="none";
-const pos=()=>requestAnimationFrame(()=>scrollTo(0,s.scrollY||0));
-
-if(s.screen==="editor"){
-if(!restoreEditorDraft()){clearUIState();return restore("word",false)}
-$("editor").style.display="block";return pos();
-}
-
-if(s.screen==="detail"&&s.selected){
-const c=getCurrent(),r=getArchive().find(x=>String(x.id)===String(s.selected))||(String(c?.id)===String(s.selected)?c:null);
-if(r){selected=r.id;openDetail(r,s.returnTo==="word",false);return pos()}
-}
-
-if(s.screen==="settings"){
-const x=getSettings();pendingFont=x.font;pendingSize=x.size;
-$("settings").style.display="block";updateSettingButtons();updatePreview();return pos();
-}
-
-restore(s.screen==="archive"?"archive":"word",false);pos();
-}
-
-function newRecord(){
-editing=null;returnTo="word";clearEditorDraft();
-["title","verse","sermon","message","action"].forEach(id=>$(id+"Input").value="");
-$("dateInput").value=today();
-$("editorTitle").innerHTML="이번 주 말씀을<br>새겨볼까요?";
-$("saveButton").textContent="말씀 새기기";
-hideMain();$("editor").style.display="block";
-saveUIState("editor",{selected:null,returnTo:"word",scrollY:0});
-saveEditorDraft();scrollTo(0,0);
-}
-
-function openCurrent(){const r=getCurrent();if(!r)return newRecord();selected=r.id;returnTo="word";openDetail(r,true)}
-function openArchive(id){const r=getArchive().find(x=>String(x.id)===String(id));if(!r)return;selected=r.id;returnTo="archive";openDetail(r,false)}
-
-function openDetail(r,isCurrent,remember=true){
-$("detailHeading").textContent=isCurrent?"이번 주 말씀":"새김 기록";
-$("detailDate").textContent=dateText(recordDate(r));
-$("detailTitle").textContent=r.title||"-";
-$("detailVerse").textContent=r.verse||"-";
-$("detailSermon").textContent=r.sermon||"-";
-$("detailMessage").textContent=r.message?`“${r.message}”`:"-";
-$("detailAction").textContent=r.action||"-";
-$("deleteButton").style.display=isCurrent?"none":"block";
-hideMain();$("detail").style.display="block";
-if(remember)saveUIState("detail",{selected:r.id,returnTo,scrollY:0});
-scrollTo(0,0);
-}
-
-function closePage(){selected=null;$("detail").style.display="none";restore(returnTo)}
-
-function editSelected(){
-const c=getCurrent(),r=getArchive().find(x=>String(x.id)===String(selected))||(String(c?.id)===String(selected)?c:null);
-if(!r)return;
-editing=r.id;
-$("dateInput").value=recordDate(r);
-$("titleInput").value=r.title||"";
-$("verseInput").value=r.verse||"";
-$("sermonInput").value=r.sermon||"";
-$("messageInput").value=r.message||"";
-$("actionInput").value=r.action||"";
-$("editorTitle").innerHTML="새김 기록을<br>수정할까요?";
-$("saveButton").textContent="수정 내용 저장하기";
-$("detail").style.display="none";$("editor").style.display="block";
-saveUIState("editor",{selected:r.id,returnTo,scrollY:0});
-saveEditorDraft();scrollTo(0,0);
-}
-
-function closeEditor(){
-clearEditorDraft();$("editor").style.display="none";
-if(editing){
-const r=getArchive().find(x=>String(x.id)===String(editing));
-if(r){selected=r.id;openDetail(r,returnTo==="word");editing=null;return}
-}
-editing=null;restore(returnTo);
-}
-
-function saveRecord(){
-const d={
-recordDate:$("dateInput").value,
-title:$("titleInput").value.trim(),
-verse:$("verseInput").value.trim(),
-sermon:$("sermonInput").value.trim(),
-message:$("messageInput").value.trim(),
-action:$("actionInput").value.trim()
-};
-
-if(!d.recordDate)return alert("말씀을 받은 날짜를 선택해주세요.");
-if(!d.title&&!d.verse&&!d.sermon&&!d.message)return alert("말씀이나 설교 내용을 하나 이상 기록해주세요.");
-
-let a=getArchive();
-
-if(editing){
-const old=a.find(x=>String(x.id)===String(editing))||getCurrent();
-d.id=editing;
-d.savedAt=old?.savedAt||new Date().toISOString();
-d.updatedAt=new Date().toISOString();
-a=a.map(x=>String(x.id)===String(editing)?d:x);
-if(String(getCurrent()?.id)===String(editing))setCurrent(d);
-alert("수정 내용이 저장되었어요.");
-}else{
-d.id=Date.now();
-d.savedAt=new Date().toISOString();
-d.updatedAt=d.savedAt;
-a.push(d);setCurrent(d);
-alert("이번 주 말씀이 새겨졌어요.");
-}
-
-setArchive(sortRecords(a));
-clearEditorDraft();
-editing=selected=null;
-$("editor").style.display="none";
-restore("word");
-}
-
-function deleteSelected(){
-if(!selected||!confirm("이 기록을 삭제할까요?\n\n삭제한 기록은 되돌릴 수 없어요."))return;
-let a=sortRecords(getArchive().filter(x=>String(x.id)!==String(selected)));
-setArchive(a);
-if(String(getCurrent()?.id)===String(selected))a.length?setCurrent(a[0]):localStorage.removeItem(CURRENT);
-selected=null;$("detail").style.display="none";restore("archive");
-}
-
-function render(){
-const r=getCurrent();
-if(!r){
-$("todayMessage").textContent="“이번 주 말씀을 새겨보세요.”";
-$("todayVerse").textContent="새김";
-$("todayAction").textContent="이번 주 받은 말씀을 기록하고 한 주 동안 기억해보세요.";
-return;
-}
-$("todayMessage").textContent=`“${r.message||"이번 주 말씀을 기억해보세요."}”`;
-$("todayVerse").textContent=r.verse||"말씀";
-$("todayAction").textContent=r.action||"이번 주 실천을 기록해보세요.";
-}
-
+function shortDate(d){const[y,m,x]=d.split("-").map(Number);return`${y}. ${m}. ${x}.`}
+function sort(a){return[...a].sort((x,y)=>rdate(y).localeCompare(rdate(x))||Number(y.id)-Number(x.id))}
 function safe(t){const d=document.createElement("div");d.textContent=t||"";return d.innerHTML}
 
-function renderArchive(){
-const a=sortRecords(getArchive());
-$("archiveList").innerHTML=a.length
-?a.map(r=>`<div class="card" onclick="openArchive('${r.id}')"><div class="card-date">${shortDate(recordDate(r))}</div><div class="card-title">${safe(r.title||"이번 주 말씀")}</div><div class="card-message">“${safe(r.message||r.sermon||"기록된 말씀")}”</div><div class="card-verse">${safe(r.verse||"")}</div></div>`).join("")
-:'<div class="empty">아직 새김 기록이 없어요.<br>말씀을 새기면 이곳에 차곡차곡 쌓입니다.</div>';
+function activate(name){document.querySelectorAll(".page").forEach(x=>x.style.display="none");document.querySelectorAll(".view").forEach(x=>{x.style.display="";x.classList.remove("active")});$(name).classList.add("active");$("nav").style.display="flex";document.querySelectorAll(".nav button").forEach((b,i)=>b.classList.toggle("active",i===(name==="word"?0:1)));if(name==="archive")renderArchive()}
+function show(name){activate(name);saveUI(name,{selected:null,returnTo:name,scrollY:0});scrollTo(0,0)}
+function restore(name,remember=true){activate(name);render();renderArchive();if(remember)saveUI(name,{selected:null,returnTo:name,scrollY:0});scrollTo(0,0)}
+function restoreUI(){const s=state();selected=s.selected;returnTo=s.returnTo||"word";hideApp();const pos=()=>requestAnimationFrame(()=>scrollTo(0,s.scrollY||0));if(s.screen==="editor"&&restoreDraft()){$("editor").style.display="block";return pos()}if(s.screen==="detail"&&s.selected){const r=archive().find(x=>String(x.id)===String(s.selected))||current();if(r){selected=r.id;openDetail(r,s.returnTo==="word",false);return pos()}}if(s.screen==="settings"){const x=getSettings();pendingFont=x.font;pendingSize=x.size;$("settings").style.display="block";updateSettings();return pos()}restore(s.screen==="archive"?"archive":"word",false);pos()}
+
+function newRecord(){editing=null;returnTo="word";clearDraft();["service","preacher","title","verse","sermon","message","action"].forEach(k=>$(k+"Input").value="");$("dateInput").value=today();$("editorTitle").innerHTML="이번 주 말씀을<br>새겨볼까요?";$("saveButton").textContent="말씀 새기기";hideApp();$("editor").style.display="block";saveUI("editor",{selected:null,returnTo:"word",scrollY:0});saveDraft()}
+function openCurrent(){const r=current();if(!r)return newRecord();selected=r.id;returnTo="word";openDetail(r,true)}
+function openArchive(id){const r=archive().find(x=>String(x.id)===String(id));if(!r)return;selected=r.id;returnTo="archive";openDetail(r,false)}
+function openDetail(r,isCurrent,remember=true){$("detailHeading").textContent=isCurrent?"이번 주 말씀":"새김 기록";$("detailDate").textContent=dateText(rdate(r));const w=[r.service,r.preacher].filter(Boolean).join(" · ");$("detailWorship").textContent=w;$("detailWorship").style.display=w?"block":"none";$("detailTitle").textContent=r.title||"-";$("detailVerse").textContent=r.verse||"-";$("detailSermon").textContent=r.sermon||"-";$("detailMessage").textContent=r.message?`“${r.message}”`:"-";$("detailAction").textContent=r.action||"-";$("deleteButton").style.display=isCurrent?"none":"block";hideApp();$("detail").style.display="block";if(remember)saveUI("detail",{selected:r.id,returnTo,scrollY:0})}
+function closePage(){selected=null;$("detail").style.display="none";restore(returnTo)}
+function editSelected(){const r=archive().find(x=>String(x.id)===String(selected))||current();if(!r)return;editing=r.id;$("dateInput").value=rdate(r);["service","preacher","title","verse","sermon","message","action"].forEach(k=>$(k+"Input").value=r[k]||"");$("editorTitle").innerHTML="새김 기록을<br>수정할까요?";$("saveButton").textContent="수정 내용 저장하기";$("detail").style.display="none";$("editor").style.display="block";saveUI("editor",{selected:r.id,returnTo,scrollY:0});saveDraft()}
+function closeEditor(){clearDraft();$("editor").style.display="none";if(editing){const r=archive().find(x=>String(x.id)===String(editing));if(r){selected=r.id;editing=null;return openDetail(r,returnTo==="word")}}editing=null;restore(returnTo)}
+
+function saveRecord(){
+const d={recordDate:$("dateInput").value,service:$("serviceInput").value.trim(),preacher:$("preacherInput").value.trim(),title:$("titleInput").value.trim(),verse:$("verseInput").value.trim(),sermon:$("sermonInput").value.trim(),message:$("messageInput").value.trim(),action:$("actionInput").value.trim()};
+if(!d.recordDate)return alert("말씀을 받은 날짜를 선택해주세요.");
+if(!d.title&&!d.verse&&!d.sermon&&!d.message)return alert("말씀이나 설교 내용을 하나 이상 기록해주세요.");
+let a=archive();
+if(editing){const old=a.find(x=>String(x.id)===String(editing))||current();d.id=editing;d.savedAt=old?.savedAt||new Date().toISOString();d.updatedAt=new Date().toISOString();a=a.map(x=>String(x.id)===String(editing)?d:x);if(String(current()?.id)===String(editing))setCurrent(d);alert("수정 내용이 저장되었어요.")}
+else{d.id=Date.now();d.savedAt=d.updatedAt=new Date().toISOString();a.push(d);setCurrent(d);alert("이번 주 말씀이 새겨졌어요.")}
+setArchive(sort(a));clearDraft();editing=selected=null;$("editor").style.display="none";restore("word");
 }
+function deleteSelected(){if(!selected||!confirm("이 기록을 삭제할까요?\n\n삭제한 기록은 되돌릴 수 없어요."))return;const a=sort(archive().filter(x=>String(x.id)!==String(selected)));setArchive(a);if(String(current()?.id)===String(selected))a.length?setCurrent(a[0]):localStorage.removeItem(CURRENT);selected=null;restore("archive")}
 
-const fonts={
-pretendard:'"Pretendard",-apple-system,sans-serif',
-gowun:'"Gowun Batang",serif',
-noto:'"Noto Serif KR",serif',
-nanum:'"Nanum Myeongjo",serif',
-system:'-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif'
-};
+function render(){const r=current();if(!r){$("todayMessage").textContent="“이번 주 말씀을 새겨보세요.”";$("todayVerse").textContent="새김";$("todayAction").textContent="이번 주 받은 말씀을 기록하고 한 주 동안 기억해보세요.";return}$("todayMessage").textContent=`“${r.message||"이번 주 말씀을 기억해보세요."}”`;$("todayVerse").textContent=r.verse||"말씀";$("todayAction").textContent=r.action||"이번 주 실천을 기록해보세요."}
+function renderArchive(){const a=sort(archive());$("archiveList").innerHTML=a.length?a.map(r=>`<div class="card" onclick="openArchive('${r.id}')"><div class="card-date">${shortDate(rdate(r))}</div><div class="card-title">${safe(r.title||"이번 주 말씀")}</div><div class="card-message">“${safe(r.message||r.sermon||"기록된 말씀")}”</div><div class="card-verse">${safe(r.verse||"")}</div></div>`).join(""):'<div class="empty">아직 새김 기록이 없어요.<br>말씀을 새기면 이곳에 차곡차곡 쌓입니다.</div>'}
 
-const sizes={
-small:{hero:24,title:25,body:15,small:12},
-normal:{hero:28,title:28,body:17,small:13},
-large:{hero:32,title:31,body:19,small:14},
-xlarge:{hero:36,title:34,body:21,small:15}
-};
+const fonts={pretendard:'"Pretendard",-apple-system,sans-serif',gowun:'"Gowun Batang",serif',noto:'"Noto Serif KR",serif',nanum:'"Nanum Myeongjo",serif',system:'-apple-system,sans-serif'},sizes={small:[24,25,15,12],normal:[28,28,17,13],large:[32,31,19,14],xlarge:[36,34,21,15]};
+function getSettings(){return json(SETTINGS,{font:"pretendard",size:"normal"})}
+function applySettings(s=getSettings()){const z=sizes[s.size]||sizes.normal,r=document.documentElement;r.style.setProperty("--font",fonts[s.font]||fonts.pretendard);["hero","title","body","small"].forEach((k,i)=>r.style.setProperty("--"+k,z[i]+"px"))}
+async function openSettings(){const s=getSettings();pendingFont=s.font;pendingSize=s.size;const{data}=await sb.auth.getUser();$("accountEmail").textContent=data.user?.email||"소셜 로그인 계정";hideApp();$("settings").style.display="block";updateSettings();saveUI("settings",{scrollY:0})}
+function closeSettings(){$("settings").style.display="none";restore("word")}
+function selectFont(x){pendingFont=x;updateSettings()}function selectSize(x){pendingSize=x;updateSettings()}
+function updateSettings(){document.querySelectorAll(".font-option").forEach(b=>b.classList.toggle("selected",b.dataset.font===pendingFont));document.querySelectorAll(".size-option").forEach(b=>b.classList.toggle("selected",b.dataset.size===pendingSize));const p=$("preview"),z=sizes[pendingSize]||sizes.normal;p.style.fontFamily=fonts[pendingFont]||fonts.pretendard;p.querySelector(".preview-verse").style.fontSize=z[0]+"px";p.querySelector(".preview-body").style.fontSize=z[2]+"px"}
+function applySelectedSettings(){const s={font:pendingFont||"pretendard",size:pendingSize||"normal"};localStorage.setItem(SETTINGS,JSON.stringify(s));applySettings(s);alert("설정이 적용되었어요.");restore("word")}
 
-function getSettings(){return getJSON(SETTINGS,{font:"pretendard",size:"normal"})}
-
-function applySettings(s=getSettings()){
-const r=document.documentElement,z=sizes[s.size]||sizes.normal;
-r.style.setProperty("--font",fonts[s.font]||fonts.pretendard);
-["hero","title","body","small"].forEach(k=>r.style.setProperty("--"+k,z[k]+"px"));
-}
-
-async function openSettings(){
-const s=getSettings();pendingFont=s.font;pendingSize=s.size;
-const{data}=await supabaseClient.auth.getUser();
-$("accountEmail").textContent=data.user?.email||"소셜 로그인 계정";
-hideMain();$("settings").style.display="block";
-updateSettingButtons();updatePreview();
-saveUIState("settings",{selected:null,returnTo:"word",scrollY:0});
-scrollTo(0,0);
-}
-
-function closeSettings(){pendingFont=pendingSize=null;$("settings").style.display="none";restore("word")}
-function selectFont(f){pendingFont=f;updateSettingButtons();updatePreview()}
-function selectSize(s){pendingSize=s;updateSettingButtons();updatePreview()}
-
-function updateSettingButtons(){
-document.querySelectorAll(".font-option").forEach(b=>b.classList.toggle("selected",b.dataset.font===pendingFont));
-document.querySelectorAll(".size-option").forEach(b=>b.classList.toggle("selected",b.dataset.size===pendingSize));
-}
-
-function updatePreview(){
-const p=$("preview"),s=sizes[pendingSize]||sizes.normal;
-p.style.fontFamily=fonts[pendingFont]||fonts.pretendard;
-p.querySelector(".preview-verse").style.fontSize=s.hero+"px";
-p.querySelector(".preview-body").style.fontSize=s.body+"px";
-p.querySelector(".preview-label").style.fontSize=p.querySelector(".preview-ref").style.fontSize=s.small+"px";
-}
-
-function applySelectedSettings(){
-const s={font:pendingFont||"pretendard",size:pendingSize||"normal"};
-localStorage.setItem(SETTINGS,JSON.stringify(s));
-applySettings(s);
-alert("설정이 적용되었어요.");
-$("settings").style.display="none";
-restore("word");
-}
-
-(function migrate(){
-let a=getArchive(),c=getCurrent();
-if(c){
-c.recordDate=recordDate(c);
-if(!c.id)c.id=Date.now();
-const i=a.findIndex(x=>String(x.id)===String(c.id));
-i<0?a.push(c):a[i]={...a[i],...c};
-setCurrent(c);
-}
-a=a.map((r,i)=>({...r,id:r.id||Date.now()+i,recordDate:recordDate(r)}));
-setArchive(sortRecords(a));
-})();
-
-applySettings();
-initAuth();
+(function migrate(){let a=archive(),c=current();if(c){c.recordDate=rdate(c);if(!c.id)c.id=Date.now();const i=a.findIndex(x=>String(x.id)===String(c.id));i<0?a.push(c):a[i]={...a[i],...c};setCurrent(c)}a=a.map((r,i)=>({...r,id:r.id||Date.now()+i,recordDate:rdate(r)}));setArchive(sort(a))})();
+applySettings();initAuth();
 </script>
 </body>
 </html>

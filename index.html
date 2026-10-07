@@ -53,9 +53,7 @@ button{cursor:pointer}
 .view,.page{display:none}
 .view.active{display:block}
 
-/* =========================
-   로그인
-========================= */
+/* 로그인 */
 
 .auth{
   display:none;
@@ -65,9 +63,7 @@ button{cursor:pointer}
   padding:78px 27px 48px;
 }
 
-.auth.active{
-  display:block;
-}
+.auth.active{display:block}
 
 .auth-logo{
   font-size:35px;
@@ -83,9 +79,7 @@ button{cursor:pointer}
   margin-bottom:66px;
 }
 
-.auth-field{
-  margin-bottom:24px;
-}
+.auth-field{margin-bottom:24px}
 
 .auth-field label{
   display:block;
@@ -94,17 +88,11 @@ button{cursor:pointer}
   margin-bottom:9px;
 }
 
-.auth-field input{
-  font-size:16px;
-}
+.auth-field input{font-size:16px}
 
-.password-wrap{
-  position:relative;
-}
+.password-wrap{position:relative}
 
-.password-wrap input{
-  padding-right:42px;
-}
+.password-wrap input{padding-right:42px}
 
 .password-toggle{
   position:absolute;
@@ -176,7 +164,6 @@ button{cursor:pointer}
 }
 
 .auth-social{
-  position:relative;
   width:100%;
   height:47px;
   border-radius:14px;
@@ -193,9 +180,7 @@ button{cursor:pointer}
   color:#191919;
 }
 
-.auth-social.google{
-  background:#fff;
-}
+.auth-social.google{background:#fff}
 
 .social-content{
   display:flex;
@@ -627,9 +612,7 @@ textarea{
 
 <body>
 
-<div class="loading" id="loading">
-  새김을 여는 중...
-</div>
+<div class="loading" id="loading">새김을 여는 중...</div>
 
 <!-- 로그인 -->
 
@@ -697,71 +680,34 @@ textarea{
 
   <div class="auth-buttons">
 
-    <button
-      class="auth-social kakao"
-      onclick="socialLogin('kakao')">
-
+    <button class="auth-social kakao" onclick="socialLogin('kakao')">
       <span class="social-content">
-
-        <svg
-          class="social-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true">
-
-          <path
-            fill="#191919"
-            d="M12 3C6.48 3 2 6.58 2 11c0 2.84 1.86 5.33 4.66 6.75l-.95 3.5c-.08.3.26.54.52.37l4.17-2.78c.52.07 1.05.1 1.6.1 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/>
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#191919" d="M12 3C6.48 3 2 6.58 2 11c0 2.84 1.86 5.33 4.66 6.75l-.95 3.5c-.08.3.26.54.52.37l4.17-2.78c.52.07 1.05.1 1.6.1 5.52 0 10-3.58 10-7.94S17.52 3 12 3z"/>
         </svg>
-
         <span>카카오로 계속하기</span>
-
       </span>
-
     </button>
 
-    <button
-      class="auth-social google"
-      onclick="socialLogin('google')">
-
+    <button class="auth-social google" onclick="socialLogin('google')">
       <span class="social-content">
-
-        <svg
-          class="social-icon"
-          viewBox="0 0 24 24"
-          aria-hidden="true">
-
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.07H12v3.92h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.38z"/>
           <path fill="#34A853" d="M12 22c2.7 0 4.97-.9 6.62-2.39l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.61 0-4.82-1.76-5.61-4.13H3.05v2.59A10 10 0 0 0 12 22z"/>
           <path fill="#FBBC05" d="M6.39 13.93A6.02 6.02 0 0 1 6.08 12c0-.67.11-1.32.31-1.93V7.48H3.05A10 10 0 0 0 2 12c0 1.61.38 3.14 1.05 4.52l3.34-2.59z"/>
           <path fill="#EA4335" d="M12 5.94c1.47 0 2.79.51 3.83 1.5l2.87-2.87C16.96 2.95 14.7 2 12 2a10 10 0 0 0-8.95 5.48l3.34 2.59C7.18 7.7 9.39 5.94 12 5.94z"/>
-
         </svg>
-
         <span>Google로 계속하기</span>
-
       </span>
-
     </button>
 
   </div>
 
-  <div
-    class="auth-message"
-    id="authMessage">
-  </div>
+  <div class="auth-message" id="authMessage"></div>
 
   <div class="auth-switch">
-
-    <span id="authSwitchText">
-      아직 계정이 없나요?
-    </span>
-
-    <button
-      id="authSwitchButton"
-      onclick="toggleAuthMode()">
-      회원가입
-    </button>
-
+    <span id="authSwitchText">아직 계정이 없나요?</span>
+    <button id="authSwitchButton" onclick="toggleAuthMode()">회원가입</button>
   </div>
 
 </section>
@@ -770,40 +716,28 @@ textarea{
 
 <section class="reset-auth" id="resetAuth">
 
-  <div class="reset-title">
-    새 비밀번호 설정
-  </div>
+  <div class="reset-title">새 비밀번호 설정</div>
 
   <div class="reset-description">
     새김에서 사용할 새로운 비밀번호를 입력해주세요.
   </div>
 
   <div class="auth-field">
-
     <label>새 비밀번호</label>
-
     <input
       id="newPasswordInput"
       type="password"
       autocomplete="new-password"
       placeholder="6자 이상 입력해주세요">
-
   </div>
 
-  <button
-    class="auth-login"
-    onclick="updatePassword()">
+  <button class="auth-login" onclick="updatePassword()">
     비밀번호 변경하기
   </button>
 
-  <div
-    class="auth-message"
-    id="resetMessage">
-  </div>
+  <div class="auth-message" id="resetMessage"></div>
 
-  <button
-    class="reset-back"
-    onclick="cancelPasswordReset()">
+  <button class="reset-back" onclick="cancelPasswordReset()">
     로그인으로 돌아가기
   </button>
 
@@ -814,57 +748,36 @@ textarea{
 <section class="app view" id="word">
 
   <div class="topbar">
-
     <div class="logo">새김</div>
 
-    <button
-      class="settings-btn"
-      onclick="openSettings()"
-      aria-label="설정">
+    <button class="settings-btn" onclick="openSettings()" aria-label="설정">
       ⚙︎
     </button>
-
   </div>
 
-  <div class="eyebrow">
-    이번 주 나의 말씀
-  </div>
+  <div class="eyebrow">이번 주 나의 말씀</div>
 
-  <div
-    class="verse"
-    id="todayMessage">
+  <div class="verse" id="todayMessage">
     “이번 주 말씀을 새겨보세요.”
   </div>
 
-  <div
-    class="reference"
-    id="todayVerse">
-    새김
-  </div>
+  <div class="reference" id="todayVerse">새김</div>
 
   <div class="divider"></div>
 
-  <div class="section-title">
-    이번 주 실천
-  </div>
+  <div class="section-title">이번 주 실천</div>
 
-  <div
-    class="text"
-    id="todayAction">
+  <div class="text" id="todayAction">
     이번 주 받은 말씀을 기록하고 한 주 동안 기억해보세요.
   </div>
 
   <div style="margin-top:42px">
 
-    <button
-      class="primary"
-      onclick="newRecord()">
+    <button class="primary" onclick="newRecord()">
       + 새로운 말씀 새기기
     </button>
 
-    <button
-      class="secondary"
-      onclick="openCurrent()">
+    <button class="secondary" onclick="openCurrent()">
       이번 주 말씀 보기
     </button>
 
@@ -876,9 +789,7 @@ textarea{
 
 <section class="app view" id="archive">
 
-  <div class="page-title">
-    나의 새김
-  </div>
+  <div class="page-title">나의 새김</div>
 
   <div class="description">
     지나온 시간 속에서 마음에 새겼던 말씀을 다시 만나보세요.
@@ -894,100 +805,43 @@ textarea{
 
   <div class="detail-topbar">
 
-    <button
-      class="back"
-      onclick="closePage()"
-      aria-label="뒤로가기">
+    <button class="back" onclick="closePage()" aria-label="뒤로가기">
       ←
     </button>
 
-    <button
-      class="edit-btn"
-      onclick="editSelected()">
+    <button class="edit-btn" onclick="editSelected()">
       수정
     </button>
 
   </div>
 
-  <div
-    class="page-title"
-    id="detailHeading">
-    새김 기록
-  </div>
+  <div class="page-title" id="detailHeading">새김 기록</div>
+  <div class="description" id="detailDate"></div>
 
-  <div
-    class="description"
-    id="detailDate">
-  </div>
+  <div class="section-title">설교 제목</div>
+  <div class="text" id="detailTitle">-</div>
 
-  <div class="section-title">
-    설교 제목
-  </div>
-
-  <div
-    class="text"
-    id="detailTitle">
-    -
+  <div class="section">
+    <div class="section-title">성경 구절</div>
+    <div class="text" id="detailVerse">-</div>
   </div>
 
   <div class="section">
-
-    <div class="section-title">
-      성경 구절
-    </div>
-
-    <div
-      class="text"
-      id="detailVerse">
-      -
-    </div>
-
-  </div>
-
-  <div class="section">
-
-    <div class="section-title">
-      설교 메시지
-    </div>
-
-    <div
-      class="text"
-      id="detailSermon">
-      -
-    </div>
-
+    <div class="section-title">설교 메시지</div>
+    <div class="text" id="detailSermon">-</div>
   </div>
 
   <div class="divider"></div>
 
-  <div class="section-title">
-    이번 주 새길 한 문장
-  </div>
-
-  <div
-    class="verse"
-    id="detailMessage">
-    -
-  </div>
+  <div class="section-title">이번 주 새길 한 문장</div>
+  <div class="verse" id="detailMessage">-</div>
 
   <div class="section">
-
-    <div class="section-title">
-      이번 주 실천
-    </div>
-
-    <div
-      class="text"
-      id="detailAction">
-      -
-    </div>
-
+    <div class="section-title">이번 주 실천</div>
+    <div class="text" id="detailAction">-</div>
   </div>
 
-  <button
-    class="delete"
-    id="deleteButton"
-    onclick="deleteSelected()">
+  <button class="delete" id="deleteButton" onclick="deleteSelected()">
     이 기록 삭제하기
   </button>
 
@@ -997,71 +851,35 @@ textarea{
 
 <section class="app page" id="editor">
 
-  <button
-    class="back"
-    onclick="closeEditor()">
-    ←
-  </button>
+  <button class="back" onclick="closeEditor()">←</button>
 
-  <div
-    class="editor-title"
-    id="editorTitle">
+  <div class="editor-title" id="editorTitle">
     이번 주 말씀을<br>새겨볼까요?
   </div>
 
   <div class="field">
+    <label>말씀을 받은 날짜</label>
+    <input type="date" id="dateInput">
+  </div>
 
-    <label>
-      말씀을 받은 날짜
-    </label>
+  <div class="field">
+    <label>설교 제목</label>
+    <input id="titleInput" placeholder="예) 믿음으로 살아가기">
+  </div>
 
-    <input
-      type="date"
-      id="dateInput">
+  <div class="field">
+    <label>성경 구절</label>
+    <input id="verseInput" placeholder="예) 이사야 41:10">
+  </div>
 
+  <div class="field">
+    <label>설교 메시지</label>
+    <textarea id="sermonInput" placeholder="예배 중 받은 말씀과 설교 내용을 자유롭게 기록하세요."></textarea>
   </div>
 
   <div class="field">
 
-    <label>
-      설교 제목
-    </label>
-
-    <input
-      id="titleInput"
-      placeholder="예) 믿음으로 살아가기">
-
-  </div>
-
-  <div class="field">
-
-    <label>
-      성경 구절
-    </label>
-
-    <input
-      id="verseInput"
-      placeholder="예) 이사야 41:10">
-
-  </div>
-
-  <div class="field">
-
-    <label>
-      설교 메시지
-    </label>
-
-    <textarea
-      id="sermonInput"
-      placeholder="예배 중 받은 말씀과 설교 내용을 자유롭게 기록하세요."></textarea>
-
-  </div>
-
-  <div class="field">
-
-    <label>
-      ✨ 이번 주 새길 한 문장
-    </label>
+    <label>✨ 이번 주 새길 한 문장</label>
 
     <div class="helper">
       이번 주 동안 기억하고 싶은 메시지를 한 문장으로 남겨보세요.
@@ -1076,9 +894,7 @@ textarea{
 
   <div class="field">
 
-    <label>
-      🌱 이번 주 실천 (선택)
-    </label>
+    <label>🌱 이번 주 실천 (선택)</label>
 
     <div class="helper">
       이 말씀을 삶에서 어떻게 실천하고 싶나요?
@@ -1091,10 +907,7 @@ textarea{
 
   </div>
 
-  <button
-    class="primary"
-    id="saveButton"
-    onclick="saveRecord()">
+  <button class="primary" id="saveButton" onclick="saveRecord()">
     말씀 새기기
   </button>
 
@@ -1104,15 +917,9 @@ textarea{
 
 <section class="app page" id="settings">
 
-  <button
-    class="back"
-    onclick="closeSettings()">
-    ←
-  </button>
+  <button class="back" onclick="closeSettings()">←</button>
 
-  <div class="page-title">
-    설정
-  </div>
+  <div class="page-title">설정</div>
 
   <div class="description">
     새김을 나에게 편한 모습으로 설정해보세요.
@@ -1120,47 +927,27 @@ textarea{
 
   <div class="setting-section">
 
-    <div class="setting-title">
-      글꼴
-    </div>
+    <div class="setting-title">글꼴</div>
 
     <div class="options">
 
-      <button
-        class="option font-option"
-        data-font="pretendard"
-        onclick="selectFont('pretendard')">
+      <button class="option font-option" data-font="pretendard" onclick="selectFont('pretendard')">
         프리텐다드
       </button>
 
-      <button
-        class="option font-option"
-        data-font="gowun"
-        onclick="selectFont('gowun')"
-        style="font-family:'Gowun Batang'">
+      <button class="option font-option" data-font="gowun" onclick="selectFont('gowun')" style="font-family:'Gowun Batang'">
         고운바탕
       </button>
 
-      <button
-        class="option font-option"
-        data-font="noto"
-        onclick="selectFont('noto')"
-        style="font-family:'Noto Serif KR'">
+      <button class="option font-option" data-font="noto" onclick="selectFont('noto')" style="font-family:'Noto Serif KR'">
         노토세리프
       </button>
 
-      <button
-        class="option font-option"
-        data-font="nanum"
-        onclick="selectFont('nanum')"
-        style="font-family:'Nanum Myeongjo'">
+      <button class="option font-option" data-font="nanum" onclick="selectFont('nanum')" style="font-family:'Nanum Myeongjo'">
         나눔명조
       </button>
 
-      <button
-        class="option font-option"
-        data-font="system"
-        onclick="selectFont('system')">
+      <button class="option font-option" data-font="system" onclick="selectFont('system')">
         시스템 기본
       </button>
 
@@ -1170,37 +957,23 @@ textarea{
 
   <div class="setting-section">
 
-    <div class="setting-title">
-      글자 크기
-    </div>
+    <div class="setting-title">글자 크기</div>
 
     <div class="size-options">
 
-      <button
-        class="option size-option"
-        data-size="small"
-        onclick="selectSize('small')">
+      <button class="option size-option" data-size="small" onclick="selectSize('small')">
         작게
       </button>
 
-      <button
-        class="option size-option"
-        data-size="normal"
-        onclick="selectSize('normal')">
+      <button class="option size-option" data-size="normal" onclick="selectSize('normal')">
         기본
       </button>
 
-      <button
-        class="option size-option"
-        data-size="large"
-        onclick="selectSize('large')">
+      <button class="option size-option" data-size="large" onclick="selectSize('large')">
         크게
       </button>
 
-      <button
-        class="option size-option"
-        data-size="xlarge"
-        onclick="selectSize('xlarge')">
+      <button class="option size-option" data-size="xlarge" onclick="selectSize('xlarge')">
         아주 크게
       </button>
 
@@ -1208,22 +981,16 @@ textarea{
 
   </div>
 
-  <div
-    class="preview"
-    id="preview">
+  <div class="preview" id="preview">
 
-    <div class="preview-label">
-      미리보기
-    </div>
+    <div class="preview-label">미리보기</div>
 
     <div class="preview-verse">
       “두려워하지 말라<br>
       내가 너와 함께 함이라”
     </div>
 
-    <div class="preview-ref">
-      이사야 41:10
-    </div>
+    <div class="preview-ref">이사야 41:10</div>
 
     <div class="preview-body">
       오늘도 말씀을 기억하며 삶 속에서 천천히 실천해보세요.
@@ -1232,30 +999,18 @@ textarea{
   </div>
 
   <div class="apply-area">
-
-    <button
-      class="primary"
-      onclick="applySelectedSettings()">
+    <button class="primary" onclick="applySelectedSettings()">
       설정 적용하기
     </button>
-
   </div>
 
   <div class="account-box">
 
-    <div class="setting-title">
-      계정
-    </div>
+    <div class="setting-title">계정</div>
 
-    <div
-      class="account-email"
-      id="accountEmail">
-      -
-    </div>
+    <div class="account-email" id="accountEmail">-</div>
 
-    <button
-      class="logout"
-      onclick="logout()">
+    <button class="logout" onclick="logout()">
       로그아웃
     </button>
 
@@ -1265,25 +1020,16 @@ textarea{
 
 <!-- 하단 메뉴 -->
 
-<nav
-  class="nav"
-  id="nav">
+<nav class="nav" id="nav">
 
-  <button
-    class="active"
-    onclick="show('word',this)">
-
+  <button class="active" onclick="show('word',this)">
     <span class="nav-icon">⌂</span>
     말씀
-
   </button>
 
-  <button
-    onclick="show('archive',this)">
-
+  <button onclick="show('archive',this)">
     <span class="nav-icon">▢</span>
     기록
-
   </button>
 
 </nav>
@@ -1305,6 +1051,9 @@ const supabaseClient =
 const CURRENT = "saegim-current";
 const ARCHIVE = "saegim-archive";
 const SETTINGS = "saegim-settings";
+
+const UI_STATE = "saegim-ui-state";
+const EDITOR_DRAFT = "saegim-editor-draft";
 
 let selected = null;
 let editing = null;
@@ -1377,18 +1126,13 @@ function showApp(user){
 
   $("resetAuth").style.display = "none";
 
-  $("word").style.display = "";
-
-  $("word").classList.add("active");
-
-  $("nav").style.display = "flex";
-
   $("accountEmail").textContent =
     user?.email || "소셜 로그인 계정";
 
   render();
-
   renderArchive();
+
+  restoreUIState();
 
 }
 
@@ -1400,7 +1144,6 @@ function hideAppCompletely(){
     .forEach(view => {
 
       view.style.display = "none";
-
       view.classList.remove("active");
 
     });
@@ -1417,8 +1160,6 @@ function hideAppCompletely(){
 
 }
 
-
-/* 소셜 로그인 */
 
 async function socialLogin(provider){
 
@@ -1450,12 +1191,9 @@ async function socialLogin(provider){
 }
 
 
-/* 비밀번호 보기 */
-
 function togglePasswordVisibility(){
 
-  const input =
-    $("passwordInput");
+  const input = $("passwordInput");
 
   if(input.type === "password"){
 
@@ -1482,8 +1220,6 @@ function togglePasswordVisibility(){
 }
 
 
-/* 로그인 / 회원가입 전환 */
-
 function toggleAuthMode(){
 
   authMode =
@@ -1492,9 +1228,7 @@ function toggleAuthMode(){
       : "login";
 
   $("authMessage").textContent = "";
-
-  $("authMessage").style.color =
-    "#A05A55";
+  $("authMessage").style.color = "#A05A55";
 
   if(authMode === "signup"){
 
@@ -1535,8 +1269,6 @@ function toggleAuthMode(){
 }
 
 
-/* 이메일 로그인 / 가입 */
-
 async function emailAuth(){
 
   const email =
@@ -1546,9 +1278,7 @@ async function emailAuth(){
     $("passwordInput").value;
 
   $("authMessage").textContent = "";
-
-  $("authMessage").style.color =
-    "#A05A55";
+  $("authMessage").style.color = "#A05A55";
 
   if(!email || !password){
 
@@ -1594,6 +1324,9 @@ async function emailAuth(){
 
       if(data.session){
 
+        clearUIState();
+        clearEditorDraft();
+
         showApp(data.user);
 
       }else{
@@ -1633,15 +1366,12 @@ async function emailAuth(){
 
   }finally{
 
-    $("emailAuthButton").disabled =
-      false;
+    $("emailAuthButton").disabled = false;
 
   }
 
 }
 
-
-/* 비밀번호 재설정 메일 */
 
 async function requestPasswordReset(){
 
@@ -1671,9 +1401,7 @@ async function requestPasswordReset(){
     await supabaseClient.auth
       .resetPasswordForEmail(
         email,
-        {
-          redirectTo
-        }
+        {redirectTo}
       );
 
   if(error){
@@ -1696,8 +1424,6 @@ async function requestPasswordReset(){
 
 }
 
-
-/* 새 비밀번호 저장 */
 
 async function updatePassword(){
 
@@ -1778,52 +1504,26 @@ async function cancelPasswordReset(){
 }
 
 
-/* 오류 메시지 */
-
 function authErrorMessage(error){
 
   const message =
     (error?.message || "")
       .toLowerCase();
 
-  if(
-    message.includes(
-      "invalid login credentials"
-    )
-  ){
-
+  if(message.includes("invalid login credentials")){
     return "이메일 또는 비밀번호가 맞지 않아요.";
-
   }
 
-  if(
-    message.includes(
-      "email not confirmed"
-    )
-  ){
-
+  if(message.includes("email not confirmed")){
     return "이메일 인증이 아직 완료되지 않았어요.";
-
   }
 
-  if(
-    message.includes(
-      "user already registered"
-    )
-  ){
-
+  if(message.includes("user already registered")){
     return "이미 가입된 이메일이에요. 로그인해주세요.";
-
   }
 
-  if(
-    message.includes(
-      "password should be"
-    )
-  ){
-
+  if(message.includes("password should be")){
     return "비밀번호 조건을 확인해주세요.";
-
   }
 
   return "계정 처리 중 문제가 발생했어요. 다시 시도해주세요.";
@@ -1831,14 +1531,10 @@ function authErrorMessage(error){
 }
 
 
-/* 로그아웃 */
-
 async function logout(){
 
   const ok =
-    confirm(
-      "새김에서 로그아웃할까요?"
-    );
+    confirm("새김에서 로그아웃할까요?");
 
   if(!ok){
     return;
@@ -1849,13 +1545,14 @@ async function logout(){
 
   if(error){
 
-    alert(
-      "로그아웃 중 문제가 발생했어요."
-    );
+    alert("로그아웃 중 문제가 발생했어요.");
 
     return;
 
   }
+
+  clearUIState();
+  clearEditorDraft();
 
   selected = null;
   editing = null;
@@ -1863,15 +1560,12 @@ async function logout(){
 
   $("emailInput").value = "";
   $("passwordInput").value = "";
-
   $("authMessage").textContent = "";
 
   showAuth();
 
 }
 
-
-/* 최초 인증 확인 */
 
 async function initAuth(){
 
@@ -1884,7 +1578,6 @@ async function initAuth(){
   if(error){
 
     showAuth();
-
     return;
 
   }
@@ -1902,15 +1595,12 @@ async function initAuth(){
 }
 
 
-/* 인증 상태 변화 */
-
 supabaseClient.auth.onAuthStateChange(
   (event, session) => {
 
     if(event === "PASSWORD_RECOVERY"){
 
       showResetPassword();
-
       return;
 
     }
@@ -1999,17 +1689,274 @@ function setArchive(data){
 
 
 /* =========================
+   화면 상태 저장
+========================= */
+
+function getUIState(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(UI_STATE)
+    ) || {
+      screen:"word",
+      selected:null,
+      returnTo:"word",
+      scrollY:0
+    };
+
+  }catch{
+
+    return {
+      screen:"word",
+      selected:null,
+      returnTo:"word",
+      scrollY:0
+    };
+
+  }
+
+}
+
+
+function saveUIState(screen,extra={}){
+
+  const old =
+    getUIState();
+
+  const state = {
+    ...old,
+    ...extra,
+    screen
+  };
+
+  localStorage.setItem(
+    UI_STATE,
+    JSON.stringify(state)
+  );
+
+}
+
+
+function clearUIState(){
+
+  localStorage.removeItem(UI_STATE);
+
+}
+
+
+function saveScrollPosition(){
+
+  const state =
+    getUIState();
+
+  state.scrollY =
+    window.scrollY || 0;
+
+  localStorage.setItem(
+    UI_STATE,
+    JSON.stringify(state)
+  );
+
+}
+
+
+window.addEventListener(
+  "pagehide",
+  () => {
+
+    saveScrollPosition();
+
+    if(
+      $("editor").style.display ===
+      "block"
+    ){
+      saveEditorDraft();
+    }
+
+  }
+);
+
+
+document.addEventListener(
+  "visibilitychange",
+  () => {
+
+    if(document.hidden){
+
+      saveScrollPosition();
+
+      if(
+        $("editor").style.display ===
+        "block"
+      ){
+        saveEditorDraft();
+      }
+
+    }
+
+  }
+);
+
+
+/* =========================
+   작성 내용 임시 저장
+========================= */
+
+function getEditorDraft(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        EDITOR_DRAFT
+      )
+    );
+
+  }catch{
+
+    return null;
+
+  }
+
+}
+
+
+function saveEditorDraft(){
+
+  const draft = {
+
+    editing,
+
+    returnTo,
+
+    recordDate:
+      $("dateInput").value,
+
+    title:
+      $("titleInput").value,
+
+    verse:
+      $("verseInput").value,
+
+    sermon:
+      $("sermonInput").value,
+
+    message:
+      $("messageInput").value,
+
+    action:
+      $("actionInput").value,
+
+    editorTitle:
+      $("editorTitle").innerHTML,
+
+    saveButton:
+      $("saveButton").textContent
+
+  };
+
+  localStorage.setItem(
+    EDITOR_DRAFT,
+    JSON.stringify(draft)
+  );
+
+}
+
+
+function restoreEditorDraft(){
+
+  const draft =
+    getEditorDraft();
+
+  if(!draft){
+    return false;
+  }
+
+  editing =
+    draft.editing || null;
+
+  returnTo =
+    draft.returnTo || "word";
+
+  $("dateInput").value =
+    draft.recordDate || today();
+
+  $("titleInput").value =
+    draft.title || "";
+
+  $("verseInput").value =
+    draft.verse || "";
+
+  $("sermonInput").value =
+    draft.sermon || "";
+
+  $("messageInput").value =
+    draft.message || "";
+
+  $("actionInput").value =
+    draft.action || "";
+
+  $("editorTitle").innerHTML =
+    draft.editorTitle ||
+    "이번 주 말씀을<br>새겨볼까요?";
+
+  $("saveButton").textContent =
+    draft.saveButton ||
+    "말씀 새기기";
+
+  return true;
+
+}
+
+
+function clearEditorDraft(){
+
+  localStorage.removeItem(
+    EDITOR_DRAFT
+  );
+
+}
+
+
+[
+  "dateInput",
+  "titleInput",
+  "verseInput",
+  "sermonInput",
+  "messageInput",
+  "actionInput"
+].forEach(id => {
+
+  $(id).addEventListener(
+    "input",
+    () => {
+
+      if(
+        $("editor").style.display ===
+        "block"
+      ){
+
+        saveEditorDraft();
+
+      }
+
+    }
+  );
+
+});
+
+
+/* =========================
    날짜
 ========================= */
 
 function today(){
 
-  const d =
-    new Date();
+  const d = new Date();
 
   const p =
-    n =>
-      String(n).padStart(2,"0");
+    n => String(n).padStart(2,"0");
 
   return (
     d.getFullYear() + "-" +
@@ -2023,23 +1970,18 @@ function today(){
 function recordDate(record){
 
   if(record.recordDate){
-
     return record.recordDate;
-
   }
 
   if(!record.savedAt){
-
     return today();
-
   }
 
   const d =
     new Date(record.savedAt);
 
   const p =
-    n =>
-      String(n).padStart(2,"0");
+    n => String(n).padStart(2,"0");
 
   return (
     d.getFullYear() + "-" +
@@ -2103,8 +2045,7 @@ function hidePages(){
     .querySelectorAll(".page")
     .forEach(
       page =>
-        page.style.display =
-          "none"
+        page.style.display = "none"
     );
 
 }
@@ -2116,12 +2057,10 @@ function hideMain(){
     .querySelectorAll(".view")
     .forEach(
       view =>
-        view.style.display =
-          "none"
+        view.style.display = "none"
     );
 
-  $("nav").style.display =
-    "none";
+  $("nav").style.display = "none";
 
 }
 
@@ -2135,47 +2074,42 @@ function show(name,button){
     .forEach(view => {
 
       view.style.display = "";
-
-      view.classList.remove(
-        "active"
-      );
+      view.classList.remove("active");
 
     });
 
-  $(name).classList.add(
-    "active"
-  );
+  $(name).classList.add("active");
 
-  $("nav").style.display =
-    "flex";
+  $("nav").style.display = "flex";
 
   document
-    .querySelectorAll(
-      ".nav button"
-    )
+    .querySelectorAll(".nav button")
     .forEach(
       item =>
-        item.classList.remove(
-          "active"
-        )
+        item.classList.remove("active")
     );
 
-  button.classList.add(
-    "active"
-  );
+  button.classList.add("active");
 
   if(name === "archive"){
-
     renderArchive();
-
   }
+
+  saveUIState(
+    name,
+    {
+      selected:null,
+      returnTo:name,
+      scrollY:0
+    }
+  );
 
   window.scrollTo(0,0);
 
 }
 
 
-function restore(name){
+function restore(name,remember=true){
 
   hidePages();
 
@@ -2184,19 +2118,13 @@ function restore(name){
     .forEach(view => {
 
       view.style.display = "";
-
-      view.classList.remove(
-        "active"
-      );
+      view.classList.remove("active");
 
     });
 
-  $(name).classList.add(
-    "active"
-  );
+  $(name).classList.add("active");
 
-  $("nav").style.display =
-    "flex";
+  $("nav").style.display = "flex";
 
   const buttons =
     document.querySelectorAll(
@@ -2205,9 +2133,7 @@ function restore(name){
 
   buttons.forEach(
     button =>
-      button.classList.remove(
-        "active"
-      )
+      button.classList.remove("active")
   );
 
   buttons[
@@ -2215,10 +2141,191 @@ function restore(name){
   ].classList.add("active");
 
   render();
-
   renderArchive();
 
+  if(remember){
+
+    saveUIState(
+      name,
+      {
+        selected:null,
+        returnTo:name,
+        scrollY:0
+      }
+    );
+
+  }
+
   window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   화면 복원
+========================= */
+
+function restoreUIState(){
+
+  const state =
+    getUIState();
+
+  selected =
+    state.selected || null;
+
+  returnTo =
+    state.returnTo || "word";
+
+  hidePages();
+
+  document
+    .querySelectorAll(".view")
+    .forEach(view => {
+
+      view.style.display = "none";
+      view.classList.remove("active");
+
+    });
+
+  $("nav").style.display = "none";
+
+
+  if(state.screen === "editor"){
+
+    const restored =
+      restoreEditorDraft();
+
+    if(!restored){
+
+      clearUIState();
+      restore("word",false);
+      return;
+
+    }
+
+    $("editor").style.display =
+      "block";
+
+    requestAnimationFrame(() => {
+
+      window.scrollTo(
+        0,
+        state.scrollY || 0
+      );
+
+    });
+
+    return;
+
+  }
+
+
+  if(
+    state.screen === "detail" &&
+    state.selected
+  ){
+
+    const current =
+      getCurrent();
+
+    const record =
+      getArchive().find(
+        item =>
+          String(item.id) ===
+          String(state.selected)
+      ) ||
+      (
+        String(current?.id) ===
+        String(state.selected)
+          ? current
+          : null
+      );
+
+    if(record){
+
+      selected = record.id;
+
+      openDetail(
+        record,
+        state.returnTo === "word",
+        false
+      );
+
+      requestAnimationFrame(() => {
+
+        window.scrollTo(
+          0,
+          state.scrollY || 0
+        );
+
+      });
+
+      return;
+
+    }
+
+  }
+
+
+  if(state.screen === "settings"){
+
+    const settings =
+      getSettings();
+
+    pendingFont =
+      settings.font;
+
+    pendingSize =
+      settings.size;
+
+    $("settings").style.display =
+      "block";
+
+    updateSettingButtons();
+    updatePreview();
+
+    requestAnimationFrame(() => {
+
+      window.scrollTo(
+        0,
+        state.scrollY || 0
+      );
+
+    });
+
+    return;
+
+  }
+
+
+  if(state.screen === "archive"){
+
+    restore("archive",false);
+
+    requestAnimationFrame(() => {
+
+      window.scrollTo(
+        0,
+        state.scrollY || 0
+      );
+
+    });
+
+    return;
+
+  }
+
+
+  restore("word",false);
+
+  requestAnimationFrame(() => {
+
+    window.scrollTo(
+      0,
+      state.scrollY || 0
+    );
+
+  });
 
 }
 
@@ -2230,8 +2337,9 @@ function restore(name){
 function newRecord(){
 
   editing = null;
-
   returnTo = "word";
+
+  clearEditorDraft();
 
   [
     "title",
@@ -2258,6 +2366,17 @@ function newRecord(){
   $("editor").style.display =
     "block";
 
+  saveUIState(
+    "editor",
+    {
+      selected:null,
+      returnTo:"word",
+      scrollY:0
+    }
+  );
+
+  saveEditorDraft();
+
   window.scrollTo(0,0);
 
 }
@@ -2275,21 +2394,14 @@ function openCurrent(){
   if(!record){
 
     newRecord();
-
     return;
 
   }
 
-  selected =
-    record.id;
+  selected = record.id;
+  returnTo = "word";
 
-  returnTo =
-    "word";
-
-  openDetail(
-    record,
-    true
-  );
+  openDetail(record,true);
 
 }
 
@@ -2307,23 +2419,18 @@ function openArchive(id){
     return;
   }
 
-  selected =
-    record.id;
+  selected = record.id;
+  returnTo = "archive";
 
-  returnTo =
-    "archive";
-
-  openDetail(
-    record,
-    false
-  );
+  openDetail(record,false);
 
 }
 
 
 function openDetail(
   record,
-  isCurrent
+  isCurrent,
+  remember=true
 ){
 
   $("detailHeading").textContent =
@@ -2362,6 +2469,19 @@ function openDetail(
 
   $("detail").style.display =
     "block";
+
+  if(remember){
+
+    saveUIState(
+      "detail",
+      {
+        selected:record.id,
+        returnTo,
+        scrollY:0
+      }
+    );
+
+  }
 
   window.scrollTo(0,0);
 
@@ -2406,8 +2526,7 @@ function editSelected(){
     return;
   }
 
-  editing =
-    record.id;
+  editing = record.id;
 
   $("dateInput").value =
     recordDate(record);
@@ -2439,12 +2558,25 @@ function editSelected(){
   $("editor").style.display =
     "block";
 
+  saveUIState(
+    "editor",
+    {
+      selected:record.id,
+      returnTo,
+      scrollY:0
+    }
+  );
+
+  saveEditorDraft();
+
   window.scrollTo(0,0);
 
 }
 
 
 function closeEditor(){
+
+  clearEditorDraft();
 
   $("editor").style.display =
     "none";
@@ -2460,19 +2592,22 @@ function closeEditor(){
 
     if(record){
 
-      selected =
-        record.id;
+      selected = record.id;
 
       openDetail(
         record,
         returnTo === "word"
       );
 
+      editing = null;
+
       return;
 
     }
 
   }
+
+  editing = null;
 
   restore(returnTo);
 
@@ -2491,24 +2626,19 @@ function saveRecord(){
       $("dateInput").value,
 
     title:
-      $("titleInput")
-        .value.trim(),
+      $("titleInput").value.trim(),
 
     verse:
-      $("verseInput")
-        .value.trim(),
+      $("verseInput").value.trim(),
 
     sermon:
-      $("sermonInput")
-        .value.trim(),
+      $("sermonInput").value.trim(),
 
     message:
-      $("messageInput")
-        .value.trim(),
+      $("messageInput").value.trim(),
 
     action:
-      $("actionInput")
-        .value.trim()
+      $("actionInput").value.trim()
 
   };
 
@@ -2550,17 +2680,14 @@ function saveRecord(){
       ) ||
       getCurrent();
 
-    data.id =
-      editing;
+    data.id = editing;
 
     data.savedAt =
       old?.savedAt ||
-      new Date()
-        .toISOString();
+      new Date().toISOString();
 
     data.updatedAt =
-      new Date()
-        .toISOString();
+      new Date().toISOString();
 
     records =
       records.map(
@@ -2572,9 +2699,7 @@ function saveRecord(){
       );
 
     if(
-      String(
-        getCurrent()?.id
-      ) ===
+      String(getCurrent()?.id) ===
       String(editing)
     ){
 
@@ -2588,12 +2713,10 @@ function saveRecord(){
 
   }else{
 
-    data.id =
-      Date.now();
+    data.id = Date.now();
 
     data.savedAt =
-      new Date()
-        .toISOString();
+      new Date().toISOString();
 
     data.updatedAt =
       data.savedAt;
@@ -2612,8 +2735,9 @@ function saveRecord(){
     sortRecords(records)
   );
 
-  editing = null;
+  clearEditorDraft();
 
+  editing = null;
   selected = null;
 
   $("editor").style.display =
@@ -2636,9 +2760,7 @@ function deleteSelected(){
       "이 기록을 삭제할까요?\n\n삭제한 기록은 되돌릴 수 없어요."
     )
   ){
-
     return;
-
   }
 
   let records =
@@ -2654,23 +2776,17 @@ function deleteSelected(){
   setArchive(records);
 
   if(
-    String(
-      getCurrent()?.id
-    ) ===
+    String(getCurrent()?.id) ===
     String(selected)
   ){
 
     if(records.length){
 
-      setCurrent(
-        records[0]
-      );
+      setCurrent(records[0]);
 
     }else{
 
-      localStorage.removeItem(
-        CURRENT
-      );
+      localStorage.removeItem(CURRENT);
 
     }
 
@@ -2717,8 +2833,7 @@ function render(){
     }”`;
 
   $("todayVerse").textContent =
-    record.verse ||
-    "말씀";
+    record.verse || "말씀";
 
   $("todayAction").textContent =
     record.action ||
@@ -2756,9 +2871,7 @@ function renderArchive(){
         onclick="openArchive('${record.id}')">
 
         <div class="card-date">
-          ${shortDate(
-            recordDate(record)
-          )}
+          ${shortDate(recordDate(record))}
         </div>
 
         <div class="card-title">
@@ -2777,9 +2890,7 @@ function renderArchive(){
         </div>
 
         <div class="card-verse">
-          ${safe(
-            record.verse || ""
-          )}
+          ${safe(record.verse || "")}
         </div>
 
       </div>
@@ -2793,9 +2904,7 @@ function renderArchive(){
 function safe(text){
 
   const div =
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
   div.textContent =
     text || "";
@@ -2867,23 +2976,17 @@ function getSettings(){
   try{
 
     return JSON.parse(
-      localStorage.getItem(
-        SETTINGS
-      )
+      localStorage.getItem(SETTINGS)
     ) || {
-
       font:"pretendard",
       size:"normal"
-
     };
 
   }catch{
 
     return {
-
       font:"pretendard",
       size:"normal"
-
     };
 
   }
@@ -2892,8 +2995,7 @@ function getSettings(){
 
 
 function applySettings(
-  settings =
-    getSettings()
+  settings=getSettings()
 ){
 
   const root =
@@ -2957,8 +3059,16 @@ async function openSettings(){
     "block";
 
   updateSettingButtons();
-
   updatePreview();
+
+  saveUIState(
+    "settings",
+    {
+      selected:null,
+      returnTo:"word",
+      scrollY:0
+    }
+  );
 
   window.scrollTo(0,0);
 
@@ -2968,7 +3078,6 @@ async function openSettings(){
 function closeSettings(){
 
   pendingFont = null;
-
   pendingSize = null;
 
   $("settings").style.display =
@@ -2981,11 +3090,9 @@ function closeSettings(){
 
 function selectFont(font){
 
-  pendingFont =
-    font;
+  pendingFont = font;
 
   updateSettingButtons();
-
   updatePreview();
 
 }
@@ -2993,11 +3100,9 @@ function selectFont(font){
 
 function selectSize(size){
 
-  pendingSize =
-    size;
+  pendingSize = size;
 
   updateSettingButtons();
-
   updatePreview();
 
 }
@@ -3006,9 +3111,7 @@ function selectSize(size){
 function updateSettingButtons(){
 
   document
-    .querySelectorAll(
-      ".font-option"
-    )
+    .querySelectorAll(".font-option")
     .forEach(
       button =>
         button.classList.toggle(
@@ -3019,9 +3122,7 @@ function updateSettingButtons(){
     );
 
   document
-    .querySelectorAll(
-      ".size-option"
-    )
+    .querySelectorAll(".size-option")
     .forEach(
       button =>
         button.classList.toggle(
@@ -3048,30 +3149,22 @@ function updatePreview(){
     fonts.pretendard;
 
   preview
-    .querySelector(
-      ".preview-verse"
-    )
+    .querySelector(".preview-verse")
     .style.fontSize =
       size.hero+"px";
 
   preview
-    .querySelector(
-      ".preview-body"
-    )
+    .querySelector(".preview-body")
     .style.fontSize =
       size.body+"px";
 
   preview
-    .querySelector(
-      ".preview-label"
-    )
+    .querySelector(".preview-label")
     .style.fontSize =
       size.small+"px";
 
   preview
-    .querySelector(
-      ".preview-ref"
-    )
+    .querySelector(".preview-ref")
     .style.fontSize =
       size.small+"px";
 
@@ -3094,14 +3187,10 @@ function applySelectedSettings(){
 
   localStorage.setItem(
     SETTINGS,
-    JSON.stringify(
-      settings
-    )
+    JSON.stringify(settings)
   );
 
-  applySettings(
-    settings
-  );
+  applySettings(settings);
 
   alert(
     "설정이 적용되었어요."
@@ -3148,24 +3237,18 @@ function applySelectedSettings(){
 
     if(index < 0){
 
-      records.push(
-        current
-      );
+      records.push(current);
 
     }else{
 
       records[index] = {
-
         ...records[index],
         ...current
-
       };
 
     }
 
-    setCurrent(
-      current
-    );
+    setCurrent(current);
 
   }
 
